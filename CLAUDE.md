@@ -32,8 +32,7 @@ src/
   components/ui/   # shadcn/ui components
   hooks/           # Custom hooks (use-mobile, use-toast)
   lib/             # Utilities (utils.js — cn helper for Tailwind class merging)
-public/
-  _redirects       # Cloudflare Pages SPA routing fallback
+public/              # Static assets copied to dist/
 ```
 
 ## Architecture
@@ -70,7 +69,6 @@ All animations use **Framer Motion**:
 - Output directory: `dist/`
 - Config: `wrangler.toml` (asset-only Worker with SPA routing)
 - SPA fallback: `not_found_handling = "single-page-application"` in wrangler.toml
-- Legacy fallback: `public/_redirects` also included
 
 ## CI/CD
 
