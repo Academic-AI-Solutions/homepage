@@ -10,7 +10,7 @@
 | Node Version | 22 (.nvmrc) |
 | Deployment | Cloudflare Workers (static assets) |
 | CI/CD | GitHub Actions (3-job pattern) |
-| Repository | github.com/Event-Solutions-Global/aas-homepage |
+| Repository | github.com/Academic-AI-Solutions/homepage |
 
 ## Environment Matrix
 
