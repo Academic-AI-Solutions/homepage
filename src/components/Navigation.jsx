@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Logo from '@/components/Logo';
@@ -6,52 +7,67 @@ import Logo from '@/components/Logo';
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      const sections = ['home', 'platform', 'financial-impact', 'licensing', 'contact'];
-      let currentActive = 'home';
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // Check if section is mostly in view, adjusting for nav height
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentActive = section;
-            break;
-          }
-        }
-      }
-      setActiveSection(currentActive);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id) => {
+  const scrollToElement = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // height of nav
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: 'smooth',
       });
     }
+  };
+
+  const handleNavClick = (item) => {
     setIsMobileMenuOpen(false);
+
+    if (item.id === 'home') {
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
+    } else if (item.id === 'contact') {
+      if (location.pathname === '/') {
+        scrollToElement('contact');
+      } else {
+        navigate('/');
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          scrollToElement('contact');
+        }, 100);
+      }
+    } else if (item.path) {
+      navigate(item.path);
+    }
+  };
+
+  const isActive = (item) => {
+    if (item.id === 'home') return location.pathname === '/';
+    if (item.id === 'contact') return false;
+    if (item.path) return location.pathname === item.path;
+    return false;
   };
 
   const navLinks = [
     { id: 'home', label: 'HOME' },
-    { id: 'platform', label: 'THE PLATFORM' },
-    { id: 'financial-impact', label: 'FINANCIAL IMPACT' },
-    { id: 'licensing', label: 'LICENSING & PARTNERS' },
-    { id: 'contact', label: 'CONTACT' }
+    { id: 'platform', label: 'THE PLATFORM', path: '/platform' },
+    { id: 'financial-impact', label: 'FINANCIAL IMPACT', path: '/financial-impact' },
+    { id: 'licensing', label: 'LICENSING & PARTNERS', path: '/licensing' },
+    { id: 'contact', label: 'CONTACT' },
   ];
 
   return (
@@ -65,8 +81,15 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <a
-            href="#home"
-            onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              if (location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                navigate('/');
+              }
+            }}
             className="flex items-center space-x-3 group"
           >
             <Logo className="h-[70px] w-[70px]" />
@@ -77,9 +100,9 @@ const Navigation = () => {
             {navLinks.map((link) => (
               <button
                 key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                onClick={() => handleNavClick(link)}
                 className={`px-4 py-2 text-sm font-semibold rounded-md transition-all duration-200 ${
-                  activeSection === link.id
+                  isActive(link)
                     ? 'text-[#d4af37] bg-[#d4af37]/10'
                     : 'text-gray-700 hover:text-[#d4af37] hover:bg-gray-50'
                 }`}
@@ -112,9 +135,9 @@ const Navigation = () => {
               {navLinks.map((link) => (
                 <button
                   key={link.id}
-                  onClick={() => scrollToSection(link.id)}
+                  onClick={() => handleNavClick(link)}
                   className={`block w-full text-left px-4 py-3 text-sm font-semibold rounded-md transition-all ${
-                    activeSection === link.id
+                    isActive(link)
                       ? 'text-[#d4af37] bg-[#d4af37]/10'
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}

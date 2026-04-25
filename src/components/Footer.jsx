@@ -13,7 +13,7 @@ const Footer = () => {
             </span>
           </div>
           <p className="text-center text-sm max-w-3xl">
-            © 2026 Academic AI Solutions LLC. All Rights Reserved. Protected by issued patents, pending applications, and trade secret law.
+            © 2026 Academic AI Solutions LLC. All Rights Reserved. Protected by patents, pending applications, and trade secret law. Proprietary and patent-claimed technology under full IP protection.
           </p>
         </div>
       </div>
