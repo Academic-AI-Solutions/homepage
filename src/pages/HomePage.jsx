@@ -444,29 +444,30 @@ const HomePage = () => {
           {/* Team Members Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {[
-              { name: 'Roger Emerson', title: 'Team Member', image: '/headshots/roger-emerson.jpg' },
-              { name: 'Ben Radde', title: 'Team Member', image: '/headshots/ben-radde.png' },
-              { name: 'Brock Gorubec', title: 'Team Member', image: '/headshots/brock-gorubec.jpg' },
-              { name: 'Charles Scott', title: 'Team Member', image: '/headshots/charles-scott.png' },
-              { name: 'Daniel Round', title: 'Team Member', image: '/headshots/daniel-round.jpg' },
-              { name: 'Dante Herrick', title: 'Team Member', image: '/headshots/dante-herrick.png' },
-              { name: 'Dr. Steven Colby', title: 'Team Member', image: '/headshots/dr-steven-colby.png' },
-              { name: 'Eric Peter', title: 'Team Member', image: '/headshots/eric-peter.jpg' },
-              { name: 'Jacob Hill', title: 'Team Member', image: '/headshots/jacob-hill.png' },
-              { name: 'Jeff Decker', title: 'Team Member', image: '/headshots/jeff-decker.png' },
-              { name: 'Jonah Efaw', title: 'Team Member', image: '/headshots/jonah-efaw.png' },
-              { name: 'Jonathan Agustin', title: 'Team Member', image: '/headshots/jonathan-agustin.png' },
-              { name: 'Joseph Reiben', title: 'Team Member', image: '/headshots/joseph-reiben.png' },
-              { name: 'Melissa Krawczy', title: 'Team Member', image: '/headshots/melissa-krawczy.jpg' },
-              { name: 'Radhesh Choudhary', title: 'Team Member', image: '/headshots/radhesh-choudhary.png' },
-              { name: 'Raymond Carapella', title: 'Team Member', image: '/headshots/raymond-carapella.jpg' },
-              { name: 'Ryan Radomski', title: 'Team Member', image: '/headshots/ryan-radomski.png' },
-              { name: 'Ryan Yohe', title: 'Team Member', image: '/headshots/ryan-yohe.jpg' },
-              { name: 'Scott Bayless', title: 'Team Member', image: '/headshots/scott-bayless.png' },
-              { name: 'Scott Putnam', title: 'Team Member', image: '/headshots/scott-putnam.jpg' },
-              { name: 'Stephen Key', title: 'Team Member', image: '/headshots/stephen-key.png' },
-              { name: 'Stewart Tinti', title: 'Team Member', image: '/headshots/stewart-tinti.gif' },
-              { name: 'Will Reynolds', title: 'Team Member', image: '/headshots/will-reynolds.gif' },
+              { name: 'Daniel Round', title: 'Founder/Chief Executive Officer (CEO)', image: '/headshots/daniel-round.jpg' },
+              { name: 'Scott Putnam', title: 'Chief Innovation Officer (CINO)', image: '/headshots/scott-putnam.jpg' },
+              { name: 'Scott Bayless', title: 'Chief Technology Officer (CTO)', image: '/headshots/scott-bayless.png' },
+              { name: 'Roger Emerson', title: 'Chief Engineering Officer (CE)', image: '/headshots/roger-emerson.jpg' },
+              { name: 'Dr. Steven Colby', title: 'Patent Attorney', image: '/headshots/dr-steven-colby.png' },
+              { name: 'Ryan Radomski', title: 'Chief AI Automation Officer (CAIO)', image: '/headshots/ryan-radomski.png' },
+              { name: 'Charles Scott', title: 'Senior Litigation Attorney', image: '/headshots/charles-scott.png' },
+              { name: 'Ryan Yohe', title: 'Chief Operations Officer (COO)', image: '/headshots/ryan-yohe.jpg' },
+              { name: 'Stewart Tinti', title: 'Chief Administrative Officer (CAO)', image: '/headshots/stewart-tinti.gif' },
+              { name: 'Robert Spottswood Jr.', title: 'Hospitality Attorney', image: null },
+              { name: 'Rob Gebaide', title: 'Senior Transactional Attorney', image: null },
+              { name: 'Joseph Reiben', title: 'Emerging Technologies Attorney', image: '/headshots/joseph-reiben.png' },
+              { name: 'Kory Collins', title: 'Chief Strategy Officer (CSO)', image: null },
+              { name: 'Jacob Hill', title: 'Chief Marketing Officer (CMO)', image: '/headshots/jacob-hill.png' },
+              { name: 'Jameson Shelnut', title: 'Chief Experience Officer (CXO)', image: null },
+              { name: 'William Reynolds', title: 'Financial Attorney', image: '/headshots/will-reynolds.gif' },
+              { name: 'Jon Agustin', title: 'Senior Software Engineer', image: '/headshots/jonathan-agustin.png' },
+              { name: 'Raymond Carapella', title: 'Financial Systems Director', image: '/headshots/raymond-carapella.jpg' },
+              { name: 'Radhesh Choudhary', title: 'AI Software Engineer', image: '/headshots/radhesh-choudhary.png' },
+              { name: 'Jonah Efaw', title: 'Director of Ops (DO)', image: '/headshots/jonah-efaw.png' },
+              { name: 'Will Dahlquist', title: 'Investor Relations', image: null },
+              { name: 'Brock Gorubec', title: 'Investor Relations', image: '/headshots/brock-gorubec.jpg' },
+              { name: 'Eric Peter', title: 'Software Engineer', image: '/headshots/eric-peter.jpg' },
+              { name: 'Ben Radde', title: 'Legal Assistant', image: '/headshots/ben-radde.png' },
             ].map((member, index) => (
               <motion.div
                 key={member.name}
@@ -480,11 +481,17 @@ const HomePage = () => {
                 }}
                 className="p-6 bg-white rounded-xl shadow-lg border border-gray-100 text-center transition-all"
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-6 object-cover object-top border-4 border-[#d4af37]/20"
-                />
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-32 h-32 rounded-full mx-auto mb-6 object-cover object-top border-4 border-[#d4af37]/20"
+                  />
+                ) : (
+                  <div className="w-32 h-32 rounded-full mx-auto mb-6 bg-gray-100 border-4 border-[#d4af37]/20 flex items-center justify-center">
+                    <User className="text-gray-400" size={48} />
+                  </div>
+                )}
                 <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
                 <p className="text-[#d4af37] font-semibold text-sm">{member.title}</p>
               </motion.div>
