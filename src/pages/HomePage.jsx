@@ -483,7 +483,7 @@ const HomePage = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-[#d4af37]/20"
+                  className="w-32 h-32 rounded-full mx-auto mb-6 object-cover object-top border-4 border-[#d4af37]/20"
                 />
                 <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
                 <p className="text-[#d4af37] font-semibold text-sm">{member.title}</p>
