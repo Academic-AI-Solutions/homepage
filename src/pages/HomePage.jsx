@@ -442,54 +442,54 @@ const HomePage = () => {
           </motion.p>
 
           {/* Team Members Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {[1, 2, 3].map((member, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {[
+              { name: 'Roger Emerson', title: 'Team Member', image: '/headshots/roger-emerson.jpg' },
+              { name: 'Ben Radde', title: 'Team Member', image: '/headshots/ben-radde.png' },
+              { name: 'Brock Gorubec', title: 'Team Member', image: '/headshots/brock-gorubec.jpg' },
+              { name: 'Charles Scott', title: 'Team Member', image: '/headshots/charles-scott.png' },
+              { name: 'Daniel Round', title: 'Team Member', image: '/headshots/daniel-round.jpg' },
+              { name: 'Dante Herrick', title: 'Team Member', image: '/headshots/dante-herrick.png' },
+              { name: 'Dr. Steven Colby', title: 'Team Member', image: '/headshots/dr-steven-colby.png' },
+              { name: 'Eric Peter', title: 'Team Member', image: '/headshots/eric-peter.jpg' },
+              { name: 'Jacob Hill', title: 'Team Member', image: '/headshots/jacob-hill.png' },
+              { name: 'Jeff Decker', title: 'Team Member', image: '/headshots/jeff-decker.png' },
+              { name: 'Jonah Efaw', title: 'Team Member', image: '/headshots/jonah-efaw.png' },
+              { name: 'Jonathan Agustin', title: 'Team Member', image: '/headshots/jonathan-agustin.png' },
+              { name: 'Joseph Reiben', title: 'Team Member', image: '/headshots/joseph-reiben.png' },
+              { name: 'Melissa Krawczy', title: 'Team Member', image: '/headshots/melissa-krawczy.jpg' },
+              { name: 'Radhesh Choudhary', title: 'Team Member', image: '/headshots/radhesh-choudhary.png' },
+              { name: 'Raymond Carapella', title: 'Team Member', image: '/headshots/raymond-carapella.jpg' },
+              { name: 'Ryan Radomski', title: 'Team Member', image: '/headshots/ryan-radomski.png' },
+              { name: 'Ryan Yohe', title: 'Team Member', image: '/headshots/ryan-yohe.jpg' },
+              { name: 'Scott Bayless', title: 'Team Member', image: '/headshots/scott-bayless.png' },
+              { name: 'Scott Putnam', title: 'Team Member', image: '/headshots/scott-putnam.jpg' },
+              { name: 'Stephen Key', title: 'Team Member', image: '/headshots/stephen-key.png' },
+              { name: 'Stewart Tinti', title: 'Team Member', image: '/headshots/stewart-tinti.gif' },
+              { name: 'Will Reynolds', title: 'Team Member', image: '/headshots/will-reynolds.gif' },
+            ].map((member, index) => (
               <motion.div
-                key={index}
+                key={member.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: (index % 4) * 0.1 }}
                 whileHover={{
                   y: -5,
                   boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
                 }}
-                className="p-8 bg-white rounded-xl shadow-lg border border-gray-100 text-center transition-all"
+                className="p-6 bg-white rounded-xl shadow-lg border border-gray-100 text-center transition-all"
               >
-                <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <User className="text-gray-400" size={48} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">Team Member Name</h3>
-                <p className="text-[#d4af37] font-semibold mb-4">Title / Role</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Brief bio highlighting relevant experience in higher education, AI, or enterprise technology.
-                </p>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-[#d4af37]/20"
+                />
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                <p className="text-[#d4af37] font-semibold text-sm">{member.title}</p>
               </motion.div>
             ))}
           </div>
-
-          {/* Advisory Board */}
-          <motion.div {...fadeInUp}>
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Advisory Board</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3].map((advisor, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-6 bg-gray-50 rounded-lg border border-gray-200 text-center"
-                >
-                  <div className="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <User className="text-gray-400" size={32} />
-                  </div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-1">Advisor Name</h4>
-                  <p className="text-[#d4af37] text-sm font-semibold">Advisory Role</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
