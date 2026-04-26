@@ -92,7 +92,7 @@ const HomePage = () => {
             backgroundAttachment: 'fixed'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#3D0024]/70 via-[#3D0024]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#3D0024]/60 via-[#3D0024]/35 to-[#3D0024]/20" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

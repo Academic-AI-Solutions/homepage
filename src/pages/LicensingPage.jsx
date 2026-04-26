@@ -86,7 +86,7 @@ const LicensingPage = () => {
               backgroundAttachment: 'fixed',
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#3D0024]/95 to-[#3D0024]/85" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#3D0024]/60 to-[#3D0024]/20" />
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
