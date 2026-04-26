@@ -17,7 +17,7 @@ const ProductCard = ({ title, description, icon, delay = 0 }) => {
       className="relative p-8 rounded-xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
     >
       <div className="flex items-start mb-6">
-        <div className="p-3 bg-[#d4af37]/10 rounded-lg">
+        <div className="p-3 bg-[#8C1D40]/10 rounded-lg">
           {icon}
         </div>
       </div>
@@ -25,7 +25,7 @@ const ProductCard = ({ title, description, icon, delay = 0 }) => {
       <p className="text-gray-600 leading-relaxed mb-6">{description}</p>
       <motion.div
         whileHover={{ x: 5 }}
-        className="flex items-center text-[#d4af37] font-semibold"
+        className="flex items-center text-[#8C1D40] font-semibold"
       >
         Learn More <ArrowRight className="ml-2" size={18} />
       </motion.div>

@@ -44,8 +44,9 @@ public/              # Static assets copied to dist/
 
 ## Design System
 
-- **Primary Gold**: `#d4af37` | **Secondary Gold**: `#f4d03f`
-- **Primary Blue**: `#1e3a8a`
+- **Primary Maroon**: `#8C1D40` (ASU Maroon) | **ASU Gold**: `#FFC627`
+- **Dark Maroon**: `#3D0024` (dark sections) | **Hover Maroon**: `#6A0F30`
+- **Warm Cream**: `#FFFBF5` (alternating section backgrounds)
 - **Font**: Inter (Google Fonts, weights 400-700)
 - **Icons**: Lucide React
 - **Component Library**: shadcn/ui (New York style, JSX, cssVariables enabled)

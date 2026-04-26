@@ -101,7 +101,7 @@ const LicensingPage = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Partnership Model
               </h2>
-              <div className="w-24 h-1 bg-[#d4af37] mb-6 mx-auto" />
+              <div className="w-24 h-1 bg-[#8C1D40] mb-6 mx-auto" />
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
                 An integrated development approach merging institutional
                 expertise with AAS technology
@@ -126,8 +126,8 @@ const LicensingPage = () => {
                     className="p-8 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 text-center transition-all"
                   >
                     <div className="flex justify-center mb-6">
-                      <div className="bg-[#d4af37]/10 p-3 rounded-full">
-                        <Icon className="text-[#d4af37]" size={32} />
+                      <div className="bg-[#8C1D40]/10 p-3 rounded-full">
+                        <Icon className="text-[#8C1D40]" size={32} />
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">
@@ -167,8 +167,8 @@ const LicensingPage = () => {
                     className="p-8 bg-white rounded-xl shadow-lg border border-gray-100 text-center transition-all"
                   >
                     <div className="flex justify-center mb-6">
-                      <div className="bg-[#d4af37]/10 p-3 rounded-full">
-                        <Icon className="text-[#d4af37]" size={32} />
+                      <div className="bg-[#8C1D40]/10 p-3 rounded-full">
+                        <Icon className="text-[#8C1D40]" size={32} />
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -185,7 +185,7 @@ const LicensingPage = () => {
         </section>
 
         {/* Section 3: National Vision — Dark blue gradient */}
-        <section className="py-24 bg-gradient-to-br from-[#1e3a8a] to-[#1e3a8a]/90">
+        <section className="py-24 bg-gradient-to-br from-[#3D0024] to-[#3D0024]/90">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -197,7 +197,7 @@ const LicensingPage = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 National Vision
               </h2>
-              <div className="w-24 h-1 bg-[#d4af37] mb-8 mx-auto" />
+              <div className="w-24 h-1 bg-[#8C1D40] mb-8 mx-auto" />
               <p className="text-xl text-white/80 leading-relaxed mb-10">
                 AAS is building toward a national standard in institutional AI —
                 starting with flagship partners and scaling across thousands of
@@ -208,7 +208,7 @@ const LicensingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate('/#contact')}
-                className="inline-flex items-center px-8 py-4 bg-[#d4af37] text-white font-semibold rounded-lg shadow-lg hover:bg-[#c49b2f] transition-colors text-lg"
+                className="inline-flex items-center px-8 py-4 bg-[#8C1D40] text-white font-semibold rounded-lg shadow-lg hover:bg-[#6A0F30] transition-colors text-lg"
               >
                 Explore Partnership Opportunities
               </motion.button>

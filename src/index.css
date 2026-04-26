@@ -49,12 +49,12 @@ html {
 
 /* Gold accent gradient */
 .gold-gradient {
-  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  background: linear-gradient(135deg, #8C1D40 0%, #FFC627 100%);
 }
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #1e3a8a 0%, #d4af37 100%);
+  background: linear-gradient(135deg, #3D0024 0%, #8C1D40 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -70,6 +70,6 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 2px solid #d4af37;
+  outline: 2px solid #8C1D40;
   outline-offset: 2px;
 }

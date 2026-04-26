@@ -48,14 +48,14 @@ const PlatformPage = () => {
 
       <div className="pt-24">
         {/* Hero / Header */}
-        <section className="bg-gradient-to-br from-[#1e3a8a] to-[#1e3a8a]/90 py-20">
+        <section className="bg-gradient-to-br from-[#3D0024] to-[#3D0024]/90 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-[#d4af37] font-semibold uppercase tracking-widest mb-4"
+              className="text-[#8C1D40] font-semibold uppercase tracking-widest mb-4"
             >
               The Platform
             </motion.p>
@@ -100,8 +100,8 @@ const PlatformPage = () => {
                   className="p-8 bg-white rounded-xl shadow-md border border-gray-100 text-center"
                 >
                   <div className="flex justify-center mb-5">
-                    <div className="p-4 bg-[#d4af37]/10 rounded-full">
-                      <layer.icon className="text-[#d4af37]" size={32} />
+                    <div className="p-4 bg-[#8C1D40]/10 rounded-full">
+                      <layer.icon className="text-[#8C1D40]" size={32} />
                     </div>
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{layer.title}</h3>
@@ -131,8 +131,8 @@ const PlatformPage = () => {
                   whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
                   className="flex items-start gap-5 p-8 bg-white rounded-xl shadow-md border border-gray-100"
                 >
-                  <div className="flex-shrink-0 p-3 bg-[#d4af37]/10 rounded-full">
-                    <feature.icon className="text-[#d4af37]" size={28} />
+                  <div className="flex-shrink-0 p-3 bg-[#8C1D40]/10 rounded-full">
+                    <feature.icon className="text-[#8C1D40]" size={28} />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
@@ -149,7 +149,7 @@ const PlatformPage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center mt-12"
             >
-              <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#d4af37] text-white font-semibold rounded-lg hover:bg-[#b8972e] transition-colors">
+              <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#8C1D40] text-white font-semibold rounded-lg hover:bg-[#6A0F30] transition-colors">
                 Learn More <ArrowRight size={18} />
               </button>
             </motion.div>
@@ -175,8 +175,8 @@ const PlatformPage = () => {
                   whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
                   className="flex items-start gap-5 p-8 bg-white rounded-xl shadow-md border border-gray-100"
                 >
-                  <div className="flex-shrink-0 p-3 bg-[#d4af37]/10 rounded-full">
-                    <feature.icon className="text-[#d4af37]" size={28} />
+                  <div className="flex-shrink-0 p-3 bg-[#8C1D40]/10 rounded-full">
+                    <feature.icon className="text-[#8C1D40]" size={28} />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
@@ -193,7 +193,7 @@ const PlatformPage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center mt-12"
             >
-              <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#d4af37] text-white font-semibold rounded-lg hover:bg-[#b8972e] transition-colors">
+              <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#8C1D40] text-white font-semibold rounded-lg hover:bg-[#6A0F30] transition-colors">
                 Learn More <ArrowRight size={18} />
               </button>
             </motion.div>
@@ -201,7 +201,7 @@ const PlatformPage = () => {
         </section>
 
         {/* Section 4: Intelligent Data & Mapping */}
-        <section className="py-24 bg-gradient-to-br from-[#1e3a8a] to-[#1e3a8a]/90">
+        <section className="py-24 bg-gradient-to-br from-[#3D0024] to-[#3D0024]/90">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -213,7 +213,7 @@ const PlatformPage = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Intelligent Data & Mapping
               </h2>
-              <div className="w-24 h-1 bg-[#d4af37] mb-6 mx-auto" />
+              <div className="w-24 h-1 bg-[#8C1D40] mb-6 mx-auto" />
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
                 Your Campus. Fully Mapped. Fully Intelligent.
               </p>
@@ -231,8 +231,8 @@ const PlatformPage = () => {
                   className="p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-center"
                 >
                   <div className="flex justify-center mb-5">
-                    <div className="p-4 bg-[#d4af37]/20 rounded-full">
-                      <card.icon className="text-[#d4af37]" size={32} />
+                    <div className="p-4 bg-[#8C1D40]/20 rounded-full">
+                      <card.icon className="text-[#8C1D40]" size={32} />
                     </div>
                   </div>
                   <h3 className="text-lg font-bold text-white mb-3">{card.title}</h3>
@@ -283,8 +283,8 @@ const PlatformPage = () => {
                   className="p-8 bg-white rounded-xl shadow-md border border-gray-100 text-center"
                 >
                   <div className="flex justify-center mb-5">
-                    <div className="p-4 bg-[#d4af37]/10 rounded-full">
-                      <card.icon className="text-[#d4af37]" size={32} />
+                    <div className="p-4 bg-[#8C1D40]/10 rounded-full">
+                      <card.icon className="text-[#8C1D40]" size={32} />
                     </div>
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{card.title}</h3>
@@ -306,7 +306,7 @@ const PlatformPage = () => {
         </section>
 
         {/* Section 6: Proprietary & Patent-Claimed Technology */}
-        <section className="py-24 bg-gradient-to-br from-[#1e3a8a] to-[#1e3a8a]/90">
+        <section className="py-24 bg-gradient-to-br from-[#3D0024] to-[#3D0024]/90">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -316,8 +316,8 @@ const PlatformPage = () => {
               className="max-w-4xl mx-auto text-center"
             >
               <div className="flex justify-center mb-8">
-                <div className="p-4 bg-[#d4af37]/20 rounded-full">
-                  <Cpu className="text-[#d4af37]" size={48} />
+                <div className="p-4 bg-[#8C1D40]/20 rounded-full">
+                  <Cpu className="text-[#8C1D40]" size={48} />
                 </div>
               </div>
 
@@ -326,7 +326,7 @@ const PlatformPage = () => {
               </h2>
 
               <p className="text-lg text-white/90 leading-relaxed mb-6">
-                Built on fully patent-filed <span className="text-[#d4af37] font-semibold">Multi-Agent Coordination Protocol</span> and <span className="text-[#d4af37] font-semibold">Institutional Memory Architecture</span> with an advanced IP portfolio spanning higher education, hospitality, events, and healthcare.
+                Built on fully patent-filed <span className="text-[#8C1D40] font-semibold">Multi-Agent Coordination Protocol</span> and <span className="text-[#8C1D40] font-semibold">Institutional Memory Architecture</span> with an advanced IP portfolio spanning higher education, hospitality, events, and healthcare.
               </p>
 
               <p className="text-lg text-white/90 leading-relaxed mb-6">

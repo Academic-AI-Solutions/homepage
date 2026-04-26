@@ -35,11 +35,11 @@ const ValueCard = ({ percentage, label, description, delay = 0 }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
       whileHover={{ scale: 1.03, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
-      className="relative p-8 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-lg border-2 border-[#d4af37]/20 overflow-hidden"
+      className="relative p-8 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-lg border-2 border-[#8C1D40]/20 overflow-hidden"
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-[#d4af37]/5 rounded-full -mr-16 -mt-16" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[#8C1D40]/5 rounded-full -mr-16 -mt-16" />
       <div className="relative z-10">
-        <div className="text-6xl md:text-7xl font-bold text-[#d4af37] mb-4">
+        <div className="text-6xl md:text-7xl font-bold text-[#8C1D40] mb-4">
           {count}%
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-3">{label}</h3>
