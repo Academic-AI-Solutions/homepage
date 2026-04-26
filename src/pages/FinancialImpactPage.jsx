@@ -50,9 +50,9 @@ const FinancialImpactPage = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-[#8C1D40]/10 border border-[#8C1D40]/30 rounded-full mb-8"
+              className="inline-flex items-center space-x-2 px-6 py-3 bg-[#FFC627]/15 border border-[#FFC627]/50 rounded-full mb-8"
             >
-              <TrendingUp className="text-[#8C1D40]" size={24} />
+              <TrendingUp className="text-[#FFC627]" size={24} />
               <span className="text-[#8C1D40] font-bold text-lg">
                 Transformative Value Creation
               </span>

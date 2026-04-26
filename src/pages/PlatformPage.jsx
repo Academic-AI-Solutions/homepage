@@ -55,7 +55,7 @@ const PlatformPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-[#8C1D40] font-semibold uppercase tracking-widest mb-4"
+              className="text-[#FFC627] font-semibold uppercase tracking-widest mb-4"
             >
               The Platform
             </motion.p>
@@ -149,7 +149,7 @@ const PlatformPage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center mt-12"
             >
-              <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#8C1D40] text-white font-semibold rounded-lg hover:bg-[#6A0F30] transition-colors">
+              <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#FFC627] text-[#3D0024] font-bold rounded-lg hover:bg-[#E6B322] transition-colors">
                 Learn More <ArrowRight size={18} />
               </button>
             </motion.div>
@@ -193,7 +193,7 @@ const PlatformPage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center mt-12"
             >
-              <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#8C1D40] text-white font-semibold rounded-lg hover:bg-[#6A0F30] transition-colors">
+              <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#FFC627] text-[#3D0024] font-bold rounded-lg hover:bg-[#E6B322] transition-colors">
                 Learn More <ArrowRight size={18} />
               </button>
             </motion.div>
@@ -213,7 +213,7 @@ const PlatformPage = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Intelligent Data & Mapping
               </h2>
-              <div className="w-24 h-1 bg-[#8C1D40] mb-6 mx-auto" />
+              <div className="w-24 h-1 bg-[#FFC627] mb-6 mx-auto" />
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
                 Your Campus. Fully Mapped. Fully Intelligent.
               </p>
@@ -231,8 +231,8 @@ const PlatformPage = () => {
                   className="p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-center"
                 >
                   <div className="flex justify-center mb-5">
-                    <div className="p-4 bg-[#8C1D40]/20 rounded-full">
-                      <card.icon className="text-[#8C1D40]" size={32} />
+                    <div className="p-4 bg-[#FFC627]/15 rounded-full">
+                      <card.icon className="text-[#FFC627]" size={32} />
                     </div>
                   </div>
                   <h3 className="text-lg font-bold text-white mb-3">{card.title}</h3>
@@ -316,8 +316,8 @@ const PlatformPage = () => {
               className="max-w-4xl mx-auto text-center"
             >
               <div className="flex justify-center mb-8">
-                <div className="p-4 bg-[#8C1D40]/20 rounded-full">
-                  <Cpu className="text-[#8C1D40]" size={48} />
+                <div className="p-4 bg-[#FFC627]/15 rounded-full">
+                  <Cpu className="text-[#FFC627]" size={48} />
                 </div>
               </div>
 
@@ -326,7 +326,7 @@ const PlatformPage = () => {
               </h2>
 
               <p className="text-lg text-white/90 leading-relaxed mb-6">
-                Built on fully patent-filed <span className="text-[#8C1D40] font-semibold">Multi-Agent Coordination Protocol</span> and <span className="text-[#8C1D40] font-semibold">Institutional Memory Architecture</span> with an advanced IP portfolio spanning higher education, hospitality, events, and healthcare.
+                Built on fully patent-filed <span className="text-[#FFC627] font-semibold">Multi-Agent Coordination Protocol</span> and <span className="text-[#FFC627] font-semibold">Institutional Memory Architecture</span> with an advanced IP portfolio spanning higher education, hospitality, events, and healthcare.
               </p>
 
               <p className="text-lg text-white/90 leading-relaxed mb-6">

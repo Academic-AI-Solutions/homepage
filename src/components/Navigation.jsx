@@ -103,7 +103,7 @@ const Navigation = () => {
                 onClick={() => handleNavClick(link)}
                 className={`px-4 py-2 text-sm font-semibold rounded-md transition-all duration-200 ${
                   isActive(link)
-                    ? 'text-[#8C1D40] bg-[#8C1D40]/10'
+                    ? 'text-[#FFC627] bg-[#FFC627]/10'
                     : 'text-gray-700 hover:text-[#8C1D40] hover:bg-gray-50'
                 }`}
               >
@@ -138,7 +138,7 @@ const Navigation = () => {
                   onClick={() => handleNavClick(link)}
                   className={`block w-full text-left px-4 py-3 text-sm font-semibold rounded-md transition-all ${
                     isActive(link)
-                      ? 'text-[#8C1D40] bg-[#8C1D40]/10'
+                      ? 'text-[#FFC627] bg-[#FFC627]/10'
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >

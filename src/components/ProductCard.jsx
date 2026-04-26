@@ -25,7 +25,7 @@ const ProductCard = ({ title, description, icon, delay = 0 }) => {
       <p className="text-gray-600 leading-relaxed mb-6">{description}</p>
       <motion.div
         whileHover={{ x: 5 }}
-        className="flex items-center text-[#8C1D40] font-semibold"
+        className="flex items-center text-[#FFC627] font-semibold"
       >
         Learn More <ArrowRight className="ml-2" size={18} />
       </motion.div>

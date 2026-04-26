@@ -92,7 +92,7 @@ const HomePage = () => {
             backgroundAttachment: 'fixed'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#3D0024]/95 via-[#3D0024]/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#3D0024]/80 via-[#3D0024]/60 to-[#3D0024]/20" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -110,7 +110,7 @@ const HomePage = () => {
             className="text-2xl md:text-3xl text-white/90 mb-8 max-w-4xl mx-auto"
           >
             Transforming institutions through a proprietary, patent-secured<br />
-            <span className="text-[#8C1D40] font-semibold">
+            <span className="text-[#FFC627] font-semibold">
               Institutional Intelligence and Coordination Layer
             </span>
             {' '}&mdash; the only one of its kind in the market.
@@ -122,7 +122,7 @@ const HomePage = () => {
             className="mb-8"
           >
             <div className="inline-flex items-start space-x-3 px-8 py-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl max-w-4xl mx-auto">
-              <Sparkles className="text-[#8C1D40] flex-shrink-0 mt-1" size={24} />
+              <Sparkles className="text-[#FFC627] flex-shrink-0 mt-1" size={24} />
               <p className="text-xl text-white text-left leading-relaxed">
                 The AAS platform functions as an overlay of institutional intelligence, integrating seamlessly with your current tools to automate workflows and connect fragmented data without requiring a system overhaul.
               </p>
@@ -143,7 +143,7 @@ const HomePage = () => {
           >
             <button
               onClick={() => navigate('/platform')}
-              className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 bg-[#8C1D40] text-white hover:bg-[#6A0F30] shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 bg-[#FFC627] text-[#3D0024] hover:bg-[#E6B322] shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Explore The Platform
             </button>
@@ -162,7 +162,7 @@ const HomePage = () => {
             transition={{ repeat: Infinity, duration: 1.5 }}
             className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2"
           >
-            <motion.div className="w-1 h-2 bg-white/50 rounded-full" />
+            <motion.div className="w-1 h-2 bg-[#FFC627]/70 rounded-full" />
           </motion.div>
         </motion.div>
       </section>
@@ -314,7 +314,7 @@ const HomePage = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               System & App Integrations
             </h2>
-            <div className="w-24 h-1 bg-[#8C1D40] mb-6 mx-auto" />
+            <div className="w-24 h-1 bg-[#FFC627] mb-6 mx-auto" />
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               No rip-and-replace. No migration. Just amplification.
             </p>
@@ -328,17 +328,17 @@ const HomePage = () => {
           >
             {[
               {
-                icon: <Plug className="text-[#8C1D40]" size={48} />,
+                icon: <Plug className="text-[#FFC627]" size={48} />,
                 title: 'Pre-Built Connectors',
                 desc: 'SIS \u00B7 LMS \u00B7 CRM \u00B7 ERP \u00B7 Housing \u00B7 Dining \u00B7 Financial Aid \u00B7 Career Services \u00B7 Events \u00B7 Athletics \u00B7 Parking \u00B7 Transportation \u00B7 Health Services \u00B7 Campus Safety \u00B7 Payment Systems \u00B7 Marketplace'
               },
               {
-                icon: <Building2 className="text-[#8C1D40]" size={48} />,
+                icon: <Building2 className="text-[#FFC627]" size={48} />,
                 title: 'Legacy Compatible',
                 desc: 'Designed to work with campus infrastructure that\'s been in place for decades'
               },
               {
-                icon: <Wrench className="text-[#8C1D40]" size={48} />,
+                icon: <Wrench className="text-[#FFC627]" size={48} />,
                 title: 'Custom Builds',
                 desc: 'Tailored integrations for institution-specific tools and workflows unique to your campus'
               }
@@ -356,7 +356,7 @@ const HomePage = () => {
                 className="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 text-center transition-all"
               >
                 <div className="flex justify-center mb-6">
-                  <div className="bg-[#8C1D40]/10 p-3 rounded-full">
+                  <div className="bg-[#FFC627]/15 p-3 rounded-full">
                     {item.icon}
                   </div>
                 </div>
@@ -385,8 +385,8 @@ const HomePage = () => {
             className="p-12 bg-white/5 backdrop-blur-sm rounded-2xl shadow-2xl text-center border border-white/10"
           >
             <div className="flex justify-center mb-6">
-              <div className="p-4 bg-[#8C1D40]/20 rounded-full">
-                <Cpu className="text-[#8C1D40]" size={48} />
+              <div className="p-4 bg-[#FFC627]/15 rounded-full">
+                <Cpu className="text-[#FFC627]" size={48} />
               </div>
             </div>
             <h2 className="text-4xl font-bold text-white mb-6">
@@ -394,8 +394,8 @@ const HomePage = () => {
             </h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-6">
               Built on patent-secured{' '}
-              <span className="text-[#8C1D40] font-semibold">Multi-Agent Coordination Protocol</span> and{' '}
-              <span className="text-[#8C1D40] font-semibold">Institutional Memory Architecture</span> with advanced IP protection spanning higher education, hospitality, events, and healthcare.
+              <span className="text-[#FFC627] font-semibold">Multi-Agent Coordination Protocol</span> and{' '}
+              <span className="text-[#FFC627] font-semibold">Institutional Memory Architecture</span> with advanced IP protection spanning higher education, hospitality, events, and healthcare.
             </p>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-6">
               Our trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques — representing years of R&D investment that cannot be replicated or reverse-engineered.
@@ -485,10 +485,10 @@ const HomePage = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto mb-6 object-cover object-top border-4 border-[#8C1D40]/20"
+                    className="w-32 h-32 rounded-full mx-auto mb-6 object-cover object-top border-4 border-[#FFC627]/40"
                   />
                 ) : (
-                  <div className="w-32 h-32 rounded-full mx-auto mb-6 bg-gray-100 border-4 border-[#8C1D40]/20 flex items-center justify-center">
+                  <div className="w-32 h-32 rounded-full mx-auto mb-6 bg-gray-100 border-4 border-[#FFC627]/40 flex items-center justify-center">
                     <User className="text-gray-400" size={48} />
                   </div>
                 )}
@@ -528,7 +528,7 @@ const HomePage = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8C1D40] focus:border-transparent transition-all text-gray-900 ${errors.name ? 'border-red-500' : 'border-gray-200'}`}
+                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFC627] focus:border-transparent transition-all text-gray-900 ${errors.name ? 'border-red-500' : 'border-gray-200'}`}
                     placeholder="Full name"
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
@@ -545,7 +545,7 @@ const HomePage = () => {
                     name="institution"
                     value={formData.institution}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8C1D40] focus:border-transparent transition-all text-gray-900 ${errors.institution ? 'border-red-500' : 'border-gray-200'}`}
+                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFC627] focus:border-transparent transition-all text-gray-900 ${errors.institution ? 'border-red-500' : 'border-gray-200'}`}
                     placeholder="Institution name"
                   />
                   {errors.institution && <p className="mt-1 text-sm text-red-500">{errors.institution}</p>}
@@ -564,7 +564,7 @@ const HomePage = () => {
                     name="role"
                     value={formData.role}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8C1D40] focus:border-transparent transition-all text-gray-900 ${errors.role ? 'border-red-500' : 'border-gray-200'}`}
+                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFC627] focus:border-transparent transition-all text-gray-900 ${errors.role ? 'border-red-500' : 'border-gray-200'}`}
                     placeholder="Job title"
                   />
                   {errors.role && <p className="mt-1 text-sm text-red-500">{errors.role}</p>}
@@ -580,7 +580,7 @@ const HomePage = () => {
                     name="inquiryType"
                     value={formData.inquiryType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8C1D40] focus:border-transparent transition-all text-gray-900"
+                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFC627] focus:border-transparent transition-all text-gray-900"
                   >
                     <option value="Deployment">Deployment</option>
                     <option value="Strategic Licensing">Strategic Licensing</option>
@@ -593,7 +593,7 @@ const HomePage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-[#8C1D40] text-white font-semibold text-lg rounded-lg hover:bg-[#6A0F30] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+                className="w-full px-8 py-4 bg-[#FFC627] text-[#3D0024] font-bold text-lg rounded-lg hover:bg-[#E6B322] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed mt-4"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
               </button>
