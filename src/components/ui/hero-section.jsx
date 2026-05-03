@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Mail, ShieldCheck, GraduationCap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { GridBeam } from '@/components/ui/background-grid-beam';
@@ -50,12 +50,42 @@ const HeroSection = React.forwardRef(
       subtitle,
       callToAction,
       backgroundImage,
+      backgroundImages,
+      slideshowInterval = 5000,
       signals = [],
       belowCta,
       ...props
     },
     ref
   ) => {
+    const images =
+      Array.isArray(backgroundImages) && backgroundImages.length > 0
+        ? backgroundImages
+        : [backgroundImage];
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+      if (typeof window === 'undefined') return;
+      images.forEach((src) => {
+        const img = new window.Image();
+        img.src = src;
+      });
+    }, [images]);
+
+    useEffect(() => {
+      if (images.length < 2) return;
+      if (
+        typeof window !== 'undefined' &&
+        window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+      ) {
+        return;
+      }
+      const id = setInterval(() => {
+        setCurrentIndex((i) => (i + 1) % images.length);
+      }, slideshowInterval);
+      return () => clearInterval(id);
+    }, [images.length, slideshowInterval]);
+
     return (
       <motion.section
         ref={ref}
@@ -143,15 +173,25 @@ const HeroSection = React.forwardRef(
           </div>
         </div>
 
-        {/* Right: Image with clip-path reveal */}
-        <motion.div
-          className="min-h-[300px] w-full bg-cover bg-center md:min-h-full md:w-1/2 lg:w-2/5"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-          initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
-          animate={{ clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0% 100%)' }}
-          transition={{ duration: 1.2, ease: 'circOut' }}
+        {/* Right: Slideshow — each image slides in from the right */}
+        <div
+          className="relative min-h-[300px] w-full overflow-hidden md:min-h-full md:w-1/2 lg:w-2/5"
+          style={{ clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0% 100%)' }}
           aria-hidden="true"
-        />
+        >
+          <AnimatePresence initial={true}>
+            <motion.img
+              key={images[currentIndex]}
+              src={images[currentIndex]}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover object-center"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ duration: 0.9, ease: [0.32, 0.72, 0, 1] }}
+            />
+          </AnimatePresence>
+        </div>
       </motion.section>
     );
   }

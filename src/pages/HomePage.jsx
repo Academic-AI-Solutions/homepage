@@ -10,10 +10,30 @@ import {
 import { useToast } from '@/components/ui/use-toast';
 import { HeroSection } from '@/components/ui/hero-section';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
-import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
 import ValueCard from '@/components/ValueCard';
+
+const HERO_SLIDESHOW = [
+  // Trnavska Univerzita campus exterior — warm brick and greenery
+  'https://images.unsplash.com/photo-1686829613628-3e4ebe6f27e7?w=1920&q=80&auto=format',
+  // University CS lab — rows of monitors
+  'https://images.unsplash.com/photo-1643199187247-b3b6009bf0bb?w=1920&q=80&auto=format',
+  // Robotics lab — white robotic arm closeup
+  'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1920&q=80&auto=format',
+  // Data science / coding workstation — dual monitors
+  'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=1920&q=80&auto=format',
+  // Modern academic interior — curved glass + reflective floor
+  'https://images.unsplash.com/photo-1771911650735-b471e85e8b17?w=1920&q=80&auto=format',
+  // Engineering / maker bench — Arduino + circuitry
+  'https://images.unsplash.com/photo-1649959265391-8a1de884248a?w=1920&q=80&auto=format',
+  // Local AI photos
+  '/hero/ai.jpg',
+  '/hero/ai2.jpg',
+  '/hero/ai3.jpg',
+  '/hero/ai4.jpg',
+  '/hero/ai5.jpg',
+];
 
 const INSTITUTIONS = [
   { name: 'Arizona State University', file: 'asu.png' },
@@ -119,7 +139,7 @@ const HomePage = () => {
             text: 'EXPLORE THE PLATFORM →',
             href: '#platform',
           }}
-          backgroundImage="https://images.unsplash.com/photo-1686829613628-3e4ebe6f27e7?w=1920&q=80&auto=format"
+          backgroundImages={HERO_SLIDESHOW}
           signals={[
             { icon: 'Mail', label: 'admin@academicaisolutions.com' },
             { icon: 'ShieldCheck', label: 'Patent-Secured Platform' },
@@ -150,16 +170,6 @@ const HomePage = () => {
                     </div>
                   ))}
                 </InfiniteSlider>
-                <ProgressiveBlur
-                  className="pointer-events-none absolute top-0 left-0 h-full w-[80px]"
-                  direction="left"
-                  blurIntensity={0.8}
-                />
-                <ProgressiveBlur
-                  className="pointer-events-none absolute top-0 right-0 h-full w-[80px]"
-                  direction="right"
-                  blurIntensity={0.8}
-                />
               </div>
             </div>
           }
