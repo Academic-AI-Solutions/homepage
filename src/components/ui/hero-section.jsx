@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, ShieldCheck, GraduationCap } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { GridBeam } from '@/components/ui/background-grid-beam';
 
 const SIGNAL_ICONS = {
   Mail,
@@ -67,8 +68,13 @@ const HeroSection = React.forwardRef(
         {...props}
       >
         {/* Left: Content */}
-        <div className="flex w-full flex-col justify-between p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
-          <div>
+        <div className="relative flex w-full flex-col justify-between p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
+          {/* Decorative grid + animated beam behind the lower half (CTA + signals) */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 overflow-hidden md:h-1/2">
+            <GridBeam className="h-full" />
+          </div>
+
+          <div className="relative">
             <motion.header className="mb-12" variants={itemVariants}>
               {logo && (
                 <div className="flex items-center">
@@ -115,7 +121,7 @@ const HeroSection = React.forwardRef(
           </div>
 
           {signals.length > 0 && (
-            <motion.footer className="mt-12 w-full" variants={itemVariants}>
+            <motion.footer className="relative mt-12 w-full" variants={itemVariants}>
               <div className="grid grid-cols-1 gap-6 text-xs text-muted-foreground sm:grid-cols-3">
                 {signals.map((signal) => (
                   <div key={signal.label} className="flex items-center">
