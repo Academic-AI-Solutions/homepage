@@ -82,14 +82,15 @@ const HomePage = () => {
       </Helmet>
 
       {/* ==================== SECTION 1: HERO (HOME) ==================== */}
-      <section id="home" className="pt-20">
+      <section id="home" className="pt-16">
         <HeroSection
+          className="min-h-[calc(100vh-4rem)]"
           logo={{
             url: '/logos/logo.svg',
             alt: 'Academic AI Solutions',
-            text: 'ACADEMIC AI',
+            text: 'Academic AI Solutions',
           }}
-          slogan="INSTITUTIONAL INTELLIGENCE"
+          slogan="Institutional Intelligence"
           title={
             <>
               The AI Operating System

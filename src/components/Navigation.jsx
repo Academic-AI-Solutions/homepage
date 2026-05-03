@@ -79,7 +79,7 @@ const Navigation = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           <a
             href="/"
             onClick={(e) => {
@@ -92,7 +92,7 @@ const Navigation = () => {
             }}
             className="flex items-center space-x-3 group"
           >
-            <Logo className="h-[70px] w-[70px]" />
+            <Logo className="h-12 w-12" />
           </a>
 
           {/* Desktop Navigation */}
