@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 const SectionHeader = ({ title, subtitle, centered = true }) => {
   return (
@@ -8,16 +9,12 @@ const SectionHeader = ({ title, subtitle, centered = true }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={`mb-12 ${centered ? 'text-center' : ''}`}
+      className={cn('mb-12', centered && 'text-center')}
     >
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        {title}
-      </h2>
-      <div className={`w-24 h-1 bg-[#FFC627] mb-6 ${centered ? 'mx-auto' : ''}`} />
+      <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">{title}</h2>
+      <div className={cn('mb-6 h-1 w-24 bg-accent', centered && 'mx-auto')} />
       {subtitle && (
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          {subtitle}
-        </p>
+        <p className="mx-auto max-w-3xl text-xl text-muted-foreground">{subtitle}</p>
       )}
     </motion.div>
   );

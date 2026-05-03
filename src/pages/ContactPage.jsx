@@ -84,7 +84,7 @@ const ContactPage = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="flex items-center text-sm font-semibold text-[#8C1D40] mb-2">
+                <label htmlFor="name" className="flex items-center text-sm font-semibold text-primary mb-2">
                   <User size={18} className="mr-2" />
                   Name
                 </label>
@@ -94,7 +94,7 @@ const ContactPage = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8C1D40] focus:border-transparent transition-all text-gray-900 ${
+                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 ${
                     errors.name ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="Your full name"
@@ -104,7 +104,7 @@ const ContactPage = () => {
 
               {/* Institution Field */}
               <div>
-                <label htmlFor="institution" className="flex items-center text-sm font-semibold text-[#8C1D40] mb-2">
+                <label htmlFor="institution" className="flex items-center text-sm font-semibold text-primary mb-2">
                   <Building size={18} className="mr-2" />
                   Institution
                 </label>
@@ -114,7 +114,7 @@ const ContactPage = () => {
                   name="institution"
                   value={formData.institution}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8C1D40] focus:border-transparent transition-all text-gray-900 ${
+                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 ${
                     errors.institution ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="Your institution name"
@@ -124,7 +124,7 @@ const ContactPage = () => {
 
               {/* Role Field */}
               <div>
-                <label htmlFor="role" className="flex items-center text-sm font-semibold text-[#8C1D40] mb-2">
+                <label htmlFor="role" className="flex items-center text-sm font-semibold text-primary mb-2">
                   <FileText size={18} className="mr-2" />
                   Role
                 </label>
@@ -134,7 +134,7 @@ const ContactPage = () => {
                   name="role"
                   value={formData.role}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8C1D40] focus:border-transparent transition-all text-gray-900 ${
+                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 ${
                     errors.role ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="Your role or title"
@@ -144,7 +144,7 @@ const ContactPage = () => {
 
               {/* Inquiry Type Field */}
               <div>
-                <label htmlFor="inquiryType" className="flex items-center text-sm font-semibold text-[#8C1D40] mb-2">
+                <label htmlFor="inquiryType" className="flex items-center text-sm font-semibold text-primary mb-2">
                   <Mail size={18} className="mr-2" />
                   Inquiry Type
                 </label>
@@ -153,7 +153,7 @@ const ContactPage = () => {
                   name="inquiryType"
                   value={formData.inquiryType}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8C1D40] focus:border-transparent transition-all text-gray-900"
+                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900"
                 >
                   <option value="Deployment">Deployment</option>
                   <option value="Strategic Licensing">Strategic Licensing</option>
@@ -166,7 +166,7 @@ const ContactPage = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-[#8C1D40] text-white font-semibold text-lg rounded-lg hover:bg-[#6A0F30] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-8 py-4 bg-primary text-primary-foreground font-semibold text-lg rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
               </motion.button>
@@ -179,7 +179,7 @@ const ContactPage = () => {
               </p>
               <a 
                 href="mailto:partnerships@academicai.solutions"
-                className="text-[#8C1D40] font-semibold hover:underline"
+                className="text-primary font-semibold hover:underline"
               >
                 partnerships@academicai.solutions
               </a>

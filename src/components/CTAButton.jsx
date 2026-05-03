@@ -1,27 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
-const CTAButton = ({ to, children, variant = 'primary', className = '' }) => {
-  const baseStyles = "px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300";
-  const variants = {
-    primary: "bg-[#FFC627] text-[#3D0024] hover:bg-[#E6B322] font-bold shadow-lg hover:shadow-xl",
-    secondary: "bg-white text-gray-900 hover:bg-gray-50 shadow-lg hover:shadow-xl border-2 border-gray-200"
-  };
+const variantClasses = {
+  primary:
+    'bg-accent text-accent-foreground font-bold shadow-lg hover:bg-accent/90 hover:shadow-xl',
+  secondary:
+    'bg-background text-foreground border-2 border-border shadow-lg hover:bg-secondary hover:shadow-xl',
+};
 
-  const Component = to ? Link : 'button';
+const CTAButton = ({ to, children, variant = 'primary', className = '', ...props }) => {
+  const merged = cn(
+    'h-auto rounded-lg px-8 py-4 text-lg transition-all duration-300',
+    variantClasses[variant],
+    className
+  );
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      <Component
-        to={to}
-        className={`${baseStyles} ${variants[variant]} ${className}`}
-      >
-        {children}
-      </Component>
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="inline-block">
+      {to ? (
+        <Button asChild className={merged} {...props}>
+          <Link to={to}>{children}</Link>
+        </Button>
+      ) : (
+        <Button className={merged} {...props}>
+          {children}
+        </Button>
+      )}
     </motion.div>
   );
 };

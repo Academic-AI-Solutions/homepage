@@ -4,6 +4,70 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 325 100% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 325 100% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 325 100% 12%;
+
+    --primary: 341 66% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 100% 98%;
+    --secondary-foreground: 325 100% 12%;
+
+    --muted: 36 30% 95%;
+    --muted-foreground: 325 15% 40%;
+
+    --accent: 44 100% 58%;
+    --accent-foreground: 325 100% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 325 15% 88%;
+    --input: 325 15% 88%;
+    --ring: 44 100% 58%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 325 100% 12%;
+    --foreground: 36 100% 98%;
+
+    --card: 325 100% 12%;
+    --card-foreground: 36 100% 98%;
+
+    --popover: 325 100% 12%;
+    --popover-foreground: 36 100% 98%;
+
+    --primary: 341 66% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 325 60% 20%;
+    --secondary-foreground: 36 100% 98%;
+
+    --muted: 325 50% 18%;
+    --muted-foreground: 36 30% 75%;
+
+    --accent: 44 100% 58%;
+    --accent-foreground: 325 100% 12%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 36 100% 98%;
+
+    --border: 325 50% 25%;
+    --input: 325 50% 25%;
+    --ring: 44 100% 58%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -70,6 +134,6 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 2px solid #FFC627;
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }
