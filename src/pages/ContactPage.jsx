@@ -48,7 +48,7 @@ const ContactPage = () => {
     setTimeout(() => {
       toast({
         title: "Inquiry Submitted Successfully!",
-        description: `Thank you ${formData.name}! Your inquiry has been sent to partnerships@academicai.solutions. We'll respond within 24-48 hours.`,
+        description: `Thank you ${formData.name}! Your inquiry has been sent to admin@academicaisolutions.com. We'll respond within 24-48 hours.`,
       });
       
       setFormData({
@@ -178,10 +178,10 @@ const ContactPage = () => {
                 Submissions will be sent to:
               </p>
               <a 
-                href="mailto:partnerships@academicai.solutions"
+                href="mailto:admin@academicaisolutions.com"
                 className="text-primary font-semibold hover:underline"
               >
-                partnerships@academicai.solutions
+                admin@academicaisolutions.com
               </a>
             </div>
           </motion.div>

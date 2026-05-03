@@ -70,7 +70,7 @@ const HomePage = () => {
     setTimeout(() => {
       toast({
         title: "Inquiry Submitted Successfully!",
-        description: `Thank you ${formData.name}! Your inquiry has been sent to partnerships@academicai.solutions. We'll respond within 24-48 hours.`
+        description: `Thank you ${formData.name}! Your inquiry has been sent to admin@academicaisolutions.com. We'll respond within 24-48 hours.`
       });
       setFormData({
         name: '',
@@ -121,7 +121,7 @@ const HomePage = () => {
           }}
           backgroundImage="https://images.unsplash.com/photo-1686829613628-3e4ebe6f27e7?w=1920&q=80&auto=format"
           signals={[
-            { icon: 'Mail', label: 'partnerships@academicai.solutions' },
+            { icon: 'Mail', label: 'admin@academicaisolutions.com' },
             { icon: 'ShieldCheck', label: 'Patent-Secured Platform' },
             { icon: 'GraduationCap', label: 'Built for Higher Education' },
           ]}
@@ -613,7 +613,7 @@ const HomePage = () => {
               <p className="text-gray-600 mb-2">
                 Submissions will be sent to:
               </p>
-              <a href="mailto:partnerships@academicai.solutions" className="text-primary font-semibold hover:underline">
+              <a href="mailto:admin@academicaisolutions.com" className="text-primary font-semibold hover:underline">
                 admin@academicaisolutions.com
               </a>
             </div>
