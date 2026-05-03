@@ -51,6 +51,7 @@ const HeroSection = React.forwardRef(
       callToAction,
       backgroundImage,
       signals = [],
+      belowCta,
       ...props
     },
     ref
@@ -120,18 +121,26 @@ const HeroSection = React.forwardRef(
             </motion.main>
           </div>
 
-          {signals.length > 0 && (
-            <motion.footer className="relative mt-12 w-full" variants={itemVariants}>
-              <div className="grid grid-cols-1 gap-6 text-xs text-muted-foreground sm:grid-cols-3">
-                {signals.map((signal) => (
-                  <div key={signal.label} className="flex items-center">
-                    <SignalIcon name={signal.icon} />
-                    <span>{signal.label}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.footer>
-          )}
+          <div className="relative">
+            {belowCta && (
+              <motion.div className="mt-12 w-full" variants={itemVariants}>
+                {belowCta}
+              </motion.div>
+            )}
+
+            {signals.length > 0 && (
+              <motion.footer className="mt-8 w-full" variants={itemVariants}>
+                <div className="grid grid-cols-1 gap-6 text-xs text-muted-foreground sm:grid-cols-3">
+                  {signals.map((signal) => (
+                    <div key={signal.label} className="flex items-center">
+                      <SignalIcon name={signal.icon} />
+                      <span>{signal.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.footer>
+            )}
+          </div>
         </div>
 
         {/* Right: Image with clip-path reveal */}

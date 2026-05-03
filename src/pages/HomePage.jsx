@@ -9,9 +9,25 @@ import {
 } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { HeroSection } from '@/components/ui/hero-section';
+import { InfiniteSlider } from '@/components/ui/infinite-slider';
+import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
 import ValueCard from '@/components/ValueCard';
+
+const INSTITUTIONS = [
+  { name: 'Arizona State University', file: 'asu.png' },
+  { name: 'Stanford University', file: 'stanford.png' },
+  { name: 'Harvard University', file: 'harvard.png' },
+  { name: 'University of Michigan', file: 'michigan.png' },
+  { name: 'University of Oregon', file: 'oregon.png' },
+  { name: 'University of Texas at Austin', file: 'texas.png' },
+  { name: 'Texas A&M University', file: 'texas-am.png' },
+  { name: 'University of Virginia', file: 'virginia.png' },
+  { name: 'University of California, Davis', file: 'ucdavis.png' },
+  { name: 'Auburn University', file: 'auburn.png' },
+  { name: 'University of Minnesota', file: 'minnesota.png' },
+];
 
 const HomePage = () => {
   const { toast } = useToast();
@@ -109,6 +125,44 @@ const HomePage = () => {
             { icon: 'ShieldCheck', label: 'Patent-Secured Platform' },
             { icon: 'GraduationCap', label: 'Built for Higher Education' },
           ]}
+          belowCta={
+            <div>
+              <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                Built for institutions like these
+              </p>
+              <div className="relative h-[60px] w-full overflow-hidden">
+                <InfiniteSlider
+                  className="flex h-full w-full items-center"
+                  duration={45}
+                  gap={56}
+                >
+                  {INSTITUTIONS.map((school) => (
+                    <div
+                      key={school.file}
+                      className="flex w-28 items-center justify-center"
+                    >
+                      <img
+                        src={`/institutions/${school.file}`}
+                        alt={school.name}
+                        className="h-9 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </InfiniteSlider>
+                <ProgressiveBlur
+                  className="pointer-events-none absolute top-0 left-0 h-full w-[80px]"
+                  direction="left"
+                  blurIntensity={0.8}
+                />
+                <ProgressiveBlur
+                  className="pointer-events-none absolute top-0 right-0 h-full w-[80px]"
+                  direction="right"
+                  blurIntensity={0.8}
+                />
+              </div>
+            </div>
+          }
         />
       </section>
 
