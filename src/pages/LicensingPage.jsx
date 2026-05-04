@@ -106,7 +106,7 @@ const LicensingPage = () => {
 
         {/* Section: Partnership Philosophy — sticky, white bg */}
         <section id="lic-philosophy" className="md:sticky md:top-[var(--nav-h)] z-10 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center bg-background py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -117,10 +117,11 @@ const LicensingPage = () => {
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 Why Partner With AAS
               </p>
-              <h2 className="mb-6 text-4xl font-bold leading-tight text-foreground md:text-5xl">
-                Structural advantage belongs to early partners.
+              <h2 className="text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                Structural advantage belongs to <span className="text-primary">early partners</span>.
               </h2>
-              <p className="text-lg leading-relaxed text-foreground/80">
+              <div className="mt-6 h-1 w-20 bg-accent" />
+              <p className="mt-6 text-lg leading-relaxed text-foreground/80">
                 Higher education AI is a one-time architecture decision. The institutions that engage now help define the operational defaults, integration patterns, and commercial structures that the rest of the market will inherit — and they do so on terms that won't be available again.
               </p>
             </motion.div>
@@ -159,39 +160,27 @@ const LicensingPage = () => {
       </section>
 
         {/* Section: Partnership Structures — sticky, cream bg */}
-        <section id="structures" className="md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center bg-secondary py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="structures" className="md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start bg-secondary py-24">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
-            title="Partnership Structures"
+            title={<>Partnership <span className="text-primary">Structures</span></>}
             subtitle="Four distinct paths into the AAS platform — designed to fit the operational, financial, and governance realities of major research universities."
           />
           <ComparisonTable rows={partnershipStructures} />
-          <p className="mt-8 text-center text-xs italic text-muted-foreground">
+          <p className="mt-8 text-xs italic text-muted-foreground">
             Structures may be combined. Hybrid arrangements are common for institutions with mixed funding profiles.
           </p>
         </div>
       </section>
 
         {/* Section: Why Partner Now — sticky, dark bg */}
-        <section id="lic-why-now" className="dark md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center bg-gradient-to-br from-background to-background py-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16 text-center"
-          >
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Timing
-            </p>
-            <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
-              Why Partner Now
-            </h2>
-            <div className="mx-auto h-1 w-24 bg-accent" />
-          </motion.div>
+        <section id="lic-why-now" className="dark md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start bg-gradient-to-br from-background to-background py-24">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+          <SectionHeader
+            title={<>Why Partner <span className="text-accent">Now</span></>}
+          />
 
-          <div className="space-y-12">
+          <div className="max-w-5xl space-y-12">
             {whyNowReasons.map(({ n, title, body }, i) => (
               <motion.div
                 key={n}
@@ -217,7 +206,7 @@ const LicensingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mt-20 text-center"
+            className="mt-12"
           >
             <a
               href="/#contact"

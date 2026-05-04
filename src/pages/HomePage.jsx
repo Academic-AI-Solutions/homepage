@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
-  Users, Briefcase, Cpu,
+  Users, Briefcase,
   Map, Activity, Brain, ShieldAlert, Plug, Building2, Wrench,
 } from 'lucide-react';
 import { HeroSection } from '@/components/ui/hero-section';
@@ -121,19 +121,11 @@ const HomePage = () => {
 
       {/* ==================== SECTION 3: CORE PRODUCTS ==================== */}
       <section id="products" className="md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-background">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+          <SectionHeader
             className="mb-6"
-          >
-            <h2 className="text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-              Core <span className="text-primary">Products</span>
-            </h2>
-            <div className="mt-6 h-1 w-20 bg-accent" />
-          </motion.div>
+            title={<>Core <span className="text-primary">Products</span></>}
+          />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div onClick={() => navigate('/platform')} className="cursor-pointer">
               <ProductCard
@@ -160,11 +152,11 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 4: INTELLIGENT DATA & MAPPING ==================== */}
-      <section id="data" className="md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-gradient-to-b from-secondary to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="data" className="md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-b from-secondary to-background">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
-            title="Intelligent Data & Mapping"
-            subtitle="Campus Digital Twin — A living digital replica of your campus operating in real time"
+            title={<>Intelligent <span className="text-primary">Data &amp; Mapping</span></>}
+            subtitle="Campus Digital Twin — a living digital replica of your campus operating in real time."
           />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -218,7 +210,7 @@ const HomePage = () => {
           </motion.div>
           <motion.p
             {...fadeInUp}
-            className="text-center text-primary italic text-lg"
+            className="text-primary italic text-lg"
           >
             Intelligence that grows with your institution — continuously learning, continuously improving.
           </motion.p>
@@ -227,22 +219,11 @@ const HomePage = () => {
 
       {/* ==================== SECTION 5: SYSTEM & APP INTEGRATIONS ==================== */}
       <section id="integrations" className="dark md:sticky md:top-[var(--nav-h)] z-40 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-              System & App <span className="text-accent">Integrations</span>
-            </h2>
-            <div className="my-6 h-1 w-20 bg-accent" />
-            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              No rip-and-replace. No migration. Just amplification.
-            </p>
-          </motion.div>
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+          <SectionHeader
+            title={<>System &amp; App <span className="text-accent">Integrations</span></>}
+            subtitle="No rip-and-replace. No migration. Just amplification."
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -292,7 +273,7 @@ const HomePage = () => {
 
           <motion.p
             {...fadeInUp}
-            className="text-center text-white/80 text-lg"
+            className="text-white/80 text-lg"
           >
             AAS doesn't ask you to start over. It makes what you already have better.
           </motion.p>
@@ -300,12 +281,14 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: ENTERPRISE VALIDATED ==================== */}
-      <section id="enterprise" className="md:sticky md:top-[var(--nav-h)] z-50 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="Enterprise Validated" />
+      <section id="enterprise" className="md:sticky md:top-[var(--nav-h)] z-50 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-muted">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+          <SectionHeader
+            title={<>Enterprise <span className="text-primary">Validated</span></>}
+          />
           <motion.div
             {...fadeInUp}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl"
           >
             <p className="text-xl text-gray-700 leading-relaxed mb-8">
               The same AI infrastructure principles behind AAS have been proven at enterprise scale in one of the most demanding experience environments in the world — orchestrating real-time personalization, transaction coordination, and operational intelligence across complex, multi-venue operations.
@@ -319,31 +302,26 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 6: PATENT PORTFOLIO ==================== */}
-      <section id="patent" className="dark md:sticky md:top-[var(--nav-h)] z-[60] flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-gradient-to-br from-background to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="patent" className="dark md:sticky md:top-[var(--nav-h)] z-[60] flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+          <SectionHeader
+            title={<>Powered by a <span className="text-accent">Proprietary Patent Portfolio</span></>}
+          />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="p-12 bg-white/5 backdrop-blur-sm rounded-2xl shadow-2xl text-center border border-white/10"
+            className="max-w-4xl space-y-6"
           >
-            <div className="flex justify-center mb-6">
-              <div className="p-4 bg-accent/15 rounded-full">
-                <Cpu className="text-accent" size={48} />
-              </div>
-            </div>
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Powered by a Proprietary Patent Portfolio
-            </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-6">
+            <p className="text-xl text-white/90 leading-relaxed">
               Built on patent-secured{' '}
               <span className="text-accent font-semibold">Multi-Agent Coordination Protocol</span> and{' '}
               <span className="text-accent font-semibold">Institutional Memory Architecture</span> with advanced IP protection spanning higher education, hospitality, events, and healthcare.
             </p>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-6">
-              Our trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques — representing years of R&D investment that cannot be replicated or reverse-engineered.
+            <p className="text-xl text-white/90 leading-relaxed">
+              Our trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques — representing years of R&amp;D investment that cannot be replicated or reverse-engineered.
             </p>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white/90 leading-relaxed">
               Purpose-built for universities from day one. Not retrofitted enterprise software. AAS holds the only proprietary and patent-claimed institutional AI architecture in higher education — and we're prepared to defend it.
             </p>
           </motion.div>
