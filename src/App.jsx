@@ -16,12 +16,11 @@ import { Toaster } from '@/components/ui/toaster';
 const ROUTE_SECTIONS = {
   '/': [
     { id: 'home', label: 'Home' },
-    { id: 'platform', label: 'Architecture' },
     { id: 'products', label: 'Products' },
     { id: 'data', label: 'Data' },
     { id: 'integrations', label: 'Integrations' },
-    { id: 'patent', label: 'Patent' },
     { id: 'enterprise', label: 'Enterprise' },
+    { id: 'patent', label: 'Patent' },
   ],
   '/licensing': [
     { id: 'lic-hero', label: 'Overview' },
