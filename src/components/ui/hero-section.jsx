@@ -44,8 +44,6 @@ const HeroSection = React.forwardRef(
   (
     {
       className,
-      logo,
-      slogan,
       title,
       subtitle,
       callToAction,
@@ -106,27 +104,9 @@ const HeroSection = React.forwardRef(
           </div>
 
           <div className="relative">
-            <motion.header className="mb-12" variants={itemVariants}>
-              {logo && (
-                <div className="flex items-center">
-                  <img src={logo.url} alt={logo.alt} className="mr-3 h-10 w-auto" />
-                  <div>
-                    {logo.text && (
-                      <p className="text-lg font-bold text-foreground">{logo.text}</p>
-                    )}
-                    {slogan && (
-                      <p className="text-xs tracking-[0.2em] text-muted-foreground">
-                        {slogan}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              )}
-            </motion.header>
-
             <motion.main variants={containerVariants}>
               <motion.h1
-                className="text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl"
+                className="text-5xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl"
                 variants={itemVariants}
               >
                 {title}

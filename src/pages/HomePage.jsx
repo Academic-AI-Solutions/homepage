@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   Shield, Users, Briefcase, Network, Database, Cpu,
-  Mail, Building, User, FileText,
-  Map, Activity, Brain, ShieldAlert, Plug, Building2, Wrench
+  Map, Activity, Brain, ShieldAlert, Plug, Building2, Wrench,
 } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
 import { HeroSection } from '@/components/ui/hero-section';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
-import ValueCard from '@/components/ValueCard';
 
 const HERO_SLIDESHOW = [
   // Trnavska Univerzita campus exterior — warm brick and greenery
@@ -50,57 +47,7 @@ const INSTITUTIONS = [
 ];
 
 const HomePage = () => {
-  const { toast } = useToast();
   const navigate = useNavigate();
-
-  // --- Contact Form Logic ---
-  const [formData, setFormData] = useState({
-    name: '',
-    institution: '',
-    role: '',
-    inquiryType: 'Deployment'
-  });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
-
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.institution.trim()) newErrors.institution = 'Institution is required';
-    if (!formData.role.trim()) newErrors.role = 'Role is required';
-    return newErrors;
-  };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const newErrors = validate();
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-    setIsSubmitting(true);
-    setTimeout(() => {
-      toast({
-        title: "Inquiry Submitted Successfully!",
-        description: `Thank you ${formData.name}! Your inquiry has been sent to admin@academicaisolutions.com. We'll respond within 24-48 hours.`
-      });
-      setFormData({
-        name: '',
-        institution: '',
-        role: '',
-        inquiryType: 'Deployment'
-      });
-      setIsSubmitting(false);
-    }, 1500);
-  };
 
   // --- Animation Variants ---
   const fadeInUp = {
@@ -117,16 +64,11 @@ const HomePage = () => {
         <meta name="description" content="Transforming higher education with a proprietary, patent-secured Institutional Intelligence and Coordination Layer. The only AI operating system purpose-built for universities." />
       </Helmet>
 
+      <div className="pt-[var(--nav-h)]">
       {/* ==================== SECTION 1: HERO (HOME) ==================== */}
-      <section id="home" className="pt-16">
+      <section id="home" className="sticky top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0">
         <HeroSection
-          className="min-h-[calc(100vh-4rem)]"
-          logo={{
-            url: '/logos/logo.svg',
-            alt: 'Academic AI Solutions',
-            text: 'Academic AI Solutions',
-          }}
-          slogan="Institutional Intelligence"
+          className="min-h-[calc(100vh-var(--nav-h))]"
           title={
             <>
               The AI Operating System
@@ -177,23 +119,23 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 2: ARCHITECTURE ==================== */}
-      <section id="platform" className="py-24 bg-gradient-to-b from-secondary to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.p
-            {...fadeInUp}
-            className="max-w-3xl mx-auto mb-16 text-center text-lg leading-relaxed text-gray-700 md:text-xl"
+      <section id="platform" className="sticky top-[var(--nav-h)] z-10 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-b from-secondary to-background">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
           >
-            Higher education is at a turning point. Enrollment is declining,
-            student expectations are rising, and institutions that don't evolve
-            risk being left behind.{' '}
-            <span className="font-semibold text-primary">
-              AAS exists to make sure that doesn't happen.
-            </span>
-          </motion.p>
-          <SectionHeader
-            title="The Architecture"
-            subtitle="A four-layer system that preserves existing investments in Banner, Canvas, Workday, and beyond"
-          />
+            <h2 className="text-5xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl">
+              The <span className="text-primary">Architecture</span>
+            </h2>
+            <div className="my-6 h-1 w-20 bg-accent" />
+            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              A four-layer system that preserves existing investments in Banner, Canvas, Workday, and beyond.
+            </p>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -228,12 +170,23 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 3: CORE PRODUCTS ==================== */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Core Products"
-            subtitle="Two integrated solutions powering institutional transformation"
-          />
+      <section id="products" className="sticky top-[var(--nav-h)] z-20 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-background">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <h2 className="text-5xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl">
+              Core <span className="text-primary">Products</span>
+            </h2>
+            <div className="my-6 h-1 w-20 bg-accent" />
+            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Two integrated solutions powering institutional transformation.
+            </p>
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div onClick={() => navigate('/platform')} className="cursor-pointer">
               <ProductCard
@@ -256,7 +209,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 4: INTELLIGENT DATA & MAPPING ==================== */}
-      <section className="py-24 bg-gradient-to-b from-secondary to-background">
+      <section id="data" className="sticky top-[var(--nav-h)] z-30 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-gradient-to-b from-secondary to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Intelligent Data & Mapping"
@@ -322,20 +275,20 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: SYSTEM & APP INTEGRATIONS ==================== */}
-      <section className="dark py-24 bg-gradient-to-br from-background to-background/90">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="integrations" className="dark sticky top-[var(--nav-h)] z-40 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background/90">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-12 text-center"
+            className="mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              System & App Integrations
+            <h2 className="text-5xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl">
+              System & App <span className="text-accent">Integrations</span>
             </h2>
-            <div className="w-24 h-1 bg-accent mb-6 mx-auto" />
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <div className="my-6 h-1 w-20 bg-accent" />
+            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               No rip-and-replace. No migration. Just amplification.
             </p>
           </motion.div>
@@ -396,7 +349,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 6: PATENT PORTFOLIO ==================== */}
-      <section className="dark py-24 bg-gradient-to-br from-background to-background/90">
+      <section id="patent" className="dark sticky top-[var(--nav-h)] z-50 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-gradient-to-br from-background to-background/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -428,7 +381,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 7: ENTERPRISE VALIDATED ==================== */}
-      <section className="py-24 bg-gray-100">
+      <section id="enterprise" className="sticky top-[var(--nav-h)] z-[60] flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader title="Enterprise Validated" />
           <motion.div
@@ -446,190 +399,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ==================== SECTION 8: TEAM ==================== */}
-      <section id="team" className="py-24 bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="The Team Behind AAS"
-            subtitle="Built by People Who Know Both Worlds"
-          />
-
-          <motion.p
-            {...fadeInUp}
-            className="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-16 leading-relaxed"
-          >
-            Education operators. AI engineers. Enterprise builders. Our team brings together deep institutional knowledge with the technical expertise to build and scale.
-          </motion.p>
-
-          {/* Team Members Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {[
-              { name: 'Daniel Round', title: 'Founder/Chief Executive Officer (CEO)', image: '/headshots/daniel-round.jpg' },
-              { name: 'Scott Putnam', title: 'Chief Innovation Officer (CINO)', image: '/headshots/scott-putnam.jpg' },
-              { name: 'Scott Bayless', title: 'Chief Technology Officer (CTO)', image: '/headshots/scott-bayless.png' },
-              { name: 'Roger Emerson', title: 'Chief Engineering Officer (CE)', image: '/headshots/roger-emerson.jpg' },
-              { name: 'Dr. Steven Colby', title: 'Patent Attorney', image: '/headshots/dr-steven-colby.png' },
-              { name: 'Ryan Radomski', title: 'Chief AI Automation Officer (CAIO)', image: '/headshots/ryan-radomski.png' },
-              { name: 'Charles Scott', title: 'Senior Litigation Attorney', image: '/headshots/charles-scott.png' },
-              { name: 'Ryan Yohe', title: 'Chief Operations Officer (COO)', image: '/headshots/ryan-yohe.jpg' },
-              { name: 'Stewart Tinti', title: 'Chief Administrative Officer (CAO)', image: '/headshots/stewart-tinti.gif' },
-              { name: 'Robert Spottswood Jr.', title: 'Hospitality Attorney', image: null },
-              { name: 'Rob Gebaide', title: 'Senior Transactional Attorney', image: null },
-              { name: 'Joseph Reiben', title: 'Emerging Technologies Attorney', image: '/headshots/joseph-reiben.png' },
-              { name: 'Kory Collins', title: 'Chief Strategy Officer (CSO)', image: null },
-              { name: 'Jacob Hill', title: 'Chief Marketing Officer (CMO)', image: '/headshots/jacob-hill.png' },
-              { name: 'Jameson Shelnut', title: 'Chief Experience Officer (CXO)', image: null },
-              { name: 'William Reynolds', title: 'Financial Attorney', image: '/headshots/will-reynolds.gif' },
-              { name: 'Jon Agustin', title: 'Senior Software Engineer', image: '/headshots/jonathan-agustin.png' },
-              { name: 'Raymond Carapella', title: 'Financial Systems Director', image: '/headshots/raymond-carapella.jpg' },
-              { name: 'Radhesh Choudhary', title: 'AI Software Engineer', image: '/headshots/radhesh-choudhary.png' },
-              { name: 'Jonah Efaw', title: 'Director of Ops (DO)', image: '/headshots/jonah-efaw.png' },
-              { name: 'Will Dahlquist', title: 'Investor Relations', image: null },
-              { name: 'Brock Gorubec', title: 'Investor Relations', image: '/headshots/brock-gorubec.jpg' },
-              { name: 'Eric Peter', title: 'Software Engineer', image: '/headshots/eric-peter.jpg' },
-              { name: 'Ben Radde', title: 'Legal Assistant', image: '/headshots/ben-radde.png' },
-            ].map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (index % 4) * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
-                }}
-                className="p-6 bg-white rounded-xl shadow-lg border border-gray-100 text-center transition-all"
-              >
-                {member.image ? (
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto mb-6 object-cover object-top border-4 border-accent/40"
-                  />
-                ) : (
-                  <div className="w-32 h-32 rounded-full mx-auto mb-6 bg-gray-100 border-4 border-accent/40 flex items-center justify-center">
-                    <User className="text-gray-400" size={48} />
-                  </div>
-                )}
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-primary font-semibold text-sm">{member.title}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== SECTION 9: CONTACT ==================== */}
-      <section id="contact" className="py-24 bg-gradient-to-b from-secondary to-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Contact Us"
-            subtitle="Let's discuss how Academic AI Solutions can transform your institution"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border border-gray-100"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="flex items-center text-sm font-semibold text-primary mb-2">
-                    <User size={18} className="mr-2" />
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all text-gray-900 ${errors.name ? 'border-red-500' : 'border-gray-200'}`}
-                    placeholder="Full name"
-                  />
-                  {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="institution" className="flex items-center text-sm font-semibold text-primary mb-2">
-                    <Building size={18} className="mr-2" />
-                    Institution
-                  </label>
-                  <input
-                    type="text"
-                    id="institution"
-                    name="institution"
-                    value={formData.institution}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all text-gray-900 ${errors.institution ? 'border-red-500' : 'border-gray-200'}`}
-                    placeholder="Institution name"
-                  />
-                  {errors.institution && <p className="mt-1 text-sm text-red-500">{errors.institution}</p>}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="role" className="flex items-center text-sm font-semibold text-primary mb-2">
-                    <FileText size={18} className="mr-2" />
-                    Role
-                  </label>
-                  <input
-                    type="text"
-                    id="role"
-                    name="role"
-                    value={formData.role}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all text-gray-900 ${errors.role ? 'border-red-500' : 'border-gray-200'}`}
-                    placeholder="Job title"
-                  />
-                  {errors.role && <p className="mt-1 text-sm text-red-500">{errors.role}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="inquiryType" className="flex items-center text-sm font-semibold text-primary mb-2">
-                    <Mail size={18} className="mr-2" />
-                    Inquiry Type
-                  </label>
-                  <select
-                    id="inquiryType"
-                    name="inquiryType"
-                    value={formData.inquiryType}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all text-gray-900"
-                  >
-                    <option value="Deployment">Deployment</option>
-                    <option value="Strategic Licensing">Strategic Licensing</option>
-                    <option value="Research & Grant Collaboration">Research & Grant Collaboration</option>
-                    <option value="Investment">Investment</option>
-                  </select>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-accent text-accent-foreground font-bold text-lg rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed mt-4"
-              >
-                {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
-              </button>
-            </form>
-
-            <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-              <p className="text-gray-600 mb-2">
-                Submissions will be sent to:
-              </p>
-              <a href="mailto:admin@academicaisolutions.com" className="text-primary font-semibold hover:underline">
-                admin@academicaisolutions.com
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      </div>
     </>
   );
 };

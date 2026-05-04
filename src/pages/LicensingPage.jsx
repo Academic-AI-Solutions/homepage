@@ -1,220 +1,233 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { Shield, TrendingUp, Sparkles } from 'lucide-react';
+import { PageHero } from '@/components/ui/page-hero';
+import { ComparisonTable } from '@/components/ui/comparison-row';
 import SectionHeader from '@/components/SectionHeader';
-import {
-  HeartHandshake,
-  Shield,
-  TrendingUp,
-  FileCheck,
-  DollarSign,
-  BookOpen,
-} from 'lucide-react';
 
-const partnershipBenefits = [
-  {
-    icon: HeartHandshake,
-    title: 'Collaborative Development',
-    description:
-      "Work directly with our team to shape solutions that address your institution's unique challenges.",
-  },
+const philosophyPillars = [
   {
     icon: Shield,
-    title: 'Protected Innovation',
-    description:
-      'Benefit from patent-secured technology and trade secrets that provide competitive advantages no other institution can access.',
+    title: 'Patent-Protected Position',
+    body: 'Partner with the only patent-secured institutional AI platform purpose-built for higher education.',
   },
   {
     icon: TrendingUp,
-    title: 'Proven ROI',
-    description:
-      'Join institutions seeing measurable annual value creation across operations and student experience.',
+    title: 'First-Mover Economics',
+    body: 'Early partners lock in preferred terms before scaled deployment shifts the structure of available agreements.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Co-Development Influence',
+    body: 'Shape the platform roadmap to reflect your institution’s priorities and operational realities.',
   },
 ];
 
-const flexibleStructures = [
+const partnershipStructures = [
   {
-    icon: FileCheck,
-    title: 'Licensing Agreements',
-    description:
-      'Exclusive or non-exclusive models for deploying the AAS platform across your institution.',
+    label: 'Licensing Agreement',
+    audience: 'Institutions ready to deploy with predictable terms',
+    terms:
+      'Exclusive or non-exclusive models for deploying AAS across the institution. Defined-term licenses with optional renewal.',
+    actionLabel: 'Discuss',
+    actionHref: '/#contact',
   },
   {
-    icon: DollarSign,
-    title: 'Revenue-Share / Royalty',
-    description:
-      'Partnerships designed for mutual growth, sharing the financial success of transformed campus operations and student outcomes.',
+    label: 'Revenue-Share',
+    audience: 'Partners aligning on shared upside from outcomes',
+    terms:
+      'Royalty-style structures designed for mutual growth — sharing the financial success of transformed campus operations and student outcomes.',
+    actionLabel: 'Discuss',
+    actionHref: '/#contact',
+    badge: 'Most flexible',
   },
   {
-    icon: TrendingUp,
-    title: 'Equity Investment',
-    description:
-      'Strategic capital partnerships to accelerate innovation, deployment, and national expansion together.',
+    label: 'Equity Investment',
+    audience: 'Strategic investors and university venture arms',
+    terms:
+      'Capital partnerships to accelerate innovation, deployment, and national expansion together. Board observer optionality on qualifying rounds.',
+    actionLabel: 'Discuss',
+    actionHref: '/#contact',
   },
   {
-    icon: BookOpen,
-    title: 'Grant, Endowment & Research Funding',
-    description:
-      'Sponsored research collaborations, philanthropic endowments, and institutional grant partnerships that fund deployment through mission-aligned capital — including federal, state, foundation, and donor-directed sources.',
+    label: 'Grant / Endowment / Research',
+    audience: 'Sponsored research, philanthropic, or grant-funded deployments',
+    terms:
+      'Sponsored research collaborations, philanthropic endowments, and institutional grant partnerships funded through mission-aligned capital — federal, state, foundation, and donor-directed sources.',
+    actionLabel: 'Discuss',
+    actionHref: '/#contact',
+  },
+];
+
+const whyNowReasons = [
+  {
+    n: '01',
+    title: 'Preferred Economics',
+    body: 'Lock in commercial terms set when AAS still has open capacity. Later cohorts of partners will price against deployment scale that no longer needs to discount for early-stage validation.',
+  },
+  {
+    n: '02',
+    title: 'Platform Influence',
+    body: 'Direct input into the product roadmap. Foundational partners shape integration priorities, data-model decisions, and operational defaults that will persist as the platform scales.',
+  },
+  {
+    n: '03',
+    title: 'First-Mover Advantage',
+    body: 'Institutional intelligence compounds. Every semester of data deepens the operational moat — partners who deploy first build advantages that widen, not narrow, against their peers.',
   },
 ];
 
 const LicensingPage = () => {
-  const navigate = useNavigate();
-
   return (
     <>
       <Helmet>
-        <title>Licensing & Partners - Academic AI Solutions</title>
+        <title>Licensing & Partners — Academic AI Solutions</title>
         <meta
           name="description"
-          content="Explore partnership opportunities with AAS — collaborative development, protected innovation, and flexible licensing structures for institutional AI."
+          content="Partner with AAS at the ground floor of institutional AI. Licensing, revenue-share, equity, and research funding structures designed for higher education."
         />
       </Helmet>
 
-      <div>
-        {/* Section 1: Partnership Model — Dark with background image */}
-        <section className="relative min-h-[70vh] flex items-center pt-32 pb-24">
-          <div
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage:
-                'url(https://images.unsplash.com/photo-1461963188257-938f39e6f9c2?w=1920&q=80&auto=format)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundAttachment: 'fixed',
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-foreground/60 to-foreground/20" />
-          </div>
+      <div className="pt-[var(--nav-h)]">
+        <PageHero
+          id="lic-hero"
+          className="sticky top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0"
+          kicker="Licensing & Partnership"
+          title={
+            <>
+              Partner at the Ground Floor of <span className="text-primary">Institutional AI</span>
+            </>
+          }
+          subtitle="AAS is building toward a national standard in institutional AI — starting with flagship partners and scaling across thousands of institutions. Early partners shape the platform, influence direction, and secure preferred economics from day one."
+          callToAction={{ text: 'EXPLORE PARTNERSHIP STRUCTURES →', href: '#structures' }}
+          image="https://images.unsplash.com/photo-1771911650735-b471e85e8b17?w=1920&q=80&auto=format"
+        />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-12 text-center"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Partnership Model
-              </h2>
-              <div className="w-24 h-1 bg-accent mb-6 mx-auto" />
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                An integrated development approach merging institutional
-                expertise with AAS technology
-              </p>
-            </motion.div>
-
-            {/* 3-card glassmorphism grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {partnershipBenefits.map((benefit, index) => {
-                const Icon = benefit.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{
-                      y: -5,
-                      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-                    }}
-                    className="p-8 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 text-center transition-all"
-                  >
-                    <div className="flex justify-center mb-6">
-                      <div className="bg-accent/15 p-3 rounded-full">
-                        <Icon className="text-accent" size={32} />
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">
-                      {benefit.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 2: Flexible Structures — Light background */}
-        <section className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              title="Flexible Structures for Strategic Collaboration"
-            />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {flexibleStructures.map((structure, index) => {
-                const Icon = structure.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{
-                      y: -5,
-                      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-                    }}
-                    className="p-8 bg-white rounded-xl shadow-lg border border-gray-100 text-center transition-all"
-                  >
-                    <div className="flex justify-center mb-6">
-                      <div className="bg-primary/10 p-3 rounded-full">
-                        <Icon className="text-primary" size={32} />
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {structure.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {structure.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: National Vision — Dark blue gradient */}
-        <section className="py-24 dark bg-gradient-to-br from-background to-background/90">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section: Partnership Philosophy — sticky, white bg */}
+        <section id="lic-philosophy" className="sticky top-[var(--nav-h)] z-10 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center bg-background py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                National Vision
-              </h2>
-              <div className="w-24 h-1 bg-accent mb-8 mx-auto" />
-              <p className="text-xl text-white/80 leading-relaxed mb-10">
-                AAS is building toward a national standard in institutional AI —
-                starting with flagship partners and scaling across thousands of
-                institutions. Early partners shape the platform, influence
-                direction, and secure preferred economics from day one.
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                Why Partner With AAS
               </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/#contact')}
-                className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg shadow-lg hover:bg-accent/90 transition-colors text-lg"
-              >
-                Explore Partnership Opportunities
-              </motion.button>
+              <h2 className="mb-6 text-4xl font-bold leading-tight text-foreground md:text-5xl">
+                Structural advantage belongs to early partners.
+              </h2>
+              <p className="text-lg leading-relaxed text-foreground/80">
+                Higher education AI is a one-time architecture decision. The institutions that engage now help define the operational defaults, integration patterns, and commercial structures that the rest of the market will inherit — and they do so on terms that won't be available again.
+              </p>
             </motion.div>
+
+            <motion.ul
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.12 } },
+              }}
+              className="space-y-6"
+            >
+              {philosophyPillars.map(({ icon: Icon, title, body }) => (
+                <motion.li
+                  key={title}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                  }}
+                  className="flex gap-4"
+                >
+                  <div className="mt-1 flex-shrink-0 rounded-lg bg-primary/10 p-3">
+                    <Icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="mb-1 text-xl font-bold text-foreground">{title}</h3>
+                    <p className="leading-relaxed text-muted-foreground">{body}</p>
+                  </div>
+                </motion.li>
+              ))}
+            </motion.ul>
           </div>
-        </section>
+        </div>
+      </section>
+
+        {/* Section: Partnership Structures — sticky, cream bg */}
+        <section id="structures" className="sticky top-[var(--nav-h)] z-20 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center bg-secondary py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            title="Partnership Structures"
+            subtitle="Four distinct paths into the AAS platform — designed to fit the operational, financial, and governance realities of major research universities."
+          />
+          <ComparisonTable rows={partnershipStructures} />
+          <p className="mt-8 text-center text-xs italic text-muted-foreground">
+            Structures may be combined. Hybrid arrangements are common for institutions with mixed funding profiles.
+          </p>
+        </div>
+      </section>
+
+        {/* Section: Why Partner Now — sticky, dark bg */}
+        <section id="lic-why-now" className="dark sticky top-[var(--nav-h)] z-30 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center bg-gradient-to-br from-background to-background/90 py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 text-center"
+          >
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Timing
+            </p>
+            <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
+              Why Partner Now
+            </h2>
+            <div className="mx-auto h-1 w-24 bg-accent" />
+          </motion.div>
+
+          <div className="space-y-12">
+            {whyNowReasons.map(({ n, title, body }, i) => (
+              <motion.div
+                key={n}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="grid grid-cols-12 items-start gap-6 border-b border-border/30 pb-12 last:border-b-0 last:pb-0"
+              >
+                <div className="col-span-12 md:col-span-2">
+                  <span className="text-5xl font-bold text-accent md:text-6xl">{n}</span>
+                </div>
+                <div className="col-span-12 md:col-span-10">
+                  <h3 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">{title}</h3>
+                  <p className="text-lg leading-relaxed text-muted-foreground">{body}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-20 text-center"
+          >
+            <a
+              href="/#contact"
+              className="inline-flex items-center rounded-lg bg-accent px-8 py-4 text-lg font-bold text-accent-foreground shadow-lg transition-all hover:bg-accent/90 hover:shadow-xl"
+            >
+              Start a Partnership Conversation →
+            </a>
+          </motion.div>
+        </div>
+      </section>
       </div>
     </>
   );

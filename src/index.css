@@ -6,6 +6,9 @@
 
 @layer base {
   :root {
+    /* Nav bar height — shrinks when body has .nav-compact */
+    --nav-h: 4rem;
+
     --background: 0 0% 100%;
     --foreground: 325 100% 12%;
 
@@ -35,6 +38,10 @@
     --ring: 44 100% 58%;
 
     --radius: 0.5rem;
+  }
+
+  body.nav-compact {
+    --nav-h: 3rem;
   }
 
   .dark {

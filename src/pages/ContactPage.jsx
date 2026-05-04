@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import SectionHeader from '@/components/SectionHeader';
+import { Building, FileText, Mail, User } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-import { Mail, Building, User, FileText } from 'lucide-react';
+import { PageHero } from '@/components/ui/page-hero';
 
 const ContactPage = () => {
   const { toast } = useToast();
@@ -11,52 +11,39 @@ const ContactPage = () => {
     name: '',
     institution: '',
     role: '',
-    inquiryType: 'Deployment'
+    inquiryType: 'Deployment',
   });
-
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
   const validate = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.institution.trim()) newErrors.institution = 'Institution is required';
-    if (!formData.role.trim()) newErrors.role = 'Role is required';
-    return newErrors;
+    const next = {};
+    if (!formData.name.trim()) next.name = 'Name is required';
+    if (!formData.institution.trim()) next.institution = 'Institution is required';
+    if (!formData.role.trim()) next.role = 'Role is required';
+    return next;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = validate();
-    
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
+    const next = validate();
+    if (Object.keys(next).length > 0) {
+      setErrors(next);
       return;
     }
-
     setIsSubmitting(true);
-    
-    // Simulate submission
     setTimeout(() => {
       toast({
-        title: "Inquiry Submitted Successfully!",
+        title: 'Inquiry Submitted Successfully!',
         description: `Thank you ${formData.name}! Your inquiry has been sent to admin@academicaisolutions.com. We'll respond within 24-48 hours.`,
       });
-      
-      setFormData({
-        name: '',
-        institution: '',
-        role: '',
-        inquiryType: 'Deployment'
-      });
+      setFormData({ name: '', institution: '', role: '', inquiryType: 'Deployment' });
       setIsSubmitting(false);
     }, 1500);
   };
@@ -64,140 +51,131 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact - Academic AI Solutions</title>
-        <meta name="description" content="Get in touch with Academic AI Solutions to explore partnership opportunities and deployment options." />
+        <title>Contact — Academic AI Solutions</title>
+        <meta
+          name="description"
+          content="Contact Academic AI Solutions. Discuss deployment, strategic licensing, research collaboration, or investment opportunities."
+        />
       </Helmet>
 
-      <div className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Contact Us"
-            subtitle="Let's discuss how Academic AI Solutions can transform your institution"
-          />
+      <div className="pt-[var(--nav-h)]">
+        <PageHero
+          id="contact-hero"
+          kicker="Get in Touch"
+          title={
+            <>
+              Let's discuss what AAS can do for <span className="text-primary">your institution</span>
+            </>
+          }
+          subtitle="Tell us a little about your role and the kind of conversation you want to have. We respond to every inquiry within 24–48 hours."
+          image="https://images.unsplash.com/photo-1686829613628-3e4ebe6f27e7?w=1920&q=80&auto=format"
+        />
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border border-gray-100"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
-              <div>
-                <label htmlFor="name" className="flex items-center text-sm font-semibold text-primary mb-2">
-                  <User size={18} className="mr-2" />
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 ${
-                    errors.name ? 'border-red-500' : 'border-gray-200'
-                  }`}
-                  placeholder="Your full name"
-                />
-                {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
-              </div>
+        <section id="contact-form" className="relative z-10 py-24 bg-background">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-card rounded-2xl shadow-2xl p-8 md:p-12 border border-border"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="flex items-center text-sm font-semibold text-primary mb-2">
+                      <User size={18} className="mr-2" />
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 bg-muted border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all text-foreground ${errors.name ? 'border-red-500' : 'border-border'}`}
+                      placeholder="Full name"
+                    />
+                    {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
+                  </div>
 
-              {/* Institution Field */}
-              <div>
-                <label htmlFor="institution" className="flex items-center text-sm font-semibold text-primary mb-2">
-                  <Building size={18} className="mr-2" />
-                  Institution
-                </label>
-                <input
-                  type="text"
-                  id="institution"
-                  name="institution"
-                  value={formData.institution}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 ${
-                    errors.institution ? 'border-red-500' : 'border-gray-200'
-                  }`}
-                  placeholder="Your institution name"
-                />
-                {errors.institution && <p className="mt-1 text-sm text-red-500">{errors.institution}</p>}
-              </div>
+                  <div>
+                    <label htmlFor="institution" className="flex items-center text-sm font-semibold text-primary mb-2">
+                      <Building size={18} className="mr-2" />
+                      Institution
+                    </label>
+                    <input
+                      type="text"
+                      id="institution"
+                      name="institution"
+                      value={formData.institution}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 bg-muted border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all text-foreground ${errors.institution ? 'border-red-500' : 'border-border'}`}
+                      placeholder="Institution name"
+                    />
+                    {errors.institution && <p className="mt-1 text-sm text-red-500">{errors.institution}</p>}
+                  </div>
+                </div>
 
-              {/* Role Field */}
-              <div>
-                <label htmlFor="role" className="flex items-center text-sm font-semibold text-primary mb-2">
-                  <FileText size={18} className="mr-2" />
-                  Role
-                </label>
-                <input
-                  type="text"
-                  id="role"
-                  name="role"
-                  value={formData.role}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 ${
-                    errors.role ? 'border-red-500' : 'border-gray-200'
-                  }`}
-                  placeholder="Your role or title"
-                />
-                {errors.role && <p className="mt-1 text-sm text-red-500">{errors.role}</p>}
-              </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="role" className="flex items-center text-sm font-semibold text-primary mb-2">
+                      <FileText size={18} className="mr-2" />
+                      Role
+                    </label>
+                    <input
+                      type="text"
+                      id="role"
+                      name="role"
+                      value={formData.role}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 bg-muted border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all text-foreground ${errors.role ? 'border-red-500' : 'border-border'}`}
+                      placeholder="Job title"
+                    />
+                    {errors.role && <p className="mt-1 text-sm text-red-500">{errors.role}</p>}
+                  </div>
 
-              {/* Inquiry Type Field */}
-              <div>
-                <label htmlFor="inquiryType" className="flex items-center text-sm font-semibold text-primary mb-2">
-                  <Mail size={18} className="mr-2" />
-                  Inquiry Type
-                </label>
-                <select
-                  id="inquiryType"
-                  name="inquiryType"
-                  value={formData.inquiryType}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900"
+                  <div>
+                    <label htmlFor="inquiryType" className="flex items-center text-sm font-semibold text-primary mb-2">
+                      <Mail size={18} className="mr-2" />
+                      Inquiry Type
+                    </label>
+                    <select
+                      id="inquiryType"
+                      name="inquiryType"
+                      value={formData.inquiryType}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-muted border-2 border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all text-foreground"
+                    >
+                      <option value="Deployment">Deployment</option>
+                      <option value="Strategic Licensing">Strategic Licensing</option>
+                      <option value="Research & Grant Collaboration">Research & Grant Collaboration</option>
+                      <option value="Investment">Investment</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full px-8 py-4 bg-accent text-accent-foreground font-bold text-lg rounded-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed mt-4"
                 >
-                  <option value="Deployment">Deployment</option>
-                  <option value="Strategic Licensing">Strategic Licensing</option>
-                </select>
+                  {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                </button>
+              </form>
+
+              <div className="mt-8 pt-8 border-t border-border text-center">
+                <p className="text-muted-foreground mb-2">Submissions will be sent to:</p>
+                <a
+                  href="mailto:admin@academicaisolutions.com"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  admin@academicaisolutions.com
+                </a>
               </div>
-
-              {/* Submit Button */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-primary text-primary-foreground font-semibold text-lg rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
-              </motion.button>
-            </form>
-
-            {/* Contact Info */}
-            <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-              <p className="text-gray-600 mb-2">
-                Submissions will be sent to:
-              </p>
-              <a 
-                href="mailto:admin@academicaisolutions.com"
-                className="text-primary font-semibold hover:underline"
-              >
-                admin@academicaisolutions.com
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Legal Notice */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="mt-12 text-center"
-          >
-            <p className="text-sm text-gray-500 max-w-3xl mx-auto">
-              © 2026 Academic AI Solutions LLC. All Rights Reserved. Protected by issued patents, pending applications, and trade secret law.
-            </p>
-          </motion.div>
-        </div>
+            </motion.div>
+          </div>
+        </section>
       </div>
     </>
   );
