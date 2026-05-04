@@ -323,11 +323,11 @@ const Navigation = () => {
               </motion.ul>
 
               {/* Footer microcopy in the panel */}
-              <div className="absolute bottom-8 left-12 lg:left-20 right-12 lg:right-20 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-primary-foreground/60">
+              <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-2 text-[10px] uppercase tracking-[0.18em] text-primary-foreground/60 sm:bottom-8 sm:left-12 sm:right-12 sm:text-xs sm:tracking-[0.2em] lg:left-20 lg:right-20 sm:flex-row sm:items-center sm:justify-between">
                 <span>Academic AI Solutions</span>
                 <a
                   href="mailto:admin@academicaisolutions.com"
-                  className="text-accent transition-opacity hover:opacity-80"
+                  className="break-all text-accent transition-opacity hover:opacity-80 sm:break-normal"
                 >
                   admin@academicaisolutions.com
                 </a>

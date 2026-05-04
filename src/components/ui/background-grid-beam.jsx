@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+
+const usePrefersReducedMotion = () => {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduced(mq.matches);
+    const onChange = (e) => setReduced(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  return reduced;
+};
 
 const Beam = () => (
   <svg
@@ -43,11 +56,14 @@ const Beam = () => (
   </svg>
 );
 
-export const GridBeam = ({ children, className }) => (
-  <div className={cn('relative w-full h-full bg-grid', className)}>
-    <Beam />
-    {children}
-  </div>
-);
+export const GridBeam = ({ children, className }) => {
+  const reduced = usePrefersReducedMotion();
+  return (
+    <div className={cn('relative w-full h-full bg-grid', className)}>
+      {!reduced && <Beam />}
+      {children}
+    </div>
+  );
+};
 
 export { Beam };

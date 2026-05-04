@@ -75,7 +75,7 @@ const PageHero = React.forwardRef(
             </motion.p>
           )}
           <motion.h1
-            className="text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl"
+            className="text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             {title}

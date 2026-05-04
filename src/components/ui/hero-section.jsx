@@ -56,22 +56,42 @@ const HeroSection = React.forwardRef(
     },
     ref
   ) => {
-    const images =
+    const allImages =
       Array.isArray(backgroundImages) && backgroundImages.length > 0
         ? backgroundImages
         : [backgroundImage];
+
+    // Mobile devices skip the slideshow entirely — they only ever see the first image.
+    // The right image panel is stacked below content on mobile and benefits little from rotation,
+    // while preloading 11 large images (~9MB) on mount kills mobile performance.
+    const [isDesktop, setIsDesktop] = useState(false);
+    useEffect(() => {
+      if (typeof window === 'undefined') return;
+      const mq = window.matchMedia('(min-width: 768px)');
+      setIsDesktop(mq.matches);
+      const onChange = (e) => setIsDesktop(e.matches);
+      mq.addEventListener('change', onChange);
+      return () => mq.removeEventListener('change', onChange);
+    }, []);
+
+    const images = isDesktop ? allImages : allImages.slice(0, 1);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
       if (typeof window === 'undefined') return;
-      images.forEach((src) => {
+      if (!isDesktop) return; // skip eager preload on mobile
+      // Single-image lookahead: preload current + next, not all.
+      const next = (currentIndex + 1) % images.length;
+      [images[currentIndex], images[next]].forEach((src) => {
+        if (!src) return;
         const img = new window.Image();
         img.src = src;
       });
-    }, [images]);
+    }, [isDesktop, currentIndex, images]);
 
     useEffect(() => {
       if (images.length < 2) return;
+      if (!isDesktop) return; // no rotation on mobile
       if (
         typeof window !== 'undefined' &&
         window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
@@ -82,7 +102,7 @@ const HeroSection = React.forwardRef(
         setCurrentIndex((i) => (i + 1) % images.length);
       }, slideshowInterval);
       return () => clearInterval(id);
-    }, [images.length, slideshowInterval]);
+    }, [images.length, slideshowInterval, isDesktop]);
 
     return (
       <motion.section
@@ -97,7 +117,7 @@ const HeroSection = React.forwardRef(
         {...props}
       >
         {/* Left: Content */}
-        <div className="relative flex w-full flex-col justify-between p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
+        <div className="relative flex w-full flex-col justify-between p-6 sm:p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
           {/* Decorative grid + animated beam behind the lower half (CTA + signals) */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 overflow-hidden md:h-1/2">
             <GridBeam className="h-full" />
@@ -106,7 +126,7 @@ const HeroSection = React.forwardRef(
           <div className="relative">
             <motion.main variants={containerVariants}>
               <motion.h1
-                className="text-5xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl"
+                className="text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
                 variants={itemVariants}
               >
                 {title}

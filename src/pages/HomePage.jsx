@@ -66,7 +66,7 @@ const HomePage = () => {
 
       <div className="pt-[var(--nav-h)]">
       {/* ==================== SECTION 1: HERO (HOME) ==================== */}
-      <section id="home" className="sticky top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0">
+      <section id="home" className="md:sticky md:top-[var(--nav-h)] md:h-[calc(100vh-var(--nav-h))] z-0">
         <HeroSection
           className="min-h-[calc(100vh-var(--nav-h))]"
           title={
@@ -101,12 +101,12 @@ const HomePage = () => {
                   {INSTITUTIONS.map((school) => (
                     <div
                       key={school.file}
-                      className="flex w-28 items-center justify-center"
+                      className="flex w-20 items-center justify-center sm:w-28"
                     >
                       <img
                         src={`/institutions/${school.file}`}
                         alt={school.name}
-                        className="h-9 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                        className="h-7 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-9"
                         loading="lazy"
                       />
                     </div>
@@ -120,7 +120,7 @@ const HomePage = () => {
 
 
       {/* ==================== SECTION 3: CORE PRODUCTS ==================== */}
-      <section id="products" className="sticky top-[var(--nav-h)] z-20 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-background">
+      <section id="products" className="md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-background">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -129,7 +129,7 @@ const HomePage = () => {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <h2 className="text-5xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl">
+            <h2 className="text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
               Core <span className="text-primary">Products</span>
             </h2>
             <div className="mt-6 h-1 w-20 bg-accent" />
@@ -160,7 +160,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 4: INTELLIGENT DATA & MAPPING ==================== */}
-      <section id="data" className="sticky top-[var(--nav-h)] z-30 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-gradient-to-b from-secondary to-background">
+      <section id="data" className="md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-gradient-to-b from-secondary to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Intelligent Data & Mapping"
@@ -226,7 +226,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: SYSTEM & APP INTEGRATIONS ==================== */}
-      <section id="integrations" className="dark sticky top-[var(--nav-h)] z-40 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background/90">
+      <section id="integrations" className="dark md:sticky md:top-[var(--nav-h)] z-40 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -235,7 +235,7 @@ const HomePage = () => {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <h2 className="text-5xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl">
+            <h2 className="text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
               System & App <span className="text-accent">Integrations</span>
             </h2>
             <div className="my-6 h-1 w-20 bg-accent" />
@@ -300,7 +300,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: ENTERPRISE VALIDATED ==================== */}
-      <section id="enterprise" className="sticky top-[var(--nav-h)] z-50 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-muted">
+      <section id="enterprise" className="md:sticky md:top-[var(--nav-h)] z-50 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader title="Enterprise Validated" />
           <motion.div
@@ -319,7 +319,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 6: PATENT PORTFOLIO ==================== */}
-      <section id="patent" className="dark sticky top-[var(--nav-h)] z-[60] flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-gradient-to-br from-background to-background/90">
+      <section id="patent" className="dark md:sticky md:top-[var(--nav-h)] z-[60] flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center py-24 bg-gradient-to-br from-background to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
