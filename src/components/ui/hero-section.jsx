@@ -117,7 +117,7 @@ const HeroSection = React.forwardRef(
         {...props}
       >
         {/* Left: Content */}
-        <div className="relative flex w-full flex-col justify-between p-6 sm:p-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
+        <div className="relative flex w-full flex-col justify-between px-6 pt-12 pb-6 sm:px-8 sm:pt-16 sm:pb-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
           {/* Decorative grid + animated beam behind the lower half (CTA + signals) */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 overflow-hidden md:h-1/2">
             <GridBeam className="h-full" />
@@ -154,12 +154,26 @@ const HeroSection = React.forwardRef(
           <div className="relative">
             {belowCta && (
               <motion.div className="mt-12 w-full" variants={itemVariants}>
-                {belowCta}
+                {/* Mobile: photo backdrop + maroon scrim wraps the slot full-bleed; desktop: pass-through */}
+                <div className="relative -mx-6 sm:-mx-8 md:mx-0">
+                  <div className="absolute inset-0 overflow-hidden md:hidden" aria-hidden="true">
+                    <img
+                      src={images[0]}
+                      alt=""
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-foreground/70 backdrop-blur-sm" />
+                  </div>
+                  <div className="relative z-10 px-6 py-5 sm:px-8 md:p-0">
+                    {belowCta}
+                  </div>
+                </div>
               </motion.div>
             )}
 
             {signals.length > 0 && (
-              <motion.footer className="mt-8 w-full" variants={itemVariants}>
+              <motion.footer className="mt-8 hidden w-full md:block" variants={itemVariants}>
                 <div className="grid grid-cols-1 gap-6 text-xs text-muted-foreground sm:grid-cols-3">
                   {signals.map((signal) => (
                     <div key={signal.label} className="flex items-center">
@@ -173,9 +187,9 @@ const HeroSection = React.forwardRef(
           </div>
         </div>
 
-        {/* Right: Slideshow — each image slides in from the right */}
+        {/* Right: Slideshow — each image slides in from the right (desktop only; mobile uses belowCta backdrop) */}
         <div
-          className="relative min-h-[300px] w-full overflow-hidden md:min-h-full md:w-1/2 lg:w-2/5"
+          className="relative hidden overflow-hidden md:block md:min-h-full md:w-1/2 lg:w-2/5"
           style={{ clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0% 100%)' }}
           aria-hidden="true"
         >

@@ -89,7 +89,7 @@ const HomePage = () => {
           ]}
           belowCta={
             <div>
-              <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-white/85 md:text-muted-foreground">
                 Built for institutions like these
               </p>
               <div className="relative h-[60px] w-full overflow-hidden">
@@ -106,7 +106,7 @@ const HomePage = () => {
                       <img
                         src={`/institutions/${school.file}`}
                         alt={school.name}
-                        className="h-7 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-9"
+                        className="h-7 w-auto object-contain opacity-90 brightness-0 invert transition-all duration-300 sm:h-9 md:opacity-70 md:grayscale md:invert-0 md:brightness-100 md:hover:opacity-100 md:hover:grayscale-0"
                         loading="lazy"
                       />
                     </div>
