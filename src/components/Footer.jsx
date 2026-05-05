@@ -1,23 +1,56 @@
 import React from 'react';
-import Logo from '@/components/Logo';
+import { StickyFooter } from '@/components/ui/sticky-footer';
+
+const LINK_GROUPS = [
+  {
+    label: 'Product',
+    links: [
+      { title: 'The Platform', href: '/platform' },
+      { title: 'Core Products', href: '/#products' },
+      { title: 'Intelligent Data', href: '/#data' },
+      { title: 'Integrations', href: '/#integrations' },
+      { title: 'Patent Portfolio', href: '/#patent' },
+    ],
+  },
+  {
+    label: 'Company',
+    links: [
+      { title: 'Team', href: '/team' },
+      { title: 'Licensing & Partners', href: '/licensing' },
+      { title: 'Financial Impact', href: '/financial-impact' },
+      { title: 'Contact', href: '/contact' },
+    ],
+  },
+  {
+    label: 'Legal',
+    links: [
+      { title: 'Privacy Policy', href: '#' },
+      { title: 'Terms of Service', href: '#' },
+      { title: 'Patent Disclosures', href: '#' },
+    ],
+  },
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 border-t-2 border-accent/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center space-y-6">
-          <div className="flex items-center space-x-3">
-            <Logo variant="light" />
-            <span className="text-xl font-bold text-white">
-              Academic AI Solutions
-            </span>
-          </div>
-          <p className="text-center text-sm max-w-3xl">
-            © 2026 Academic AI Solutions LLC. All Rights Reserved. Protected by patents, pending applications, and trade secret law. Proprietary and patent-claimed technology under full IP protection.
-          </p>
+    <StickyFooter
+      brand={
+        <div className="flex items-center gap-3">
+          <img
+            src="/logos/logo-icon.gif"
+            alt=""
+            aria-hidden="true"
+            className="h-10 w-10 rounded-md object-contain"
+          />
+          <span className="text-base font-bold tracking-tight text-foreground">
+            Academic AI Solutions
+          </span>
         </div>
-      </div>
-    </footer>
+      }
+      tagline="The patent-secured AI operating system for higher education."
+      linkGroups={LINK_GROUPS}
+      legal="© 2026 Academic AI Solutions LLC. All Rights Reserved. Protected by patents, pending applications, and trade secret law. Proprietary and patent-claimed technology under full IP protection."
+    />
   );
 };
 
