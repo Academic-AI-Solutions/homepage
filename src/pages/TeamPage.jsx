@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { PageHero } from '@/components/ui/page-hero';
 import SectionHeader from '@/components/SectionHeader';
 import TeamShowcase from '@/components/ui/team-showcase';
 
@@ -44,19 +43,7 @@ const TeamPage = () => {
       </Helmet>
 
       <div className="pt-[var(--nav-h)]">
-        <PageHero
-          id="team-hero"
-          kicker="The Team"
-          title={
-            <>
-              Built by People Who Know <span className="text-primary">Both Worlds</span>
-            </>
-          }
-          subtitle="Education operators. AI engineers. Enterprise builders. Patent attorneys. Our team brings together deep institutional knowledge with the technical expertise to build and scale."
-          image="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=1920&q=80&auto=format"
-        />
-
-        <section id="team-grid" className="relative z-10 bg-background py-24">
+        <section id="team-grid" className="relative z-10 bg-background pb-24 pt-16 md:pt-20">
           <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
             <SectionHeader
               title={<>The People Behind <span className="text-primary">AAS</span></>}
