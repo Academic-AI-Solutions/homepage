@@ -29,7 +29,7 @@ const TeamShowcase = ({ members = [] }) => {
   const cols6 = distribute(normalized, 6);
 
   return (
-    <div className="flex w-full select-none flex-col gap-10 lg:flex-row lg:gap-12">
+    <div className="flex w-full select-none flex-row items-start gap-4 sm:gap-6 md:gap-8 lg:gap-12">
       {/* Photo grid — 3 responsive variants */}
       <div className="flex-shrink-0">
         <PhotoGrid
@@ -37,7 +37,7 @@ const TeamShowcase = ({ members = [] }) => {
           className="flex md:hidden lg:hidden"
           hoveredId={hoveredId}
           onHover={setHoveredId}
-          sizeClass="h-[150px] w-[135px] sm:h-[170px] sm:w-[155px]"
+          sizeClass="h-[95px] w-[78px] sm:h-[120px] sm:w-[100px]"
         />
         <PhotoGrid
           columns={cols4}
@@ -55,8 +55,8 @@ const TeamShowcase = ({ members = [] }) => {
         />
       </div>
 
-      {/* Member name list — responsive 1 / 2 / 3 columns */}
-      <div className="grid flex-1 grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Member name list — single column on mobile/tablet (sharing row with photos), 3 cols on desktop */}
+      <div className="grid flex-1 grid-cols-1 gap-x-8 gap-y-4 sm:gap-y-5 lg:grid-cols-3">
         {normalized.map((member) => (
           <MemberRow
             key={member.id}
@@ -78,7 +78,7 @@ const PhotoGrid = ({ columns, className, hoveredId, onHover, sizeClass }) => (
         key={ci}
         className={cn(
           'flex flex-col gap-3 md:gap-3',
-          ci % 2 === 1 && 'mt-10 md:mt-8'
+          ci % 2 === 1 && 'mt-6 md:mt-8'
         )}
       >
         {col.map((member) => (
