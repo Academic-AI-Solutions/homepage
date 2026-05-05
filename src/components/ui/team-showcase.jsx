@@ -22,19 +22,37 @@ const TeamShowcase = ({ members = [] }) => {
     social: m.social ?? {},
   }));
 
-  // Responsive column counts via three pre-distributed grids; we render one per breakpoint.
+  // Three responsive photo grids: mobile is 2 staggered cols, tablet 4, desktop 6.
   // Tailwind can't conditionally swap distribute() output, so we render all three and toggle visibility.
-  const cols6 = distribute(normalized, 6);
+  const cols2 = distribute(normalized, 2);
   const cols4 = distribute(normalized, 4);
-  const cols3 = distribute(normalized, 3);
+  const cols6 = distribute(normalized, 6);
 
   return (
     <div className="flex w-full select-none flex-col gap-10 lg:flex-row lg:gap-12">
       {/* Photo grid — 3 responsive variants */}
       <div className="flex-shrink-0">
-        <PhotoGrid columns={cols3} className="flex lg:hidden md:hidden" hoveredId={hoveredId} onHover={setHoveredId} sizeClass="h-[110px] w-[100px] sm:h-[125px] sm:w-[115px]" />
-        <PhotoGrid columns={cols4} className="hidden md:flex lg:hidden" hoveredId={hoveredId} onHover={setHoveredId} sizeClass="h-[120px] w-[110px]" />
-        <PhotoGrid columns={cols6} className="hidden lg:flex" hoveredId={hoveredId} onHover={setHoveredId} sizeClass="h-[110px] w-[95px] xl:h-[120px] xl:w-[105px]" />
+        <PhotoGrid
+          columns={cols2}
+          className="flex md:hidden lg:hidden"
+          hoveredId={hoveredId}
+          onHover={setHoveredId}
+          sizeClass="h-[150px] w-[135px] sm:h-[170px] sm:w-[155px]"
+        />
+        <PhotoGrid
+          columns={cols4}
+          className="hidden md:flex lg:hidden"
+          hoveredId={hoveredId}
+          onHover={setHoveredId}
+          sizeClass="h-[120px] w-[110px]"
+        />
+        <PhotoGrid
+          columns={cols6}
+          className="hidden lg:flex"
+          hoveredId={hoveredId}
+          onHover={setHoveredId}
+          sizeClass="h-[110px] w-[95px] xl:h-[120px] xl:w-[105px]"
+        />
       </div>
 
       {/* Member name list — responsive 1 / 2 / 3 columns */}
@@ -54,13 +72,13 @@ const TeamShowcase = ({ members = [] }) => {
 
 /* Asymmetric photo grid — even-index columns offset down to keep the "fan" feel */
 const PhotoGrid = ({ columns, className, hoveredId, onHover, sizeClass }) => (
-  <div className={cn('gap-2 md:gap-3', className)}>
+  <div className={cn('gap-3 md:gap-3', className)}>
     {columns.map((col, ci) => (
       <div
         key={ci}
         className={cn(
-          'flex flex-col gap-2 md:gap-3',
-          ci % 2 === 1 && 'mt-6 md:mt-8'
+          'flex flex-col gap-3 md:gap-3',
+          ci % 2 === 1 && 'mt-10 md:mt-8'
         )}
       >
         {col.map((member) => (
