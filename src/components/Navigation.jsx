@@ -256,10 +256,10 @@ const Navigation = () => {
                 aria-label="Close menu"
                 className="absolute top-6 right-6 z-20 group flex items-center gap-3"
               >
-                <span className="text-sm font-bold uppercase tracking-[0.2em] text-accent transition-opacity group-hover:opacity-80">
+                <span className="text-sm font-bold uppercase tracking-[0.2em] text-secondary transition-colors duration-200 group-hover:text-accent">
                   Close
                 </span>
-                <X className="h-5 w-5 text-accent transition-transform group-hover:rotate-90" />
+                <X className="h-5 w-5 text-secondary transition-all duration-200 group-hover:rotate-90 group-hover:text-accent" />
               </button>
 
               {/* Hover-driven background shape */}
@@ -313,7 +313,14 @@ const Navigation = () => {
                             isActive ? 'w-12 opacity-100' : 'w-0 opacity-0 group-hover:w-8 group-hover:opacity-100'
                           )}
                         />
-                        <span className="text-4xl font-bold uppercase tracking-tight text-accent md:text-5xl lg:text-6xl">
+                        <span
+                          className={cn(
+                            'text-4xl font-bold uppercase tracking-tight transition-colors duration-200 md:text-5xl lg:text-6xl',
+                            isActive
+                              ? 'text-accent'
+                              : 'text-secondary group-hover:text-accent'
+                          )}
+                        >
                           {item.label}
                         </span>
                       </button>
@@ -323,11 +330,11 @@ const Navigation = () => {
               </motion.ul>
 
               {/* Footer microcopy in the panel */}
-              <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-2 text-[10px] uppercase tracking-[0.18em] text-primary-foreground/60 sm:bottom-8 sm:left-12 sm:right-12 sm:text-xs sm:tracking-[0.2em] lg:left-20 lg:right-20 sm:flex-row sm:items-center sm:justify-between">
+              <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-2 text-[10px] uppercase tracking-[0.18em] text-secondary/70 sm:bottom-8 sm:left-12 sm:right-12 sm:text-xs sm:tracking-[0.2em] lg:left-20 lg:right-20 sm:flex-row sm:items-center sm:justify-between">
                 <span>Academic AI Solutions</span>
                 <a
                   href="mailto:admin@academicaisolutions.com"
-                  className="break-all text-accent transition-opacity hover:opacity-80 sm:break-normal"
+                  className="break-all text-secondary transition-colors duration-200 hover:text-accent sm:break-normal"
                 >
                   admin@academicaisolutions.com
                 </a>

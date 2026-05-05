@@ -120,11 +120,11 @@ const HomePage = () => {
 
 
       {/* ==================== SECTION 3: CORE PRODUCTS ==================== */}
-      <section id="products" className="md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-background">
+      <section id="products" className="dark md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             className="mb-6"
-            title={<>Core <span className="text-primary">Products</span></>}
+            title={<>Core <span className="text-accent">Products</span></>}
           />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div onClick={() => navigate('/platform')} className="cursor-pointer">
