@@ -11,6 +11,13 @@ const distribute = (members, columns) =>
     members.filter((_, i) => i % columns === c)
   );
 
+// Pair members in 2-tuples for the mobile paired-row layout.
+const toPairs = (arr) => {
+  const out = [];
+  for (let i = 0; i < arr.length; i += 2) out.push([arr[i], arr[i + 1]]);
+  return out;
+};
+
 const TeamShowcase = ({ members = [] }) => {
   const [hoveredId, setHoveredId] = useState(null);
 
@@ -22,49 +29,70 @@ const TeamShowcase = ({ members = [] }) => {
     social: m.social ?? {},
   }));
 
-  // Three responsive photo grids: mobile is 2 staggered cols, tablet 4, desktop 6.
-  // Tailwind can't conditionally swap distribute() output, so we render all three and toggle visibility.
-  const cols2 = distribute(normalized, 2);
+  // Tablet/desktop pre-distributed grids (mobile uses paired-row layout instead).
   const cols4 = distribute(normalized, 4);
   const cols6 = distribute(normalized, 6);
 
+  const pairs = toPairs(normalized);
+
   return (
-    <div className="flex w-full select-none flex-row items-start gap-4 sm:gap-6 md:gap-8 lg:gap-12">
-      {/* Photo grid — 3 responsive variants */}
-      <div className="flex-shrink-0">
-        <PhotoGrid
-          columns={cols2}
-          className="flex md:hidden lg:hidden"
-          hoveredId={hoveredId}
-          onHover={setHoveredId}
-          sizeClass="h-[95px] w-[78px] sm:h-[120px] sm:w-[100px]"
-        />
-        <PhotoGrid
-          columns={cols4}
-          className="hidden md:flex lg:hidden"
-          hoveredId={hoveredId}
-          onHover={setHoveredId}
-          sizeClass="h-[120px] w-[110px]"
-        />
-        <PhotoGrid
-          columns={cols6}
-          className="hidden lg:flex"
-          hoveredId={hoveredId}
-          onHover={setHoveredId}
-          sizeClass="h-[110px] w-[95px] xl:h-[120px] xl:w-[105px]"
-        />
+    <div className="w-full select-none">
+      {/* Mobile (<md): paired rows — each row block holds 2 photos + their 2 names so they cannot drift apart */}
+      <div className="flex flex-col gap-5 md:hidden">
+        {pairs.map(([a, b], i) => (
+          <div key={a.id} className="flex items-start gap-4">
+            <div className="flex flex-shrink-0 gap-3">
+              <PhotoCard
+                member={a}
+                sizeClass="h-[95px] w-[78px]"
+                hoveredId={hoveredId}
+                onHover={setHoveredId}
+              />
+              {b && (
+                <PhotoCard
+                  member={b}
+                  sizeClass="h-[95px] w-[78px] mt-4"
+                  hoveredId={hoveredId}
+                  onHover={setHoveredId}
+                />
+              )}
+            </div>
+            <div className="flex min-h-[111px] flex-1 flex-col justify-around gap-3">
+              <MemberRow member={a} hoveredId={hoveredId} onHover={setHoveredId} />
+              {b && <MemberRow member={b} hoveredId={hoveredId} onHover={setHoveredId} />}
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Member name list — single column on mobile/tablet (sharing row with photos), 3 cols on desktop */}
-      <div className="grid flex-1 grid-cols-1 gap-x-8 gap-y-4 sm:gap-y-5 lg:grid-cols-3">
-        {normalized.map((member) => (
-          <MemberRow
-            key={member.id}
-            member={member}
+      {/* md+: existing photo-grid + name-list side-by-side */}
+      <div className="hidden w-full flex-row items-start md:flex md:gap-8 lg:gap-12">
+        <div className="flex-shrink-0">
+          <PhotoGrid
+            columns={cols4}
+            className="flex lg:hidden"
             hoveredId={hoveredId}
             onHover={setHoveredId}
+            sizeClass="h-[120px] w-[110px]"
           />
-        ))}
+          <PhotoGrid
+            columns={cols6}
+            className="hidden lg:flex"
+            hoveredId={hoveredId}
+            onHover={setHoveredId}
+            sizeClass="h-[110px] w-[95px] xl:h-[120px] xl:w-[105px]"
+          />
+        </div>
+        <div className="grid flex-1 grid-cols-1 gap-x-8 gap-y-5 lg:grid-cols-3">
+          {normalized.map((member) => (
+            <MemberRow
+              key={member.id}
+              member={member}
+              hoveredId={hoveredId}
+              onHover={setHoveredId}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
