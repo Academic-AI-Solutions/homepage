@@ -39,16 +39,12 @@ const INTEGRATION_FEATURES = [
 const HERO_SLIDESHOW = [
   // Trnavska Univerzita campus exterior — warm brick and greenery
   'https://images.unsplash.com/photo-1686829613628-3e4ebe6f27e7?w=1920&q=80&auto=format',
-  // University CS lab — rows of monitors
-  'https://images.unsplash.com/photo-1643199187247-b3b6009bf0bb?w=1920&q=80&auto=format',
   // Robotics lab — white robotic arm closeup
   'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1920&q=80&auto=format',
   // Data science / coding workstation — dual monitors
   'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=1920&q=80&auto=format',
   // Modern academic interior — curved glass + reflective floor
   'https://images.unsplash.com/photo-1771911650735-b471e85e8b17?w=1920&q=80&auto=format',
-  // Engineering / maker bench — Arduino + circuitry
-  'https://images.unsplash.com/photo-1649959265391-8a1de884248a?w=1920&q=80&auto=format',
   // Local AI photos
   '/hero/ai.jpg',
   '/hero/ai2.jpg',
