@@ -4,12 +4,13 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   Users, Briefcase,
-  Map, Activity, Brain, ShieldAlert, Plug, Building2, Wrench,
+  Plug, Building2, Wrench,
 } from 'lucide-react';
 import { HeroSection } from '@/components/ui/hero-section';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
+import IntelligentDataBento from '@/components/ui/intelligent-data-bento';
 
 const HERO_SLIDESHOW = [
   // Trnavska Univerzita campus exterior — warm brick and greenery
@@ -152,7 +153,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 4: INTELLIGENT DATA & MAPPING ==================== */}
-      <section id="data" className="md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-b from-secondary to-background">
+      <section id="data" className="relative z-30 flex flex-col justify-start py-12 md:py-24 bg-gradient-to-b from-secondary to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Intelligent <span className="text-primary">Data &amp; Mapping</span></>}
@@ -162,51 +163,9 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12"
+            className="mb-8 md:mb-12"
           >
-            {[
-              {
-                icon: <Map className="text-primary" size={32} />,
-                title: 'Campus Digital Twin',
-                desc: 'A living digital replica of your campus operating in real time'
-              },
-              {
-                icon: <Activity className="text-primary" size={32} />,
-                title: 'Campus Flow & Mapping',
-                desc: 'Student movement, facility usage, traffic patterns, and space utilization visualized'
-              },
-              {
-                icon: <Brain className="text-primary" size={32} />,
-                title: 'Predictive Intelligence',
-                desc: 'Retention risk, enrollment trends, and resource demand surfaced before they become problems'
-              },
-              {
-                icon: <ShieldAlert className="text-primary" size={32} />,
-                title: 'Safety & Risk Monitoring',
-                desc: 'Real-time campus awareness, incident tracking, and liability reduction'
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
-                }}
-                className="p-6 bg-white rounded-lg shadow-md border border-gray-100 text-center transition-all"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    {item.icon}
-                  </div>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
-              </motion.div>
-            ))}
+            <IntelligentDataBento />
           </motion.div>
           <motion.p
             {...fadeInUp}
