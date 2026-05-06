@@ -4,26 +4,47 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   Users, Briefcase,
-  Map, Activity, Brain, ShieldAlert, Plug, Building2, Wrench,
 } from 'lucide-react';
 import { HeroSection } from '@/components/ui/hero-section';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
+import IntelligentDataBento from '@/components/ui/intelligent-data-bento';
+import IntegrationFeatureCards from '@/components/ui/integration-feature-cards';
+
+const INTEGRATION_FEATURES = [
+  {
+    title: 'Pre-Built Connectors',
+    description:
+      'SIS · LMS · CRM · ERP · Housing · Dining · Financial Aid · Career Services · Events · Athletics · Parking · Transportation · Health Services · Campus Safety · Payment Systems · Marketplace.',
+    image:
+      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Legacy Compatible',
+    description:
+      'Designed to work with campus infrastructure that has been in place for decades — without rip-and-replace migration.',
+    image:
+      'https://images.unsplash.com/photo-1562774053-701939374585?w=1200&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Custom Builds',
+    description:
+      'Tailored integrations for institution-specific tools and workflows unique to your campus, built and maintained by AAS.',
+    image:
+      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&auto=format&fit=crop',
+  },
+];
 
 const HERO_SLIDESHOW = [
   // Trnavska Univerzita campus exterior — warm brick and greenery
   'https://images.unsplash.com/photo-1686829613628-3e4ebe6f27e7?w=1920&q=80&auto=format',
-  // University CS lab — rows of monitors
-  'https://images.unsplash.com/photo-1643199187247-b3b6009bf0bb?w=1920&q=80&auto=format',
   // Robotics lab — white robotic arm closeup
   'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1920&q=80&auto=format',
   // Data science / coding workstation — dual monitors
   'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=1920&q=80&auto=format',
   // Modern academic interior — curved glass + reflective floor
   'https://images.unsplash.com/photo-1771911650735-b471e85e8b17?w=1920&q=80&auto=format',
-  // Engineering / maker bench — Arduino + circuitry
-  'https://images.unsplash.com/photo-1649959265391-8a1de884248a?w=1920&q=80&auto=format',
   // Local AI photos
   '/hero/ai.jpg',
   '/hero/ai2.jpg',
@@ -66,7 +87,7 @@ const HomePage = () => {
 
       <div className="pt-[var(--nav-h)]">
       {/* ==================== SECTION 1: HERO (HOME) ==================== */}
-      <section id="home" className="sticky top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0">
+      <section id="home" className="md:sticky md:top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0">
         <HeroSection
           className="min-h-[calc(100vh-var(--nav-h))]"
           title={
@@ -120,7 +141,7 @@ const HomePage = () => {
 
 
       {/* ==================== SECTION 3: CORE PRODUCTS ==================== */}
-      <section id="products" className="dark sticky top-[var(--nav-h)] z-20 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
+      <section id="products" className="dark md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             className="mb-6"
@@ -152,7 +173,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 4: INTELLIGENT DATA & MAPPING ==================== */}
-      <section id="data" className="sticky top-[var(--nav-h)] z-30 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-b from-secondary to-background">
+      <section id="data" className="relative z-30 flex flex-col justify-start py-12 md:py-24 bg-gradient-to-b from-secondary to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Intelligent <span className="text-primary">Data &amp; Mapping</span></>}
@@ -162,51 +183,9 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+            className="mb-8 md:mb-12"
           >
-            {[
-              {
-                icon: <Map className="text-primary" size={32} />,
-                title: 'Campus Digital Twin',
-                desc: 'A living digital replica of your campus operating in real time'
-              },
-              {
-                icon: <Activity className="text-primary" size={32} />,
-                title: 'Campus Flow & Mapping',
-                desc: 'Student movement, facility usage, traffic patterns, and space utilization visualized'
-              },
-              {
-                icon: <Brain className="text-primary" size={32} />,
-                title: 'Predictive Intelligence',
-                desc: 'Retention risk, enrollment trends, and resource demand surfaced before they become problems'
-              },
-              {
-                icon: <ShieldAlert className="text-primary" size={32} />,
-                title: 'Safety & Risk Monitoring',
-                desc: 'Real-time campus awareness, incident tracking, and liability reduction'
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
-                }}
-                className="p-6 bg-white rounded-lg shadow-md border border-gray-100 text-center transition-all"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    {item.icon}
-                  </div>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
-              </motion.div>
-            ))}
+            <IntelligentDataBento />
           </motion.div>
           <motion.p
             {...fadeInUp}
@@ -218,7 +197,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: SYSTEM & APP INTEGRATIONS ==================== */}
-      <section id="integrations" className="dark sticky top-[var(--nav-h)] z-40 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
+      <section id="integrations" className="dark md:sticky md:top-[var(--nav-h)] z-40 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>System &amp; App <span className="text-accent">Integrations</span></>}
@@ -229,46 +208,9 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
+            className="mb-12"
           >
-            {[
-              {
-                icon: <Plug className="text-accent" size={48} />,
-                title: 'Pre-Built Connectors',
-                desc: 'SIS \u00B7 LMS \u00B7 CRM \u00B7 ERP \u00B7 Housing \u00B7 Dining \u00B7 Financial Aid \u00B7 Career Services \u00B7 Events \u00B7 Athletics \u00B7 Parking \u00B7 Transportation \u00B7 Health Services \u00B7 Campus Safety \u00B7 Payment Systems \u00B7 Marketplace'
-              },
-              {
-                icon: <Building2 className="text-accent" size={48} />,
-                title: 'Legacy Compatible',
-                desc: 'Designed to work with campus infrastructure that\'s been in place for decades'
-              },
-              {
-                icon: <Wrench className="text-accent" size={48} />,
-                title: 'Custom Builds',
-                desc: 'Tailored integrations for institution-specific tools and workflows unique to your campus'
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  backgroundColor: 'rgba(255,255,255,0.05)'
-                }}
-                className="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 text-center transition-all"
-              >
-                <div className="flex justify-center mb-6">
-                  <div className="bg-accent/15 p-3 rounded-full">
-                    {item.icon}
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+            <IntegrationFeatureCards items={INTEGRATION_FEATURES} />
           </motion.div>
 
           <motion.p
@@ -281,7 +223,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: ENTERPRISE VALIDATED ==================== */}
-      <section id="enterprise" className="sticky top-[var(--nav-h)] z-50 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-muted">
+      <section id="enterprise" className="md:sticky md:top-[var(--nav-h)] z-50 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-muted">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Enterprise <span className="text-primary">Validated</span></>}
@@ -302,7 +244,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 6: PATENT PORTFOLIO ==================== */}
-      <section id="patent" className="dark sticky top-[var(--nav-h)] z-[60] flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
+      <section id="patent" className="dark md:sticky md:top-[var(--nav-h)] z-[60] flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Powered by a <span className="text-accent">Proprietary Patent Portfolio</span></>}

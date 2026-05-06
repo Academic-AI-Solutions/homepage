@@ -92,7 +92,7 @@ const LicensingPage = () => {
       <div className="pt-[var(--nav-h)]">
         <PageHero
           id="lic-hero"
-          className="sticky top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0"
+          className="md:sticky md:top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0"
           kicker="Licensing & Partnership"
           title={
             <>
@@ -105,7 +105,7 @@ const LicensingPage = () => {
         />
 
         {/* Section: Partnership Philosophy — sticky, white bg */}
-        <section id="lic-philosophy" className="sticky top-[var(--nav-h)] z-10 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center bg-background py-24">
+        <section id="lic-philosophy" className="md:sticky md:top-[var(--nav-h)] z-10 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-center bg-background py-24">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <motion.div
@@ -160,7 +160,7 @@ const LicensingPage = () => {
       </section>
 
         {/* Section: Partnership Structures — sticky, cream bg */}
-        <section id="structures" className="sticky top-[var(--nav-h)] z-20 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start bg-secondary py-24">
+        <section id="structures" className="md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start bg-secondary py-24">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Partnership <span className="text-primary">Structures</span></>}
@@ -174,7 +174,7 @@ const LicensingPage = () => {
       </section>
 
         {/* Section: Why Partner Now — sticky, dark bg */}
-        <section id="lic-why-now" className="dark sticky top-[var(--nav-h)] z-30 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start bg-gradient-to-br from-background to-background py-24">
+        <section id="lic-why-now" className="dark md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start bg-gradient-to-br from-background to-background py-24">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Why Partner <span className="text-accent">Now</span></>}
