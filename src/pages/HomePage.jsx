@@ -66,7 +66,7 @@ const HomePage = () => {
 
       <div className="pt-[var(--nav-h)]">
       {/* ==================== SECTION 1: HERO (HOME) ==================== */}
-      <section id="home" className="sticky top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0">
+      <section id="home" className="md:sticky md:top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0">
         <HeroSection
           className="min-h-[calc(100vh-var(--nav-h))]"
           title={
@@ -120,7 +120,7 @@ const HomePage = () => {
 
 
       {/* ==================== SECTION 3: CORE PRODUCTS ==================== */}
-      <section id="products" className="dark sticky top-[var(--nav-h)] z-20 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
+      <section id="products" className="dark md:sticky md:top-[var(--nav-h)] z-20 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             className="mb-6"
@@ -152,7 +152,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 4: INTELLIGENT DATA & MAPPING ==================== */}
-      <section id="data" className="sticky top-[var(--nav-h)] z-30 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-b from-secondary to-background">
+      <section id="data" className="md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-b from-secondary to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Intelligent <span className="text-primary">Data &amp; Mapping</span></>}
@@ -162,7 +162,7 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12"
           >
             {[
               {
@@ -218,7 +218,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: SYSTEM & APP INTEGRATIONS ==================== */}
-      <section id="integrations" className="dark sticky top-[var(--nav-h)] z-40 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
+      <section id="integrations" className="dark md:sticky md:top-[var(--nav-h)] z-40 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>System &amp; App <span className="text-accent">Integrations</span></>}
@@ -281,7 +281,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: ENTERPRISE VALIDATED ==================== */}
-      <section id="enterprise" className="sticky top-[var(--nav-h)] z-50 flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-muted">
+      <section id="enterprise" className="md:sticky md:top-[var(--nav-h)] z-50 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-muted">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Enterprise <span className="text-primary">Validated</span></>}
@@ -302,7 +302,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 6: PATENT PORTFOLIO ==================== */}
-      <section id="patent" className="dark sticky top-[var(--nav-h)] z-[60] flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-24 bg-gradient-to-br from-background to-background">
+      <section id="patent" className="dark md:sticky md:top-[var(--nav-h)] z-[60] flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Powered by a <span className="text-accent">Proprietary Patent Portfolio</span></>}

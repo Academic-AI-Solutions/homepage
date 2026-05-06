@@ -25,13 +25,15 @@ const ProductCard = ({
       }}
     >
       <Card className="overflow-hidden rounded-xl border-border/60 bg-card shadow-lg transition-all duration-300 hover:shadow-2xl">
-        <FallbackCard
-          palette={previewPalette}
-          message={title}
-          icon={previewIcon}
-          className="h-48"
-        />
-        <CardContent className="p-8">
+        <div className="hidden md:block">
+          <FallbackCard
+            palette={previewPalette}
+            message={title}
+            icon={previewIcon}
+            className="h-48"
+          />
+        </div>
+        <CardContent className="p-6 md:p-8">
           <div className="mb-6 flex items-start">
             <div className="rounded-lg bg-primary/10 p-3">{icon}</div>
           </div>
