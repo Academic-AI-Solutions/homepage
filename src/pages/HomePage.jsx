@@ -4,13 +4,37 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   Users, Briefcase,
-  Plug, Building2, Wrench,
 } from 'lucide-react';
 import { HeroSection } from '@/components/ui/hero-section';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
 import IntelligentDataBento from '@/components/ui/intelligent-data-bento';
+import IntegrationFeatureCards from '@/components/ui/integration-feature-cards';
+
+const INTEGRATION_FEATURES = [
+  {
+    title: 'Pre-Built Connectors',
+    description:
+      'SIS · LMS · CRM · ERP · Housing · Dining · Financial Aid · Career Services · Events · Athletics · Parking · Transportation · Health Services · Campus Safety · Payment Systems · Marketplace.',
+    image:
+      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Legacy Compatible',
+    description:
+      'Designed to work with campus infrastructure that has been in place for decades — without rip-and-replace migration.',
+    image:
+      'https://images.unsplash.com/photo-1562774053-701939374585?w=1200&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Custom Builds',
+    description:
+      'Tailored integrations for institution-specific tools and workflows unique to your campus, built and maintained by AAS.',
+    image:
+      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&auto=format&fit=crop',
+  },
+];
 
 const HERO_SLIDESHOW = [
   // Trnavska Univerzita campus exterior — warm brick and greenery
@@ -188,46 +212,9 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
+            className="mb-12"
           >
-            {[
-              {
-                icon: <Plug className="text-accent" size={48} />,
-                title: 'Pre-Built Connectors',
-                desc: 'SIS \u00B7 LMS \u00B7 CRM \u00B7 ERP \u00B7 Housing \u00B7 Dining \u00B7 Financial Aid \u00B7 Career Services \u00B7 Events \u00B7 Athletics \u00B7 Parking \u00B7 Transportation \u00B7 Health Services \u00B7 Campus Safety \u00B7 Payment Systems \u00B7 Marketplace'
-              },
-              {
-                icon: <Building2 className="text-accent" size={48} />,
-                title: 'Legacy Compatible',
-                desc: 'Designed to work with campus infrastructure that\'s been in place for decades'
-              },
-              {
-                icon: <Wrench className="text-accent" size={48} />,
-                title: 'Custom Builds',
-                desc: 'Tailored integrations for institution-specific tools and workflows unique to your campus'
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  backgroundColor: 'rgba(255,255,255,0.05)'
-                }}
-                className="p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 text-center transition-all"
-              >
-                <div className="flex justify-center mb-6">
-                  <div className="bg-accent/15 p-3 rounded-full">
-                    {item.icon}
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+            <IntegrationFeatureCards items={INTEGRATION_FEATURES} />
           </motion.div>
 
           <motion.p
