@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Activity,
   ArrowRight,
@@ -128,22 +128,133 @@ const FlowChart = () => (
   </div>
 );
 
-/* ─────────── Bottom-right: 2 sub-feature panels (Safety & Risk) ─────────── */
-const SubFeature = ({ icon: Icon, kicker, title, body }) => (
-  <div className="relative flex min-h-[180px] flex-col gap-3 border border-border bg-background p-5 transition">
+/* ─────────── BR Safety & Risk: live dashboard tiles ─────────── */
+
+// Shared shell for both BR panels (kicker, body content, arrow button).
+const SafetyPanel = ({ icon: Icon, kicker, children }) => (
+  <div className="relative flex min-h-[220px] flex-col gap-4 border border-border bg-background p-5 transition">
     <span className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
       <Icon className="h-4 w-4" />
       {kicker}
     </span>
-    <h4 className="text-base font-semibold leading-snug text-foreground">
-      {title}{' '}
-      <span className="font-normal text-muted-foreground">{body}</span>
-    </h4>
+    <div className="flex-1">{children}</div>
     <div className="absolute bottom-3 right-3 z-10 inline-flex items-center justify-center rounded-full border border-border bg-background p-2.5 transition-transform hover:-rotate-45">
       <ArrowRight className="h-4 w-4 text-primary" />
     </div>
   </div>
 );
+
+// Real-time alerts: 2x4 grid of sensor tiles with pulsing status dots
+const SENSORS = [
+  { label: 'Doors',     status: 'nominal' },
+  { label: 'Lighting',  status: 'nominal' },
+  { label: 'Network',   status: 'nominal' },
+  { label: 'Occupancy', status: 'active'  },
+  { label: 'Cameras',   status: 'nominal' },
+  { label: 'HVAC',      status: 'nominal' },
+  { label: 'Fire',      status: 'nominal' },
+  { label: 'Access',    status: 'alert'   },
+];
+
+const STATUS_DOT = {
+  nominal: 'bg-emerald-400',
+  active:  'bg-amber-400',
+  alert:   'bg-red-500',
+};
+
+const STATUS_LINES = [
+  { text: 'ALL SYSTEMS NOMINAL', tone: 'text-emerald-500' },
+  { text: '1 ALERT · DOOR 2C OPEN', tone: 'text-amber-500' },
+];
+
+const LiveAlertGrid = () => {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIdx((i) => (i + 1) % STATUS_LINES.length), 3200);
+    return () => clearInterval(id);
+  }, []);
+  const line = STATUS_LINES[idx];
+  return (
+    <div className="flex h-full flex-col gap-3">
+      <div className={`text-[10px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 ${line.tone}`}>
+        ● {line.text}
+      </div>
+      <div className="grid grid-cols-2 gap-1.5">
+        {SENSORS.map((s, i) => (
+          <div
+            key={s.label}
+            className="flex items-center gap-1.5 rounded-md border border-border/60 bg-card/50 px-2.5 py-1.5"
+          >
+            <span
+              className={`h-1.5 w-1.5 flex-shrink-0 rounded-full ${STATUS_DOT[s.status]} animate-pulse`}
+              style={{ animationDelay: `${i * 140}ms` }}
+            />
+            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+              {s.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Liability reduction: animated SVG progress ring + stat rows
+const RING_SIZE = 110;
+const RING_STROKE = 9;
+const RING_RADIUS = (RING_SIZE - RING_STROKE) / 2;
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+
+const ResponseRing = () => {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    const id = setTimeout(() => setValue(98), 250);
+    return () => clearTimeout(id);
+  }, []);
+  const offset = RING_CIRCUMFERENCE * (1 - value / 100);
+  return (
+    <div className="flex h-full flex-col items-center gap-3">
+      <div className="relative" style={{ width: RING_SIZE, height: RING_SIZE }}>
+        <svg width={RING_SIZE} height={RING_SIZE} className="-rotate-90">
+          <circle
+            cx={RING_SIZE / 2}
+            cy={RING_SIZE / 2}
+            r={RING_RADIUS}
+            fill="none"
+            stroke="hsl(var(--foreground) / 0.1)"
+            strokeWidth={RING_STROKE}
+          />
+          <circle
+            cx={RING_SIZE / 2}
+            cy={RING_SIZE / 2}
+            r={RING_RADIUS}
+            fill="none"
+            stroke="hsl(var(--accent))"
+            strokeWidth={RING_STROKE}
+            strokeLinecap="round"
+            strokeDasharray={RING_CIRCUMFERENCE}
+            strokeDashoffset={offset}
+            style={{ transition: 'stroke-dashoffset 1.4s cubic-bezier(0.32,0.72,0,1)' }}
+          />
+        </svg>
+        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
+          <span className="text-2xl font-bold leading-none text-foreground">{value}%</span>
+          <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+            Documented
+          </span>
+        </div>
+      </div>
+      <div className="grid w-full grid-cols-2 gap-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+        <div className="rounded-md border border-border/60 bg-card/50 px-2 py-1.5 text-center">
+          Avg <span className="font-bold text-foreground">1.3 min</span>
+        </div>
+        <div className="rounded-md border border-border/60 bg-card/50 px-2 py-1.5 text-center">
+          Audit <span className="font-bold text-foreground">100%</span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 /* ─────────── Main 2x2 bento ─────────── */
 const IntelligentDataBento = () => {
@@ -203,20 +314,14 @@ const IntelligentDataBento = () => {
         <FlowChart />
       </div>
 
-      {/* BR — Safety & Risk Monitoring (2 sub-features) */}
+      {/* BR — Safety & Risk Monitoring (live tiles) */}
       <div className="grid border border-border bg-card sm:grid-cols-2">
-        <SubFeature
-          icon={ShieldAlert}
-          kicker="Real-time alerts"
-          title="See incidents the moment they happen."
-          body="Continuous campus awareness across every connected sensor and system."
-        />
-        <SubFeature
-          icon={TriangleAlert}
-          kicker="Liability reduction"
-          title="Documented chain of response."
-          body="Automatic incident logs and audit trails reduce institutional exposure."
-        />
+        <SafetyPanel icon={ShieldAlert} kicker="Real-time alerts">
+          <LiveAlertGrid />
+        </SafetyPanel>
+        <SafetyPanel icon={TriangleAlert} kicker="Liability reduction">
+          <ResponseRing />
+        </SafetyPanel>
       </div>
     </div>
   );
