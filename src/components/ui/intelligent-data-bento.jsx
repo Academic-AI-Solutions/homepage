@@ -259,7 +259,7 @@ const IntelligentDataBento = () => {
           <div className="absolute left-1/2 top-8 z-10 -translate-x-1/2 whitespace-nowrap rounded-md bg-card px-2.5 py-0.5 text-[10px] font-medium text-foreground shadow ring-1 ring-border">
             🎓 12,847 active sessions
           </div>
-          <div className="mx-auto max-h-[140px] overflow-hidden">
+          <div className="mx-auto w-full max-w-[280px]">
             <Map />
           </div>
         </div>

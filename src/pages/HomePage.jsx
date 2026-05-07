@@ -173,7 +173,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 4: INTELLIGENT DATA & MAPPING ==================== */}
-      <section id="data" className="md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start py-12 md:py-4 bg-gradient-to-b from-secondary to-background">
+      <section id="data" className="md:sticky md:top-[var(--nav-h)] z-30 flex md:min-h-[calc(100vh-var(--nav-h))] flex-col justify-start pb-12 pt-12 md:pb-4 md:pt-16 bg-gradient-to-b from-secondary to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             className="mb-4 md:mb-6"
@@ -183,16 +183,10 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4"
+            className="mb-0"
           >
             <IntelligentDataBento />
           </motion.div>
-          <motion.p
-            {...fadeInUp}
-            className="text-primary italic text-sm md:text-base"
-          >
-            Intelligence that grows with your institution — continuously learning, continuously improving.
-          </motion.p>
         </div>
       </section>
 
