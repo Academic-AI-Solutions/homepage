@@ -29,6 +29,8 @@ const TEAM_MEMBERS = [
   { name: 'Brock Gorubec', title: 'Investor Relations', image: '/headshots/brock-gorubec.jpg', social: {} },
   { name: 'Eric Peter', title: 'Software Engineer', image: '/headshots/eric-peter.jpg', social: {} },
   { name: 'Ben Radde', title: 'Legal Assistant', image: '/headshots/ben-radde.png', social: {} },
+  { name: 'Thomas Spray', title: 'Director of Sustainability', image: '/headshots/thomas-spray.png', social: {} },
+  { name: 'Mikey Thompson', title: 'Systems Specialist', image: '/headshots/mikey-thompson.jpg', social: {} },
 ];
 
 const TeamPage = () => {
