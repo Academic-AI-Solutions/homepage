@@ -26,6 +26,7 @@ const TeamGrid = ({ members = [], className, href = '/team' }) => {
                 src={member.image}
                 alt=""
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover object-top grayscale brightness-90 transition-all duration-500 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-[1.04]"
               />
             ) : (
