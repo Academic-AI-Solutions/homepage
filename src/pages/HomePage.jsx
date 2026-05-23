@@ -177,10 +177,10 @@ const HomePage = () => {
 
 
       {/* ==================== SECTION 5: SYSTEM & APP INTEGRATIONS ==================== */}
-      <section id="integrations" className="dark md:sticky md:top-[var(--nav-h)] z-40 flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background will-change-transform transform-gpu">
+      <section id="integrations" className="md:sticky md:top-[var(--nav-h)] z-40 flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-muted will-change-transform transform-gpu">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
-            title={<>System &amp; App <span className="text-accent">Integrations</span></>}
+            title={<>System &amp; App <span className="text-primary">Integrations</span></>}
             subtitle="No rip-and-replace. No migration. Just amplification."
           />
 
@@ -195,7 +195,7 @@ const HomePage = () => {
 
           <motion.p
             {...fadeInUp}
-            className="text-white/80 text-lg"
+            className="text-muted-foreground text-lg"
           >
             AAS doesn't ask you to start over. It makes what you already have better.
           </motion.p>
@@ -203,31 +203,31 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 5: ENTERPRISE VALIDATED ==================== */}
-      <section id="enterprise" className="md:sticky md:top-[var(--nav-h)] z-50 flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-muted will-change-transform transform-gpu">
+      <section id="enterprise" className="dark md:sticky md:top-[var(--nav-h)] z-50 flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background will-change-transform transform-gpu">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
-            title={<>Enterprise <span className="text-primary">Validated</span></>}
+            title={<>Enterprise <span className="text-accent">Validated</span></>}
           />
           <motion.div
             {...fadeInUp}
             className="max-w-4xl"
           >
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed mb-8">
               The same AI infrastructure principles behind AAS have been proven at enterprise scale in one of the most demanding experience environments in the world — orchestrating real-time personalization, transaction coordination, and operational intelligence across complex, multi-venue operations.
             </p>
             <p className="text-base sm:text-lg md:text-xl font-bold leading-relaxed">
-              <span className="text-primary">Every semester of institutional data compounds into intelligence that competitors cannot purchase, replicate, or shortcut.</span>{' '}
-              <span className="text-gray-800">The institutions that deploy first build advantages that widen over time.</span>
+              <span className="text-accent">Every semester of institutional data compounds into intelligence that competitors cannot purchase, replicate, or shortcut.</span>{' '}
+              <span className="text-white">The institutions that deploy first build advantages that widen over time.</span>
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* ==================== SECTION 6: PATENT PORTFOLIO ==================== */}
-      <section id="patent" className="dark md:sticky md:top-[var(--nav-h)] z-[60] flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background will-change-transform transform-gpu">
+      <section id="patent" className="md:sticky md:top-[var(--nav-h)] z-[60] flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-muted will-change-transform transform-gpu">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
-            title={<>Powered by a <span className="text-accent">Proprietary Patent Portfolio</span></>}
+            title={<>Powered by a <span className="text-primary">Proprietary Patent Portfolio</span></>}
           />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -235,15 +235,15 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="max-w-4xl space-y-6"
           >
-            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
               Built on patent-secured{' '}
-              <span className="text-accent font-semibold">Multi-Agent Coordination Protocol</span> and{' '}
-              <span className="text-accent font-semibold">Institutional Memory Architecture</span> with advanced IP protection spanning higher education, hospitality, events, and healthcare.
+              <span className="text-primary font-semibold">Multi-Agent Coordination Protocol</span> and{' '}
+              <span className="text-primary font-semibold">Institutional Memory Architecture</span> with advanced IP protection spanning higher education, hospitality, events, and healthcare.
             </p>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
               Our trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques — representing years of R&amp;D investment that cannot be replicated or reverse-engineered.
             </p>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
               Purpose-built for universities from day one. Not retrofitted enterprise software. AAS holds the only proprietary and patent-claimed institutional AI architecture in higher education — and we're prepared to defend it.
             </p>
           </motion.div>
@@ -251,10 +251,10 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 7: THE TEAM ==================== */}
-      <section id="team" className="relative z-[70] flex flex-col justify-start py-12 md:py-20 bg-background">
+      <section id="team" className="dark relative z-[70] flex flex-col justify-start py-12 md:py-20 bg-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
-            title={<>The <span className="text-primary">Team</span></>}
+            title={<>The <span className="text-accent">Team</span></>}
             subtitle="Education operators, AI engineers, enterprise builders, and patent attorneys — together since day one."
           />
           <motion.div
