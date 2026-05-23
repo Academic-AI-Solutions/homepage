@@ -11,6 +11,9 @@ import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
 import IntelligentDataBento from '@/components/ui/intelligent-data-bento';
 import IntegrationFeatureCards from '@/components/ui/integration-feature-cards';
+import TeamGrid from '@/components/ui/team-grid';
+import { ArrowRight } from 'lucide-react';
+import { TEAM_MEMBERS } from '@/data/team';
 
 const INTEGRATION_FEATURES = [
   {
@@ -260,6 +263,33 @@ const HomePage = () => {
             <p className="text-xl text-white/90 leading-relaxed">
               Purpose-built for universities from day one. Not retrofitted enterprise software. AAS holds the only proprietary and patent-claimed institutional AI architecture in higher education — and we're prepared to defend it.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ==================== SECTION 7: THE TEAM ==================== */}
+      <section id="team" className="relative z-[70] flex flex-col justify-start py-12 md:py-20 bg-background">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+          <SectionHeader
+            title={<>The <span className="text-primary">Team</span></>}
+            subtitle="Education operators, AI engineers, enterprise builders, and patent attorneys — together since day one."
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10"
+          >
+            <TeamGrid members={TEAM_MEMBERS} />
+          </motion.div>
+          <motion.div {...fadeInUp}>
+            <a
+              href="/team"
+              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:text-primary/80"
+            >
+              View full team
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </motion.div>
         </div>
       </section>
