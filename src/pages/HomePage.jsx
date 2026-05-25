@@ -38,6 +38,14 @@ const INTEGRATION_FEATURES = [
   },
 ];
 
+// Server-room / data-center lights — fits dark Enterprise section
+const ENTERPRISE_IMAGE_URL =
+  'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80&auto=format&fit=crop';
+
+// Connected-nodes / network mesh — fits light Patent section
+const PATENT_IMAGE_URL =
+  'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&q=80&auto=format&fit=crop';
+
 const HERO_SLIDESHOW = [
   // Trnavska Univerzita campus exterior — warm brick and greenery
   'https://images.unsplash.com/photo-1686829613628-3e4ebe6f27e7?w=1920&q=80&auto=format',
@@ -150,8 +158,8 @@ const HomePage = () => {
             className="mb-6"
             title={<>Core <span className="text-accent">Products</span></>}
           />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div onClick={() => navigate('/platform')} className="cursor-pointer">
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:auto-rows-fr gap-8">
+            <div onClick={() => navigate('/platform')} className="cursor-pointer h-full">
               <ProductCard
                 icon={<Users className="text-primary" size={40} />}
                 title="The Personal Student Assistant"
@@ -161,7 +169,7 @@ const HomePage = () => {
                 previewIcon={<Users className="text-accent" size={48} />}
               />
             </div>
-            <div onClick={() => navigate('/platform')} className="cursor-pointer">
+            <div onClick={() => navigate('/platform')} className="cursor-pointer h-full">
               <ProductCard
                 icon={<Briefcase className="text-primary" size={40} />}
                 title="The Administrative Organizer"
@@ -210,15 +218,30 @@ const HomePage = () => {
           />
           <motion.div
             {...fadeInUp}
-            className="max-w-4xl"
+            className="grid md:grid-cols-2 md:gap-12 lg:gap-16 items-center"
           >
-            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed mb-8">
-              The same AI infrastructure principles behind AAS have been proven at enterprise scale in one of the most demanding experience environments in the world — orchestrating real-time personalization, transaction coordination, and operational intelligence across complex, multi-venue operations.
-            </p>
-            <p className="text-base sm:text-lg md:text-xl font-bold leading-relaxed">
-              <span className="text-accent">Every semester of institutional data compounds into intelligence that competitors cannot purchase, replicate, or shortcut.</span>{' '}
-              <span className="text-white">The institutions that deploy first build advantages that widen over time.</span>
-            </p>
+            <div className="max-w-2xl space-y-8">
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+                The same AI infrastructure principles behind AAS have been proven at enterprise scale in one of the most demanding experience environments in the world — orchestrating real-time personalization, transaction coordination, and operational intelligence across complex, multi-venue operations.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl font-bold leading-relaxed">
+                <span className="text-accent">Every semester of institutional data compounds into intelligence that competitors cannot purchase, replicate, or shortcut.</span>{' '}
+                <span className="text-white">The institutions that deploy first build advantages that widen over time.</span>
+              </p>
+            </div>
+
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted">
+              <img
+                src={ENTERPRISE_IMAGE_URL}
+                srcSet={`${ENTERPRISE_IMAGE_URL.replace(/&?w=\d+/, '')}&w=800&q=80 800w, ${ENTERPRISE_IMAGE_URL.replace(/&?w=\d+/, '')}&w=1200&q=80 1200w`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-background/40 via-transparent to-transparent" />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -233,19 +256,33 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl space-y-6"
+            className="grid md:grid-cols-2 md:gap-12 lg:gap-16 items-center"
           >
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-              Built on patent-secured{' '}
-              <span className="text-primary font-semibold">Multi-Agent Coordination Protocol</span> and{' '}
-              <span className="text-primary font-semibold">Institutional Memory Architecture</span> with advanced IP protection spanning higher education, hospitality, events, and healthcare.
-            </p>
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-              Our trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques — representing years of R&amp;D investment that cannot be replicated or reverse-engineered.
-            </p>
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-              Purpose-built for universities from day one. Not retrofitted enterprise software. AAS holds the only proprietary and patent-claimed institutional AI architecture in higher education — and we're prepared to defend it.
-            </p>
+            <div className="max-w-2xl space-y-6">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+                Built on patent-secured{' '}
+                <span className="text-primary font-semibold">Multi-Agent Coordination Protocol</span> and{' '}
+                <span className="text-primary font-semibold">Institutional Memory Architecture</span> with advanced IP protection spanning higher education, hospitality, events, and healthcare.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+                Our trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques — representing years of R&amp;D investment that cannot be replicated or reverse-engineered.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+                Purpose-built for universities from day one. Not retrofitted enterprise software. AAS holds the only proprietary and patent-claimed institutional AI architecture in higher education — and we're prepared to defend it.
+              </p>
+            </div>
+
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted">
+              <img
+                src={PATENT_IMAGE_URL}
+                srcSet={`${PATENT_IMAGE_URL.replace(/&?w=\d+/, '')}&w=800&q=80 800w, ${PATENT_IMAGE_URL.replace(/&?w=\d+/, '')}&w=1200&q=80 1200w`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </motion.div>
         </div>
       </section>

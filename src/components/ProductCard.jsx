@@ -23,8 +23,9 @@ const ProductCard = ({
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         y: -5,
       }}
+      className="h-full"
     >
-      <Card className="overflow-hidden rounded-xl border-border/60 bg-card shadow-lg transition-all duration-300 hover:shadow-2xl">
+      <Card className="h-full flex flex-col overflow-hidden rounded-xl border-border/60 bg-card shadow-lg transition-all duration-300 hover:shadow-2xl">
         <div className="hidden md:block">
           <FallbackCard
             palette={previewPalette}
@@ -33,7 +34,7 @@ const ProductCard = ({
             className="h-48"
           />
         </div>
-        <CardContent className="p-6 md:p-8">
+        <CardContent className="p-6 md:p-8 flex flex-col flex-grow">
           <div className="mb-6 flex items-start">
             <div className="rounded-lg bg-primary/10 p-3">{icon}</div>
           </div>
