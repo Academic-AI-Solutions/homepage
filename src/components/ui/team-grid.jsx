@@ -3,7 +3,7 @@ import { User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Flat team grid for the homepage closing section.
-// Image-top + name + title stacked below; hover saturates grayscale and lifts the card.
+// Image-top + name + title stacked below; hover lifts the card.
 // Each card links to /team for the rich showcase view.
 const TeamGrid = ({ members = [], className, href = '/team' }) => {
   return (
@@ -27,7 +27,7 @@ const TeamGrid = ({ members = [], className, href = '/team' }) => {
                 alt=""
                 loading="lazy"
                 decoding="async"
-                className="h-full w-full object-cover object-top grayscale brightness-90 transition-all duration-500 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-[1.04]"
+                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center" aria-hidden="true">
