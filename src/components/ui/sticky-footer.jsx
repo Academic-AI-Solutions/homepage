@@ -29,7 +29,7 @@ export function StickyFooter({
       <div className="fixed bottom-0 w-full" style={{ height: `${FOOTER_HEIGHT}px` }}>
         <div
           className="sticky h-full overflow-y-auto"
-          style={{ top: `calc(100vh - ${FOOTER_HEIGHT}px)` }}
+          style={{ top: `calc(100dvh - ${FOOTER_HEIGHT}px)` }}
         >
           <div className="dark relative flex h-full w-full flex-col justify-between gap-5 border-t border-border bg-background px-6 py-10 text-foreground md:px-12">
             {/* Decorative radial-glow blobs (v3 arbitrary syntax) */}

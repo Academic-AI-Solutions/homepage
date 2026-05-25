@@ -7,7 +7,6 @@ const LINK_GROUPS = [
     links: [
       { title: 'The Platform', href: '/platform' },
       { title: 'Core Products', href: '/#products' },
-      { title: 'Intelligent Data', href: '/#data' },
       { title: 'Integrations', href: '/#integrations' },
       { title: 'Patent Portfolio', href: '/#patent' },
     ],

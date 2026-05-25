@@ -93,7 +93,15 @@ const Navigation = () => {
 
   // Compact nav after a small scroll — toggles the global --nav-h CSS variable
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50);
+        ticking = false;
+      });
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -136,7 +144,7 @@ const Navigation = () => {
         className={cn(
           'fixed top-0 left-0 right-0 z-[100] h-[var(--nav-h)] transition-all duration-300',
           isScrolled
-            ? 'bg-white shadow-md'
+            ? 'bg-background/95 shadow-md'
             : 'bg-white/95 backdrop-blur-sm shadow-sm'
         )}
       >

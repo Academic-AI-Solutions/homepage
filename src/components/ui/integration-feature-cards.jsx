@@ -15,8 +15,11 @@ const IntegrationFeatureCards = ({ items = [], className }) => {
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
             <img
               src={item.image}
+              srcSet={`${item.image.replace(/&?w=\d+/, '')}&w=800&q=80 800w, ${item.image.replace(/&?w=\d+/, '')}&w=1200&q=80 1200w`}
+              sizes="(max-width: 768px) 100vw, 33vw"
               alt=""
               loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
