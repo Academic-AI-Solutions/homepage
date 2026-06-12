@@ -117,7 +117,7 @@ const HeroSection = React.forwardRef(
         {...props}
       >
         {/* Left: Content */}
-        <div className="relative flex w-full flex-col justify-between px-6 pt-12 pb-6 sm:px-8 sm:pt-16 sm:pb-8 md:w-1/2 md:p-12 lg:w-3/5 lg:p-16">
+        <div className="relative flex w-full flex-col justify-between px-6 pt-10 pb-6 sm:px-8 sm:pt-14 sm:pb-8 md:w-1/2 md:px-12 md:py-8 lg:w-3/5 lg:px-16 lg:py-10">
           {/* Decorative grid + animated beam behind the lower half (CTA + signals) */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 overflow-hidden md:h-1/2">
             <GridBeam className="h-full" />
@@ -126,17 +126,17 @@ const HeroSection = React.forwardRef(
           <div className="relative">
             <motion.main variants={containerVariants}>
               <motion.h1
-                className="text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+                className="text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl md:text-5xl lg:text-6xl"
                 variants={itemVariants}
               >
                 {title}
               </motion.h1>
               <motion.div
-                className="my-6 h-1 w-20 bg-accent"
+                className="my-5 h-1 w-20 bg-accent"
                 variants={itemVariants}
               />
               <motion.p
-                className="mb-8 max-w-md text-base text-muted-foreground md:text-lg"
+                className="mb-6 max-w-md text-base text-muted-foreground md:text-lg"
                 variants={itemVariants}
               >
                 {subtitle}
@@ -153,7 +153,7 @@ const HeroSection = React.forwardRef(
 
           <div className="relative">
             {belowCta && (
-              <motion.div className="mt-12 w-full" variants={itemVariants}>
+              <motion.div className="mt-8 w-full" variants={itemVariants}>
                 {/* Mobile: photo backdrop + maroon scrim wraps the slot full-bleed; desktop: pass-through */}
                 <div className="relative -mx-6 sm:-mx-8 md:mx-0">
                   <div className="absolute inset-0 overflow-hidden md:hidden" aria-hidden="true">
@@ -173,7 +173,7 @@ const HeroSection = React.forwardRef(
             )}
 
             {signals.length > 0 && (
-              <motion.footer className="mt-8 hidden w-full md:block" variants={itemVariants}>
+              <motion.footer className="mt-6 hidden w-full md:block" variants={itemVariants}>
                 <div className="grid grid-cols-1 gap-6 text-xs text-muted-foreground sm:grid-cols-3">
                   {signals.map((signal) => (
                     <div key={signal.label} className="flex items-center">

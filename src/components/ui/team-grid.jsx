@@ -28,6 +28,7 @@ const TeamGrid = ({ members = [], className, href = '/team' }) => {
                 loading="lazy"
                 decoding="async"
                 className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                style={member.objectPosition ? { objectPosition: member.objectPosition } : undefined}
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center" aria-hidden="true">

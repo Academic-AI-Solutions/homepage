@@ -1,7 +1,7 @@
 // Single source of truth for AAS team roster.
 // social: { linkedin, twitter, instagram, email } — populate per-member as URLs become available.
 export const TEAM_MEMBERS = [
-  { name: 'Daniel Round', title: 'Founder/Chief Executive Officer (CEO)', image: '/headshots/daniel-round.jpg', social: {} },
+  { name: 'Daniel Round', title: 'Founder/Chief Executive Officer (CEO)', image: '/headshots/daniel-round.jpg', objectPosition: 'center', social: {} },
   { name: 'Scott Putnam', title: 'Chief Innovation Officer (CINO)', image: '/headshots/scott-putnam.jpg', social: {} },
   { name: 'Scott Bayless', title: 'Chief Technology Officer (CTO)', image: '/headshots/scott-bayless.png', social: {} },
   { name: 'Roger Emerson', title: 'Chief Engineering Officer (CE)', image: '/headshots/roger-emerson.jpg', social: {} },
@@ -25,6 +25,6 @@ export const TEAM_MEMBERS = [
   { name: 'Brock Gorubec', title: 'Investor Relations', image: '/headshots/brock-gorubec.jpg', social: {} },
   { name: 'Eric Peter', title: 'Software Engineer', image: '/headshots/eric-peter.jpg', social: {} },
   { name: 'Ben Radde', title: 'Legal Assistant', image: '/headshots/ben-radde.png', social: {} },
-  { name: 'Thomas Spray', title: 'Director of Sustainability', image: '/headshots/thomas-spray.png', social: {} },
+  { name: 'Thomas Spratt', title: 'Director of Sustainability', image: '/headshots/thomas-spray.png', social: {} },
   { name: 'Mikey Thompson', title: 'Systems Specialist', image: '/headshots/mikey-thompson.jpg', social: {} },
 ];

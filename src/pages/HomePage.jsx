@@ -97,7 +97,7 @@ const HomePage = () => {
 
       <div className="pt-[var(--nav-h)]">
       {/* ==================== SECTION 1: HERO (HOME) ==================== */}
-      <section id="home" className="md:sticky md:top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] md:h-[calc(100dvh-var(--nav-h))] z-0 will-change-transform transform-gpu">
+      <section id="home" className="md:sticky md:top-[var(--nav-h)] min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] z-0 will-change-transform transform-gpu">
         <HeroSection
           className="min-h-[calc(100vh-var(--nav-h))]"
           title={

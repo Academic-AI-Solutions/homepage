@@ -92,7 +92,7 @@ const LicensingPage = () => {
       <div className="pt-[var(--nav-h)]">
         <PageHero
           id="lic-hero"
-          className="md:sticky md:top-[var(--nav-h)] h-[calc(100vh-var(--nav-h))] z-0"
+          className="md:sticky md:top-[var(--nav-h)] min-h-[calc(100vh-var(--nav-h))] z-0"
           kicker="Licensing & Partnership"
           title={
             <>

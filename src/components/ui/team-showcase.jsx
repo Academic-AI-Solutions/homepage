@@ -21,6 +21,7 @@ const TeamShowcase = ({ members = [] }) => {
     name: m.name,
     role: m.role ?? m.title ?? '',
     image: m.image ?? null,
+    objectPosition: m.objectPosition ?? null,
     social: m.social ?? {},
   }));
 
@@ -114,6 +115,7 @@ const MobileBentoGrid = ({ members, activeId, onActivate }) => {
                 className="h-full w-full object-cover object-top transition-[filter] duration-500"
                 style={{
                   filter: isActive ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.8)',
+                  objectPosition: member.objectPosition || undefined,
                 }}
               />
             ) : (
@@ -239,6 +241,7 @@ const PhotoCard = ({ member, sizeClass, hoveredId, onHover }) => {
           className="h-full w-full object-cover object-top transition-[filter] duration-500"
           style={{
             filter: isActive ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.77)',
+            objectPosition: member.objectPosition || undefined,
           }}
         />
       ) : (
