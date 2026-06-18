@@ -6,3 +6,5 @@ dist/
 .env.*
 .playwright-mcp/
 homepage-*.png
+.wrangler/
+.dev.vars

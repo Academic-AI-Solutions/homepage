@@ -1,16 +1,45 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "aas-homepage"
+main = "worker/index.js"
 compatibility_date = "2026-04-24"
 workers_dev = false
 
+# Worker owns routing: html_handling/not_found_handling = "none" so Workers Assets
+# does NOT inject its own SPA routing and bypass the Worker's manual index.html fallback.
 [assets]
+binding = "ASSETS"
 directory = "./dist"
-not_found_handling = "single-page-application"
+html_handling = "none"
+not_found_handling = "none"
+
+[vars]
+CONTACT_TO = "admin@academicaisolutions.com"
+CONTACT_FROM = "Academic AI Solutions <noreply@academicaisolutions.com>"
 
 [env.staging]
 name = "aas-homepage-staging"
 workers_dev = false
 
+[env.staging.assets]
+binding = "ASSETS"
+directory = "./dist"
+html_handling = "none"
+not_found_handling = "none"
+
+[env.staging.vars]
+CONTACT_TO = "admin@academicaisolutions.com"
+CONTACT_FROM = "Academic AI Solutions <noreply@academicaisolutions.com>"
+
 [env.development]
 name = "aas-homepage-dev"
 workers_dev = false
+
+[env.development.assets]
+binding = "ASSETS"
+directory = "./dist"
+html_handling = "none"
+not_found_handling = "none"
+
+[env.development.vars]
+CONTACT_TO = "admin@academicaisolutions.com"
+CONTACT_FROM = "Academic AI Solutions <noreply@academicaisolutions.com>"

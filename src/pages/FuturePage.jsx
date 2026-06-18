@@ -135,7 +135,7 @@ const FuturePage = () => {
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="/#contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-4 text-lg font-bold text-accent-foreground shadow-lg transition-all hover:bg-accent/90 hover:shadow-xl"
                 >
                   Partner With AAS →

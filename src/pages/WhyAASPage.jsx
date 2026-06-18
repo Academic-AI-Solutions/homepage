@@ -71,7 +71,7 @@ const WhyAASPage = () => {
             </>
           }
           subtitle="Anyone can talk about AI in higher education right now. Few can deliver integrated architecture, defensible IP, and a working platform. We do."
-          callToAction={{ text: 'PARTNER WITH AAS →', href: '/#contact' }}
+          callToAction={{ text: 'PARTNER WITH AAS →', href: '/contact' }}
           image="/hero/ai2.jpg"
         />
 
@@ -123,7 +123,7 @@ const WhyAASPage = () => {
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="/#contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-4 text-lg font-bold text-accent-foreground shadow-lg transition-all hover:bg-accent/90 hover:shadow-xl"
                 >
                   Partner With AAS →

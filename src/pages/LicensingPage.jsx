@@ -31,7 +31,7 @@ const partnershipStructures = [
     terms:
       'Exclusive or non-exclusive models for deploying AAS across the institution. Defined-term licenses with optional renewal.',
     actionLabel: 'Discuss',
-    actionHref: '/#contact',
+    actionHref: '/contact',
   },
   {
     label: 'Revenue-Share',
@@ -39,7 +39,7 @@ const partnershipStructures = [
     terms:
       'Royalty-style structures designed for mutual growth — sharing the financial success of transformed campus operations and student outcomes.',
     actionLabel: 'Discuss',
-    actionHref: '/#contact',
+    actionHref: '/contact',
     badge: 'Most flexible',
   },
   {
@@ -48,7 +48,7 @@ const partnershipStructures = [
     terms:
       'Capital partnerships to accelerate innovation, deployment, and national expansion together. Board observer optionality on qualifying rounds.',
     actionLabel: 'Discuss',
-    actionHref: '/#contact',
+    actionHref: '/contact',
   },
   {
     label: 'Grant / Endowment / Research',
@@ -56,7 +56,7 @@ const partnershipStructures = [
     terms:
       'Sponsored research collaborations, philanthropic endowments, and institutional grant partnerships funded through mission-aligned capital — federal, state, foundation, and donor-directed sources.',
     actionLabel: 'Discuss',
-    actionHref: '/#contact',
+    actionHref: '/contact',
   },
 ];
 
@@ -209,7 +209,7 @@ const LicensingPage = () => {
             className="mt-12"
           >
             <a
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center rounded-lg bg-accent px-8 py-4 text-lg font-bold text-accent-foreground shadow-lg transition-all hover:bg-accent/90 hover:shadow-xl"
             >
               Start a Partnership Conversation →

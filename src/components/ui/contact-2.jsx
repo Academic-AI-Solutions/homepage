@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import { cn } from '@/lib/utils';
 
-const initial = { firstName: '', lastName: '', email: '', subject: '', message: '' };
+const initial = { firstName: '', lastName: '', email: '', subject: '', message: '', company: '' };
 
 const Contact2 = ({
   title = 'Contact Us',
@@ -36,7 +36,7 @@ const Contact2 = ({
     return next;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const next = validate();
     if (Object.keys(next).length > 0) {
@@ -44,14 +44,33 @@ const Contact2 = ({
       return;
     }
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        if (data.errors) setErrors(data.errors);
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
       toast({
         title: 'Message sent',
         description: `Thanks ${form.firstName}. We'll respond to ${form.email} within 24-48 hours.`,
       });
       setForm(initial);
+    } catch (err) {
+      toast({
+        variant: 'destructive',
+        title: 'Could not send message',
+        description:
+          err.message ||
+          'Please try again, or email admin@academicaisolutions.com directly.',
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 900);
+    }
   };
 
   return (
@@ -115,6 +134,17 @@ const Contact2 = ({
             noValidate
             className="flex w-full max-w-xl flex-col gap-6 rounded-lg border border-border bg-card p-8 md:p-10"
           >
+            {/* Honeypot — hidden from users; bots that fill it are silently dropped */}
+            <input
+              type="text"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              value={form.company}
+              onChange={setField('company')}
+              className="hidden"
+            />
             <div className="flex flex-col gap-6 sm:flex-row sm:gap-4">
               <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="firstname">First Name</Label>
