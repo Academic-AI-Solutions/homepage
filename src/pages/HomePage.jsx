@@ -4,15 +4,37 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   Users, Briefcase,
+  LayoutGrid, Clock, LifeBuoy, ClipboardList, Route, Eye, Bot, TrendingDown,
 } from 'lucide-react';
 import { HeroSection } from '@/components/ui/hero-section';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
+import StatCounter from '@/components/StatCounter';
 import IntegrationFeatureCards from '@/components/ui/integration-feature-cards';
 import TeamGrid from '@/components/ui/team-grid';
 import { ArrowRight } from 'lucide-react';
 import { TEAM_MEMBERS } from '@/data/team';
+
+const MARKET_STATS = [
+  { prefix: '$', value: 671, suffix: 'B', label: 'U.S. higher-ed market' },
+  { value: 5300, suffix: '+', label: 'Institutions' },
+  { value: 19.6, suffix: 'M', label: 'Students' },
+  { prefix: '$', value: 33, suffix: 'B+', label: 'Annual tech spend' },
+  { prefix: '$', value: 25, suffix: 'B+', label: 'AI opportunity / decade' },
+  { prefix: '$', value: 250, suffix: 'B+', label: 'Off-campus activity' },
+];
+
+const PROBLEMS = [
+  { icon: LayoutGrid, title: 'Fragmented student experience', body: 'Housing, dining, academics, financial aid, career services — six different companies inside one institution.' },
+  { icon: Clock, title: 'Reactive instead of proactive', body: "Problems get identified after they've happened. Intervention becomes remedial." },
+  { icon: LifeBuoy, title: 'Advising capacity at breaking point', body: 'Routine inquiries consume the time that should be reserved for complex cases.' },
+  { icon: ClipboardList, title: 'Manual administrative burden', body: 'Duplicate workflows, reconciliation across disconnected systems, reporting overhead.' },
+  { icon: Route, title: 'Cross-campus friction', body: 'Students moving between locations or modalities navigate different systems and processes for the same things.' },
+  { icon: Eye, title: 'Disconnected institutional intelligence', body: 'Leadership pieces together insight from dozens of separate reports. Patterns visible only across domains are missed entirely.' },
+  { icon: Bot, title: 'AI arriving without coordination', body: 'No layer exists to integrate emerging robotics, agents, and intelligent infrastructure into the campus safely or coherently.' },
+  { icon: TrendingDown, title: 'Value flowing outside the institution', body: 'Hundreds of millions in student spend move through off-campus channels with zero institutional benefit.' },
+];
 
 const INTEGRATION_FEATURES = [
   {
@@ -148,6 +170,64 @@ const HomePage = () => {
             </div>
           }
         />
+      </section>
+
+
+      {/* ==================== SECTION: THE MARKET ==================== */}
+      <section id="market" className="relative z-[5] py-16 md:py-24 bg-secondary">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+          <SectionHeader
+            title={<>The <span className="text-primary">Market</span></>}
+          />
+          <div className="max-w-4xl space-y-6">
+            <motion.p {...fadeInUp} className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed">
+              Higher education is a <span className="font-semibold text-primary">$671 billion market</span> spanning 5,300+ institutions and 19.6 million students in the United States. Annual technology spend exceeds $33 billion, with AI emerging as the fastest-growing category and a $25 billion-plus addressable opportunity over the next decade.
+            </motion.p>
+            <motion.p {...fadeInUp} className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed">
+              Beyond institutional spend, students generate over <span className="font-semibold text-primary">$250 billion in annual off-campus economic activity</span> that flows entirely outside the institutions serving them. The infrastructure to coordinate it has not existed.
+            </motion.p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-6">
+            {MARKET_STATS.map((stat, i) => (
+              <StatCounter key={stat.label} {...stat} delay={i * 0.08} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== SECTION: THE PROBLEMS WE'RE FIXING ==================== */}
+      <section id="problems" className="relative z-10 py-16 md:py-24 bg-background">
+        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+          <SectionHeader
+            title={<>The Problems We're <span className="text-primary">Fixing</span></>}
+            subtitle="Universities run on infrastructure built piece by piece over decades — hundreds of specialized systems, none designed to work together. AI and autonomous systems are arriving faster than institutions can integrate them, and the gap widens every semester."
+          />
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {PROBLEMS.map(({ icon: Icon, title, body }, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
+                className="flex gap-4 rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
+              >
+                <div className="mt-1 flex-shrink-0 rounded-lg bg-primary/10 p-3">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="mb-1 text-lg font-bold text-foreground">{title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{body}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <motion.p {...fadeInUp} className="mt-10 max-w-3xl text-lg font-medium text-foreground">
+            These are coordination failures. The pieces work. They just don't work together.{' '}
+            <span className="text-primary">That is the gap AAS exists to close.</span>
+          </motion.p>
+        </div>
       </section>
 
 

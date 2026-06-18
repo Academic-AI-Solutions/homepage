@@ -9,6 +9,8 @@ import FinancialImpactPage from '@/pages/FinancialImpactPage';
 import LicensingPage from '@/pages/LicensingPage';
 import TeamPage from '@/pages/TeamPage';
 import ContactPage from '@/pages/ContactPage';
+import FuturePage from '@/pages/FuturePage';
+import WhyAASPage from '@/pages/WhyAASPage';
 import ScrollToTop from '@/components/ScrollToTop';
 import ScrollProgress from '@/components/ScrollProgress';
 import { Toaster } from '@/components/ui/toaster';
@@ -16,11 +18,23 @@ import { Toaster } from '@/components/ui/toaster';
 const ROUTE_SECTIONS = {
   '/': [
     { id: 'home', label: 'Home' },
+    { id: 'market', label: 'Market' },
+    { id: 'problems', label: 'Problems' },
     { id: 'products', label: 'Products' },
-    { id: 'data', label: 'Data' },
     { id: 'integrations', label: 'Integrations' },
     { id: 'enterprise', label: 'Enterprise' },
     { id: 'patent', label: 'Patent' },
+  ],
+  '/future': [
+    { id: 'future-hero', label: 'Overview' },
+    { id: 'future-vision', label: 'The Layer' },
+    { id: 'future-architecture', label: 'Architecture' },
+    { id: 'future-cta', label: 'Lead It' },
+  ],
+  '/why-aas': [
+    { id: 'why-hero', label: 'Overview' },
+    { id: 'why-reasons', label: 'Why AAS' },
+    { id: 'why-cta', label: 'The Window' },
   ],
   '/licensing': [
     { id: 'lic-hero', label: 'Overview' },
@@ -60,6 +74,8 @@ function App() {
         <Route path="/platform" element={<PlatformPage />} />
         <Route path="/financial-impact" element={<FinancialImpactPage />} />
         <Route path="/licensing" element={<LicensingPage />} />
+        <Route path="/future" element={<FuturePage />} />
+        <Route path="/why-aas" element={<WhyAASPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

@@ -10,6 +10,8 @@ const NAV_ITEMS = [
   { id: 'platform', label: 'The Platform', path: '/platform' },
   { id: 'financial', label: 'Financial Impact', path: '/financial-impact' },
   { id: 'licensing', label: 'Licensing & Partners', path: '/licensing' },
+  { id: 'why-aas', label: 'Why AAS', path: '/why-aas' },
+  { id: 'future', label: 'The Future', path: '/future' },
   { id: 'team', label: 'Team', path: '/team' },
   { id: 'contact', label: 'Contact', path: '/contact' },
 ];
@@ -19,6 +21,7 @@ const INLINE_NAV_ITEMS = [
   { id: 'platform', label: 'The Platform', path: '/platform' },
   { id: 'financial', label: 'Financial Impact', path: '/financial-impact' },
   { id: 'licensing', label: 'Partners', path: '/licensing' },
+  { id: 'why-aas', label: 'Why AAS', path: '/why-aas' },
   { id: 'contact', label: 'Contact', path: '/contact' },
 ];
 
@@ -56,14 +59,25 @@ const BackgroundShape = ({ index }) => {
         fill="rgba(255, 198, 39, 0.10)"
       />
     </svg>,
-    // 4 — Team: clustered circles (people)
+    // 4 — Why AAS: shield (defensible IP)
+    <svg key="why-aas" viewBox="0 0 400 400" fill="none" className="h-full w-full">
+      <path d="M200 60 L320 110 V210 C320 280 270 330 200 360 C130 330 80 280 80 210 V110 Z" fill="rgba(255, 198, 39, 0.14)" />
+      <path d="M200 120 L270 148 V210 C270 252 240 286 200 304 C160 286 130 252 130 210 V148 Z" fill="rgba(255, 198, 39, 0.10)" />
+    </svg>,
+    // 5 — The Future: concentric arcs (forward momentum)
+    <svg key="future" viewBox="0 0 400 400" fill="none" className="h-full w-full">
+      <path d="M120 320 A140 140 0 0 1 320 120" stroke="rgba(255, 198, 39, 0.20)" strokeWidth="34" fill="none" strokeLinecap="round" />
+      <path d="M150 330 A110 110 0 0 1 330 150" stroke="rgba(255, 198, 39, 0.13)" strokeWidth="26" fill="none" strokeLinecap="round" />
+      <circle cx="300" cy="100" r="26" fill="rgba(255, 198, 39, 0.20)" />
+    </svg>,
+    // 6 — Team: clustered circles (people)
     <svg key="team" viewBox="0 0 400 400" fill="none" className="h-full w-full">
       <circle cx="120" cy="180" r="48" fill="rgba(255, 198, 39, 0.16)" />
       <circle cx="220" cy="140" r="58" fill="rgba(255, 198, 39, 0.14)" />
       <circle cx="320" cy="190" r="48" fill="rgba(255, 198, 39, 0.16)" />
       <circle cx="220" cy="260" r="42" fill="rgba(255, 198, 39, 0.10)" />
     </svg>,
-    // 5 — Contact: diagonal lines
+    // 7 — Contact: diagonal lines
     <svg key="contact" viewBox="0 0 400 400" fill="none" className="h-full w-full">
       <line x1="0" y1="100" x2="300" y2="400" stroke="rgba(255, 198, 39, 0.20)" strokeWidth="30" />
       <line x1="100" y1="0" x2="400" y2="300" stroke="rgba(255, 198, 39, 0.14)" strokeWidth="25" />

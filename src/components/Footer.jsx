@@ -6,7 +6,8 @@ const LINK_GROUPS = [
     label: 'Product',
     links: [
       { title: 'The Platform', href: '/platform' },
-      { title: 'Core Products', href: '/#products' },
+      { title: 'The Market', href: '/#market' },
+      { title: 'Problems We Fix', href: '/#problems' },
       { title: 'Integrations', href: '/#integrations' },
       { title: 'Patent Portfolio', href: '/#patent' },
     ],
@@ -14,6 +15,8 @@ const LINK_GROUPS = [
   {
     label: 'Company',
     links: [
+      { title: 'Why AAS', href: '/why-aas' },
+      { title: 'The Future of Academics', href: '/future' },
       { title: 'Team', href: '/team' },
       { title: 'Licensing & Partners', href: '/licensing' },
       { title: 'Financial Impact', href: '/financial-impact' },

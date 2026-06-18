@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Database, Network, Cpu, Shield, Users, Briefcase, GraduationCap, AlertTriangle, Map, Eye, Brain, ShieldAlert, Plug, Building2, Wrench, BookOpen, Calendar, CreditCard, ArrowRight } from 'lucide-react';
+import { Database, Network, Cpu, Shield, Users, Briefcase, GraduationCap, AlertTriangle, Map, Eye, Brain, ShieldAlert, Plug, Building2, Wrench, BookOpen, Calendar, CreditCard, ArrowRight, Store, Home, UtensilsCrossed, Bus, Ticket, HeartPulse, Landmark } from 'lucide-react';
 import SectionHeader from '@/components/SectionHeader';
 
 const PlatformPage = () => {
@@ -37,6 +37,17 @@ const PlatformPage = () => {
     { icon: Plug, title: 'Pre-Built Connectors', desc: 'SIS · LMS · CRM · ERP · Housing · Dining · Financial Aid · Career Services · Events · Athletics · Parking · Transportation · Health Services · Campus Safety · Payment Systems · Marketplace' },
     { icon: Building2, title: 'Legacy Compatible', desc: 'Designed to work with campus infrastructure that\'s been in place for decades' },
     { icon: Wrench, title: 'Custom Builds', desc: 'Tailored integrations for institution-specific tools and workflows unique to your campus' },
+  ];
+
+  const marketIntegrationNodes = [
+    { icon: Store, title: 'Local Merchants', desc: 'Verified commerce with the businesses around campus' },
+    { icon: Home, title: 'Housing Partners', desc: 'Coordinated off-campus and partner housing' },
+    { icon: UtensilsCrossed, title: 'Dining', desc: 'On- and off-campus dining in one connected layer' },
+    { icon: Bus, title: 'Transportation', desc: 'Transit, rideshare, and parking, unified' },
+    { icon: Ticket, title: 'Entertainment', desc: 'Events, venues, and activities students already use' },
+    { icon: HeartPulse, title: 'Healthcare', desc: 'Campus and community health services, connected' },
+    { icon: Landmark, title: 'Civic Services', desc: 'Municipal services woven into the student experience' },
+    { icon: Building2, title: 'The City Itself', desc: 'The full ecosystem of the surrounding community' },
   ];
 
   return (
@@ -302,6 +313,53 @@ const PlatformPage = () => {
             >
               AAS doesn't ask you to start over. It makes what you already have better.
             </motion.p>
+          </div>
+        </section>
+
+        {/* Section: Market Integration */}
+        <section className="py-24 bg-secondary">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              title={<>Market <span className="text-primary">Integration</span></>}
+              subtitle="The platform extends beyond institutional walls. Once the campus operates as one intelligent system, the natural next layer is the marketplace around it."
+            />
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="max-w-2xl space-y-6"
+              >
+                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+                  We integrate the institutional environment with the broader economy that students, faculty, and the surrounding community already participate in — local merchants, housing partners, dining, transportation, entertainment, healthcare, civic services, and the full ecosystem of the city itself. Transactions flow through verified channels. Value returns to the institution. Students gain access to a coordinated marketplace built around their actual lives.
+                </p>
+                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+                  This is the layer that turns the campus from an isolated operational footprint into a <span className="text-primary font-semibold">connected hub inside its city</span> — institution, students, merchants, and municipal services operating as one integrated environment.
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {marketIntegrationNodes.map((node, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (index % 2) * 0.1 }}
+                    whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
+                    className="p-6 bg-white rounded-xl shadow-md border border-gray-100"
+                  >
+                    <div className="mb-4 inline-flex p-3 bg-primary/10 rounded-full">
+                      <node.icon className="text-primary" size={24} />
+                    </div>
+                    <h3 className="text-base font-bold text-gray-900 mb-1">{node.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{node.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
