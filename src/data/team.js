@@ -13,6 +13,7 @@ export const TEAM_MEMBERS = [
   { name: 'Robert Spottswood Jr.', title: 'Hospitality Attorney', image: '/headshots/robert-spottswood.png', social: {} },
   { name: 'Rob Gebaide', title: 'Senior Transactional Attorney', image: '/headshots/rob-gebaide.png', social: {} },
   { name: 'Joseph Reiben', title: 'Emerging Technologies Attorney', image: '/headshots/joseph-reiben.png', social: {} },
+  { name: 'Anne Friedman', title: 'AI Tech Licensing Attorney', image: '/headshots/anne-friedman.png', social: {} },
   { name: 'Kory Collins', title: 'Chief Strategy Officer (CSO)', image: '/headshots/kory-collins.png', social: {} },
   { name: 'Jacob Hill', title: 'Chief Marketing Officer (CMO)', image: '/headshots/jacob-hill.png', social: {} },
   { name: 'Jameson Shelnut', title: 'Chief Experience Officer (CXO)', image: '/headshots/jameson-shelnut.png', social: {} },
@@ -27,4 +28,5 @@ export const TEAM_MEMBERS = [
   { name: 'Ben Radde', title: 'Legal Assistant', image: '/headshots/ben-radde.png', social: {} },
   { name: 'Thomas Spratt', title: 'Director of Sustainability', image: '/headshots/thomas-spray.png', social: {} },
   { name: 'Mikey Thompson', title: 'Systems Specialist', image: '/headshots/mikey-thompson.jpg', social: {} },
+  { name: 'Joseph Pine', title: 'Experience Economy Advisor', image: '/headshots/joseph-pine.png', objectPosition: 'center 20%', social: {} },
 ];
