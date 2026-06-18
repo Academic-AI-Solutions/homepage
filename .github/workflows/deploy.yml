@@ -3,6 +3,8 @@ name: Deploy
 on:
   push:
     branches: [development, staging, main]
+  pull_request:
+    branches: [development, staging, main]
   workflow_dispatch:
 
 concurrency:
@@ -45,6 +47,7 @@ jobs:
 
   deploy:
     needs: [resolve-env, ci-gate]
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: ${{ needs.resolve-env.outputs.environment }}
