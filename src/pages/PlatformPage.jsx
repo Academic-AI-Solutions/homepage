@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Database, Network, Cpu, Shield, Users, Briefcase, GraduationCap, AlertTriangle, Map, Eye, Brain, ShieldAlert, Plug, Building2, Wrench, BookOpen, Calendar, CreditCard, ArrowRight, Store, Home, UtensilsCrossed, Bus, Ticket, HeartPulse, Landmark } from 'lucide-react';
 import SectionHeader from '@/components/SectionHeader';
 
@@ -160,9 +161,9 @@ const PlatformPage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center mt-12"
             >
-              <button className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 transition-colors">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 transition-colors">
                 Learn More <ArrowRight size={18} />
-              </button>
+              </Link>
             </motion.div>
           </div>
         </section>
@@ -204,9 +205,9 @@ const PlatformPage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center mt-12"
             >
-              <button className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 transition-colors">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 transition-colors">
                 Learn More <ArrowRight size={18} />
-              </button>
+              </Link>
             </motion.div>
           </div>
         </section>
