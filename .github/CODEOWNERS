@@ -1,0 +1,11 @@
+# Code owners for Academic AI Solutions homepage.
+# Listed owners are auto-requested for review; combined with branch protection's
+# "require review from Code Owners", their approval is required to merge.
+
+# Default: everything is owned by Roger.
+* @roger-emerson
+
+# Security-sensitive surfaces — explicit owner (CI, deploy config, server code).
+/.github/         @roger-emerson
+/wrangler.toml    @roger-emerson
+/worker/          @roger-emerson
