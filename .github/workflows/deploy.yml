@@ -47,7 +47,8 @@ jobs:
 
   deploy:
     needs: [resolve-env, ci-gate]
-    if: github.event_name == 'push'
+    # Deploy on push and manual dispatch, but never on pull_request (no PR/fork deploys).
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: ${{ needs.resolve-env.outputs.environment }}
