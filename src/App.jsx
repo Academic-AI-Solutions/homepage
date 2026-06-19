@@ -21,7 +21,6 @@ const ROUTE_SECTIONS = {
     { id: 'market', label: 'Market' },
     { id: 'problems', label: 'Problems' },
     { id: 'products', label: 'Products' },
-    { id: 'integrations', label: 'Integrations' },
     { id: 'enterprise', label: 'Enterprise' },
     { id: 'patent', label: 'Patent' },
   ],

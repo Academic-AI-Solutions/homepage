@@ -12,7 +12,6 @@ import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
 import StatCounter from '@/components/StatCounter';
-import IntegrationFeatureCards from '@/components/ui/integration-feature-cards';
 import TeamGrid from '@/components/ui/team-grid';
 import { ArrowRight } from 'lucide-react';
 import { TEAM_MEMBERS } from '@/data/team';
@@ -35,30 +34,6 @@ const PROBLEMS = [
   { icon: Eye, title: 'Disconnected institutional intelligence', body: 'Leadership pieces together insight from dozens of separate reports. Patterns visible only across domains are missed entirely.' },
   { icon: Bot, title: 'AI arriving without coordination', body: 'No layer exists to integrate emerging robotics, agents, and intelligent infrastructure into the campus safely or coherently.' },
   { icon: TrendingDown, title: 'Value flowing outside the institution', body: 'Hundreds of millions in student spend move through off-campus channels with zero institutional benefit.' },
-];
-
-const INTEGRATION_FEATURES = [
-  {
-    title: 'Pre-Built Connectors',
-    description:
-      'SIS · LMS · CRM · ERP · Housing · Dining · Financial Aid · Career Services · Events · Athletics · Parking · Transportation · Health Services · Campus Safety · Payment Systems · Marketplace.',
-    image:
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop',
-  },
-  {
-    title: 'Legacy Compatible',
-    description:
-      'Designed to work with campus infrastructure that has been in place for decades, without rip-and-replace migration.',
-    image:
-      'https://images.unsplash.com/photo-1562774053-701939374585?w=1200&q=80&auto=format&fit=crop',
-  },
-  {
-    title: 'Custom Builds',
-    description:
-      'Tailored integrations for institution-specific tools and workflows unique to your campus, built and maintained by AAS.',
-    image:
-      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&auto=format&fit=crop',
-  },
 ];
 
 const CORE_PRODUCTS = [
@@ -329,33 +304,6 @@ const HomePage = () => {
               );
             })}
           </div>
-        </div>
-      </section>
-
-
-      {/* ==================== SECTION 5: SYSTEM & APP INTEGRATIONS ==================== */}
-      <section id="integrations" className="relative flex flex-col justify-start py-12 md:py-24 bg-muted">
-        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
-          <SectionHeader
-            title={<>System &amp; App <span className="text-primary">Integrations</span></>}
-            subtitle="No rip-and-replace. No migration. Just amplification."
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <IntegrationFeatureCards items={INTEGRATION_FEATURES} />
-          </motion.div>
-
-          <motion.p
-            {...fadeInUp}
-            className="text-muted-foreground text-lg"
-          >
-            AAS doesn't ask you to start over. It makes what you already have better.
-          </motion.p>
         </div>
       </section>
 
