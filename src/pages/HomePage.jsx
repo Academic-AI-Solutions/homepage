@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import {
   Users, Briefcase,
   LayoutGrid, Clock, LifeBuoy, ClipboardList, Route, Eye, Bot, TrendingDown,
+  GraduationCap, Network, ScrollText, Wallet, Cpu, Store,
 } from 'lucide-react';
 import { HeroSection } from '@/components/ui/hero-section';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import SectionHeader from '@/components/SectionHeader';
 import ProductCard from '@/components/ProductCard';
 import StatCounter from '@/components/StatCounter';
-import IntegrationFeatureCards from '@/components/ui/integration-feature-cards';
 import TeamGrid from '@/components/ui/team-grid';
 import { ArrowRight } from 'lucide-react';
 import { TEAM_MEMBERS } from '@/data/team';
@@ -36,27 +36,72 @@ const PROBLEMS = [
   { icon: TrendingDown, title: 'Value flowing outside the institution', body: 'Hundreds of millions in student spend move through off-campus channels with zero institutional benefit.' },
 ];
 
-const INTEGRATION_FEATURES = [
+const CORE_PRODUCTS = [
   {
-    title: 'Pre-Built Connectors',
-    description:
-      'SIS · LMS · CRM · ERP · Housing · Dining · Financial Aid · Career Services · Events · Athletics · Parking · Transportation · Health Services · Campus Safety · Payment Systems · Marketplace.',
-    image:
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop',
+    icon: GraduationCap,
+    palette: 'gold',
+    title: 'The Personal Student Assistant',
+    description: [
+      'Unified intelligence for academic planning, proactive support, career integration, and campus engagement. Personalized guidance for every student. First-generation, online, international, transfer, working adult, and traditional alike. Event discovery, group coordination, and activity recommendations that drive connection and belonging.',
+      'A persistent AI companion that knows the student, anticipates their needs, and connects them to the right resource at the right moment, at the scale of an entire institution.',
+    ],
   },
   {
-    title: 'Legacy Compatible',
-    description:
-      'Designed to work with campus infrastructure that has been in place for decades — without rip-and-replace migration.',
-    image:
-      'https://images.unsplash.com/photo-1562774053-701939374585?w=1200&q=80&auto=format&fit=crop',
+    icon: Briefcase,
+    palette: 'maroon',
+    title: 'The Administrative Organizer',
+    description: [
+      'A unified operational command center for leadership. Cross-domain coordination for enrollment, student success, facilities, finance, compliance, and campus operations. AI-powered workforce optimization that frees staff from repetitive tasks and puts advisors back in front of students.',
+      'One intelligence layer, role-based views, and real-time visibility across the entire institution, replacing dozens of disconnected reports with coordinated decision-making.',
+    ],
   },
   {
-    title: 'Custom Builds',
-    description:
-      'Tailored integrations for institution-specific tools and workflows unique to your campus, built and maintained by AAS.',
-    image:
-      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&auto=format&fit=crop',
+    icon: Network,
+    palette: 'gold',
+    title: 'The Institutional Data Mesh',
+    description: [
+      'A unified data layer connecting student information systems, learning management platforms, housing, dining, finance, and every adjacent institutional system into one coherent operational picture. Existing systems stay in place. The intelligence layer above them finally lets them work together.',
+    ],
+  },
+  {
+    icon: ScrollText,
+    palette: 'maroon',
+    title: 'The Longitudinal Learner Record',
+    description: [
+      'A persistent learner record built to travel with the student across institutions, credentials, and life stages. From early academic foundations through higher education and into lifelong learning, contribution, and career. Sovereign, portable, and verifiable.',
+    ],
+  },
+  {
+    icon: Wallet,
+    palette: 'gold',
+    title: 'The Institutional Economy Layer',
+    description: [
+      'The economic infrastructure of the modern campus. Student wallet, institutional marketplace, verified merchant network, and the systems that return value to the institution from the off-campus economy students already participate in. Built to capture the marketplace around the campus rather than watching it flow past.',
+    ],
+  },
+  {
+    icon: Route,
+    palette: 'maroon',
+    title: 'The Adaptive Pathways Engine',
+    description: [
+      'Intelligent guidance across academics, career, finance, well-being, and contribution, calibrated to each individual at scale. Pathways adapt as the student grows. Institutions deliver the kind of personalized journey that was previously possible only one student at a time.',
+    ],
+  },
+  {
+    icon: Cpu,
+    palette: 'gold',
+    title: 'The Campus Operations Intelligence Layer',
+    description: [
+      'The coordination substrate for the modern campus environment. Facilities, security, transportation, logistics, energy, and the next generation of autonomous systems. AI agents, robotics, drones, and intelligent infrastructure all operating as one coordinated environment under institutional control.',
+    ],
+  },
+  {
+    icon: Store,
+    palette: 'maroon',
+    title: 'The Marketplace and Ecosystem Platform',
+    description: [
+      'The institutional integration with the city and the broader economy around it. Verified merchants, housing partners, dining, transportation, healthcare, and civic services connected to the institutional environment. Students, staff, faculty, and the surrounding community operating inside one coordinated marketplace.',
+    ],
   },
 ];
 
@@ -129,7 +174,7 @@ const HomePage = () => {
               <span className="text-primary">for Higher Education</span>
             </>
           }
-          subtitle="A proprietary, patent-secured Institutional Intelligence and Coordination Layer — the only one of its kind in higher education."
+          subtitle="A proprietary, patent-secured Institutional Intelligence and Coordination Layer, the only one of its kind in higher education."
           callToAction={{
             text: 'EXPLORE THE PLATFORM →',
             href: '/platform',
@@ -232,66 +277,38 @@ const HomePage = () => {
 
 
       {/* ==================== SECTION 3: CORE PRODUCTS ==================== */}
-      <section id="products" className="dark md:sticky md:top-[var(--nav-h)] z-20 flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background will-change-transform transform-gpu">
+      <section id="products" className="dark relative flex flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             className="mb-6"
             title={<>Core <span className="text-accent">Products</span></>}
           />
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:auto-rows-fr gap-8">
-            <div onClick={() => navigate('/platform')} className="cursor-pointer h-full">
-              <ProductCard
-                icon={<Users className="text-primary" size={40} />}
-                title="The Personal Student Assistant"
-                description="Unified intelligence for academic planning, proactive support, career integration, and campus engagement. Personalized guidance for all demographics, including first-generation and online students. Event discovery, group coordination, and activity recommendations that drive connection and belonging."
-                delay={0}
-                previewPalette="gold"
-                previewIcon={<Users className="text-accent" size={48} />}
-              />
-            </div>
-            <div onClick={() => navigate('/platform')} className="cursor-pointer h-full">
-              <ProductCard
-                icon={<Briefcase className="text-primary" size={40} />}
-                title="The Administrative Organizer"
-                description="A unified operational command center for leadership. Cross-domain coordination for enrollment, student success, facilities, and finance. AI-powered workforce optimization that frees staff from repetitive tasks and puts advisors back in front of students."
-                delay={0.2}
-                previewPalette="maroon"
-                previewIcon={<Briefcase className="text-accent" size={48} />}
-              />
-            </div>
+            {CORE_PRODUCTS.map((product, index) => {
+              const Icon = product.icon;
+              return (
+                <div
+                  key={product.title}
+                  onClick={() => navigate('/platform')}
+                  className="cursor-pointer h-full"
+                >
+                  <ProductCard
+                    icon={<Icon className="text-primary" size={40} />}
+                    title={product.title}
+                    description={product.description}
+                    delay={index % 2 === 0 ? 0 : 0.1}
+                    previewPalette={product.palette}
+                    previewIcon={<Icon className="text-accent" size={48} />}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-
-      {/* ==================== SECTION 5: SYSTEM & APP INTEGRATIONS ==================== */}
-      <section id="integrations" className="md:sticky md:top-[var(--nav-h)] z-40 flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-muted will-change-transform transform-gpu">
-        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
-          <SectionHeader
-            title={<>System &amp; App <span className="text-primary">Integrations</span></>}
-            subtitle="No rip-and-replace. No migration. Just amplification."
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <IntegrationFeatureCards items={INTEGRATION_FEATURES} />
-          </motion.div>
-
-          <motion.p
-            {...fadeInUp}
-            className="text-muted-foreground text-lg"
-          >
-            AAS doesn't ask you to start over. It makes what you already have better.
-          </motion.p>
-        </div>
-      </section>
-
       {/* ==================== SECTION 5: ENTERPRISE VALIDATED ==================== */}
-      <section id="enterprise" className="dark md:sticky md:top-[var(--nav-h)] z-50 flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background will-change-transform transform-gpu">
+      <section id="enterprise" className="dark relative flex flex-col justify-start py-12 md:py-24 bg-gradient-to-br from-background to-background">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Enterprise <span className="text-accent">Validated</span></>}
@@ -302,7 +319,7 @@ const HomePage = () => {
           >
             <div className="max-w-2xl space-y-8">
               <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
-                The same AI infrastructure principles behind AAS have been proven at enterprise scale in one of the most demanding experience environments in the world — orchestrating real-time personalization, transaction coordination, and operational intelligence across complex, multi-venue operations.
+                The same AI infrastructure principles behind AAS have been proven at enterprise scale in one of the most demanding experience environments in the world, orchestrating real-time personalization, transaction coordination, and operational intelligence across complex, multi-venue operations.
               </p>
               <p className="text-base sm:text-lg md:text-xl font-bold leading-relaxed">
                 <span className="text-accent">Every semester of institutional data compounds into intelligence that competitors cannot purchase, replicate, or shortcut.</span>{' '}
@@ -327,7 +344,7 @@ const HomePage = () => {
       </section>
 
       {/* ==================== SECTION 6: PATENT PORTFOLIO ==================== */}
-      <section id="patent" className="md:sticky md:top-[var(--nav-h)] z-[60] flex min-h-[calc(100vh-var(--nav-h))] md:min-h-[calc(100dvh-var(--nav-h))] flex-col justify-start py-12 md:py-24 bg-muted will-change-transform transform-gpu">
+      <section id="patent" className="relative flex flex-col justify-start py-12 md:py-24 bg-muted">
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Powered by a <span className="text-primary">Proprietary Patent Portfolio</span></>}
@@ -345,10 +362,10 @@ const HomePage = () => {
                 <span className="text-primary font-semibold">Institutional Memory Architecture</span> with advanced IP protection spanning higher education, hospitality, events, and healthcare.
               </p>
               <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-                Our trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques — representing years of R&amp;D investment that cannot be replicated or reverse-engineered.
+                Our trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques, representing years of R&amp;D investment that cannot be replicated or reverse-engineered.
               </p>
               <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-                Purpose-built for universities from day one. Not retrofitted enterprise software. AAS holds the only proprietary and patent-claimed institutional AI architecture in higher education — and we're prepared to defend it.
+                Purpose-built for universities from day one. Not retrofitted enterprise software. AAS holds the only proprietary and patent-claimed institutional AI architecture in higher education, and we're prepared to defend it.
               </p>
             </div>
 
@@ -372,7 +389,7 @@ const HomePage = () => {
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>The <span className="text-accent">Team</span></>}
-            subtitle="Education operators, AI engineers, enterprise builders, and patent attorneys — together since day one."
+            subtitle="Education operators, AI engineers, enterprise builders, and patent attorneys, together since day one."
           />
           <motion.div
             initial={{ opacity: 0, y: 30 }}

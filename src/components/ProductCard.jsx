@@ -39,7 +39,11 @@ const ProductCard = ({
             <div className="rounded-lg bg-primary/10 p-3">{icon}</div>
           </div>
           <h3 className="mb-4 text-xl sm:text-2xl font-bold text-foreground">{title}</h3>
-          <p className="mb-6 leading-relaxed text-muted-foreground">{description}</p>
+          {(Array.isArray(description) ? description : [description]).map((paragraph, i) => (
+            <p key={i} className="mb-4 leading-relaxed text-muted-foreground last:mb-6">
+              {paragraph}
+            </p>
+          ))}
           <motion.div
             whileHover={{ x: 5 }}
             className="flex items-center font-semibold text-primary"

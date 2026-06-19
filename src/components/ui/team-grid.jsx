@@ -18,7 +18,7 @@ const TeamGrid = ({ members = [], className, href = '/team' }) => {
           key={member.name}
           href={href}
           className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          aria-label={`${member.name} — ${member.title}`}
+          aria-label={`${member.name}, ${member.title}`}
         >
           <div className="relative aspect-square overflow-hidden rounded-xl bg-muted transition-transform duration-300 group-hover:-translate-y-1">
             {member.image ? (

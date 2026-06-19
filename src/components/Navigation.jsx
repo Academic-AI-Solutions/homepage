@@ -173,7 +173,7 @@ const Navigation = () => {
                 navigate('/');
               }
             }}
-            aria-label="Home — Academic AI Solutions"
+            aria-label="Home - Academic AI Solutions"
             className="flex items-center gap-2 sm:gap-3"
           >
             <Logo

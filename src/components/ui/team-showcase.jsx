@@ -97,7 +97,7 @@ const MobileBentoGrid = ({ members, activeId, onActivate }) => {
             key={member.id}
             type="button"
             onClick={() => onActivate(isActive ? null : member.id)}
-            aria-label={`${member.name} — ${member.role}`}
+            aria-label={`${member.name}, ${member.role}`}
             aria-expanded={isActive}
             layout
             transition={{ type: 'spring', stiffness: 240, damping: 28 }}

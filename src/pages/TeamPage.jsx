@@ -8,7 +8,7 @@ const TeamPage = () => {
   return (
     <>
       <Helmet>
-        <title>Team — Academic AI Solutions</title>
+        <title>Team - Academic AI Solutions</title>
         <meta
           name="description"
           content="Meet the team behind Academic AI Solutions. Education operators, AI engineers, enterprise builders, and patent attorneys building the AI operating system for higher education."
@@ -20,7 +20,7 @@ const TeamPage = () => {
           <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
             <SectionHeader
               title={<>The People Behind <span className="text-primary">AAS</span></>}
-              subtitle="Leadership, engineering, and counsel — together since day one."
+              subtitle="Leadership, engineering, and counsel, together since day one."
             />
             <TeamShowcase members={TEAM_MEMBERS} />
           </div>

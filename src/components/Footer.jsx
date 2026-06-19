@@ -8,7 +8,6 @@ const LINK_GROUPS = [
       { title: 'The Platform', href: '/platform' },
       { title: 'The Market', href: '/#market' },
       { title: 'Problems We Fix', href: '/#problems' },
-      { title: 'Integrations', href: '/#integrations' },
       { title: 'Patent Portfolio', href: '/#patent' },
     ],
   },
