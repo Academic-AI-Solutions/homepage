@@ -16,7 +16,7 @@ const PlatformPage = () => {
   const studentFeatures = [
     { icon: GraduationCap, title: 'Academic Planning & Career Mapping', desc: 'Optimal course paths connected to career outcomes from day one' },
     { icon: AlertTriangle, title: 'Early Alerts & Intervention', desc: 'Flags risk before anyone else sees it and connects students to support instantly' },
-    { icon: CreditCard, title: 'Transactions & Campus Life', desc: 'Enroll, pay, book, order — all through conversation' },
+    { icon: CreditCard, title: 'Transactions & Campus Life', desc: 'Enroll, pay, book, order: all through conversation' },
     { icon: Calendar, title: 'Student Engagement & Events', desc: 'Personalized recommendations, group coordination, and activity discovery that drive connection and belonging' },
   ];
 
@@ -30,7 +30,7 @@ const PlatformPage = () => {
   const dataCards = [
     { icon: Map, title: 'Campus Digital Twin', desc: 'A living digital replica of your entire campus operating in real time' },
     { icon: Eye, title: 'Campus Flow & Mapping', desc: 'Student movement, facility usage, traffic patterns, and space utilization visualized' },
-    { icon: Brain, title: 'Predictive Intelligence', desc: 'Retention risk, enrollment trends, resource demand — surfaced before they become problems' },
+    { icon: Brain, title: 'Predictive Intelligence', desc: 'Retention risk, enrollment trends, resource demand: surfaced before they become problems' },
     { icon: ShieldAlert, title: 'Safety & Risk Monitoring', desc: 'Real-time campus awareness, incident tracking, and liability reduction' },
   ];
 
@@ -260,7 +260,7 @@ const PlatformPage = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-center text-white/80 text-lg italic mt-12 max-w-3xl mx-auto"
             >
-              Intelligence that grows with your institution — continuously learning, continuously improving.
+              Intelligence that grows with your institution, continuously learning, continuously improving.
             </motion.p>
           </div>
         </section>
@@ -389,11 +389,11 @@ const PlatformPage = () => {
               </p>
 
               <p className="text-lg text-white/90 leading-relaxed mb-6">
-                Trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques — representing years of R&D investment that cannot be replicated or reverse-engineered.
+                Trade secret protections cover proprietary algorithms, agent coordination protocols, training methodologies, and integration techniques, representing years of R&D investment that cannot be replicated or reverse-engineered.
               </p>
 
               <p className="text-lg text-white/90 leading-relaxed">
-                Purpose-built for universities. Under patent protection across multiple verticals. Proprietary and patent-claimed — this architecture belongs to AAS, and we're prepared to defend it.
+                Purpose-built for universities. Under patent protection across multiple verticals. Proprietary and patent-claimed, this architecture belongs to AAS, and we're prepared to defend it.
               </p>
             </motion.div>
           </div>

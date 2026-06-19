@@ -9,8 +9,8 @@ import SectionHeader from '@/components/SectionHeader';
 const philosophyPillars = [
   {
     icon: Shield,
-    title: 'Patent-Protected Position',
-    body: 'Partner with the only patent-secured institutional AI platform purpose-built for higher education.',
+    title: 'Defensible Foundation',
+    body: 'Proprietary patent applications covering the most comprehensive institutional AI platform purpose-built for higher education.',
   },
   {
     icon: TrendingUp,
@@ -37,7 +37,7 @@ const partnershipStructures = [
     label: 'Revenue-Share',
     audience: 'Partners aligning on shared upside from outcomes',
     terms:
-      'Royalty-style structures designed for mutual growth — sharing the financial success of transformed campus operations and student outcomes.',
+      'Royalty-style structures designed for mutual growth, sharing the financial success of transformed campus operations and student outcomes.',
     actionLabel: 'Discuss',
     actionHref: '/contact',
     badge: 'Most flexible',
@@ -54,7 +54,7 @@ const partnershipStructures = [
     label: 'Grant / Endowment / Research',
     audience: 'Sponsored research, philanthropic, or grant-funded deployments',
     terms:
-      'Sponsored research collaborations, philanthropic endowments, and institutional grant partnerships funded through mission-aligned capital — federal, state, foundation, and donor-directed sources.',
+      'Sponsored research collaborations, philanthropic endowments, and institutional grant partnerships funded through mission-aligned capital: federal, state, foundation, and donor-directed sources.',
     actionLabel: 'Discuss',
     actionHref: '/contact',
   },
@@ -74,7 +74,7 @@ const whyNowReasons = [
   {
     n: '03',
     title: 'First-Mover Advantage',
-    body: 'Institutional intelligence compounds. Every semester of data deepens the operational moat — partners who deploy first build advantages that widen, not narrow, against their peers.',
+    body: 'Institutional intelligence compounds. Every semester of data deepens the operational moat. Partners who deploy first build advantages that widen, not narrow, against their peers.',
   },
 ];
 
@@ -82,7 +82,7 @@ const LicensingPage = () => {
   return (
     <>
       <Helmet>
-        <title>Licensing & Partners — Academic AI Solutions</title>
+        <title>Licensing & Partners - Academic AI Solutions</title>
         <meta
           name="description"
           content="Partner with AAS at the ground floor of institutional AI. Licensing, revenue-share, equity, and research funding structures designed for higher education."
@@ -99,7 +99,7 @@ const LicensingPage = () => {
               Partner at the Ground Floor of <span className="text-primary">Institutional AI</span>
             </>
           }
-          subtitle="AAS is building toward a national standard in institutional AI — starting with flagship partners and scaling across thousands of institutions. Early partners shape the platform, influence direction, and secure preferred economics from day one."
+          subtitle="AAS is building toward a national standard in institutional AI, starting with flagship partners and scaling across thousands of institutions. Early partners shape the platform, influence direction, and secure preferred economics from day one."
           callToAction={{ text: 'EXPLORE PARTNERSHIP STRUCTURES →', href: '#structures' }}
           image="https://images.unsplash.com/photo-1771911650735-b471e85e8b17?w=1920&q=80&auto=format"
         />
@@ -122,7 +122,7 @@ const LicensingPage = () => {
               </h2>
               <div className="mt-6 h-1 w-20 bg-accent" />
               <p className="mt-6 text-lg leading-relaxed text-foreground/80">
-                Higher education AI is a one-time architecture decision. The institutions that engage now help define the operational defaults, integration patterns, and commercial structures that the rest of the market will inherit — and they do so on terms that won't be available again.
+                Higher education AI is a one-time architecture decision. The institutions that engage now help define the operational defaults, integration patterns, and commercial structures that the rest of the market will inherit, and they do so on terms that won't be available again.
               </p>
             </motion.div>
 
@@ -164,7 +164,7 @@ const LicensingPage = () => {
         <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
           <SectionHeader
             title={<>Partnership <span className="text-primary">Structures</span></>}
-            subtitle="Four distinct paths into the AAS platform — designed to fit the operational, financial, and governance realities of major research universities."
+            subtitle="Four distinct paths into the AAS platform, designed to fit the operational, financial, and governance realities of major research universities."
           />
           <ComparisonTable rows={partnershipStructures} />
           <p className="mt-8 text-xs italic text-muted-foreground">

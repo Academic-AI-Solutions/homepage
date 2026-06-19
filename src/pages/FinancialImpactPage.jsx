@@ -9,25 +9,25 @@ const valueAreas = [
     icon: Briefcase,
     title: 'Workforce Optimization',
     description:
-      'Operational efficiency improvements across administrative functions through streamlined processes and AI-powered automation.',
+      'Operational efficiency across administrative functions through intelligent automation and coordinated workflows. Staff spend less time on repetitive tasks and more time on meaningful work. Advisors, counselors, and support teams move from reactive, bandwidth-burning service to proactive, high-impact engagement.',
   },
   {
     icon: Users,
-    title: 'Student Retention & Experience',
+    title: 'Student Retention and Experience',
     description:
-      'Value creation through improved enrollment yield and student persistence via proactive interventions and personalized engagement.',
+      'Retention improvement and enrollment yield gains through proactive intervention, personalized engagement, and frictionless campus experience. Every student receives the kind of individualized support that traditionally scales only one institution at a time. The result is measurable improvement to one of the highest-value outcomes in higher education.',
   },
   {
     icon: Globe,
     title: 'Ecosystem Value',
     description:
-      'Value capture from student off-campus economy through enhanced career integration, marketplace features, and institutional partnerships.',
+      'Value capture from the off-campus economy students already participate in. Housing, dining, transportation, services, and the broader institutional marketplace become integrated channels that return value to the institution rather than flowing past it. New revenue streams open without new burden on operations.',
   },
   {
     icon: TrendingUp,
-    title: '5-Year Projection',
+    title: 'Multi-Year Compounding Impact',
     description:
-      'Cumulative impact estimated for large-scale institutions, demonstrating sustained, long-term value creation with rapid payback.',
+      'Value compounds as the platform learns the institution. Year one delivers meaningful operational and experience gains. Years two through five compound through accumulated institutional intelligence, expanded integration, and activated ecosystem layers. The payback window is short. The long-term value curve is substantial.',
   },
 ];
 
@@ -38,7 +38,7 @@ const FinancialImpactPage = () => {
         <title>Financial Impact - Academic AI Solutions</title>
         <meta
           name="description"
-          content="Discover the transformative financial impact of Academic AI Solutions — measurable, institution-wide value creation across every domain."
+          content="Discover the transformative financial impact of Academic AI Solutions: measurable, institution-wide value creation across every domain."
         />
       </Helmet>
 
@@ -60,8 +60,18 @@ const FinancialImpactPage = () => {
 
             <SectionHeader
               title="Financial Impact"
-              subtitle="Measurable, institution-wide value creation across every domain — scalable from regional universities to large-scale research institutions."
+              subtitle="Measurable, institution-wide value creation. Scalable from regional universities to large-scale research institutions."
             />
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mt-8 mx-auto max-w-3xl text-lg leading-relaxed text-gray-600"
+            >
+              The AAS platform delivers value across three primary domains and compounds it over a multi-year horizon. Institutions retain the majority of the value created. Our model succeeds only when our partners succeed.
+            </motion.p>
           </div>
         </section>
 
@@ -99,6 +109,21 @@ const FinancialImpactPage = () => {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* Closing Statement */}
+        <section className="pb-24">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-xl md:text-2xl font-semibold leading-relaxed text-gray-900"
+            >
+              For a large research institution, the combined impact across these domains represents transformational annual value. Conservative estimates begin in the hundreds of millions. Fully integrated, the platform reshapes the institution's financial position.
+            </motion.p>
           </div>
         </section>
       </div>
