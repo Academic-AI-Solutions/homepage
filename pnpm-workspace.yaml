@@ -1,0 +1,8 @@
+# These native deps ship prebuilt platform binaries (@esbuild/*, sharp's
+# prebuilt libvips, @cloudflare/workerd-*), so their postinstall build scripts
+# are declined (not needed for `vite build` or wrangler). Resolving this map
+# stops pnpm from re-injecting the unresolved-builds scaffold on every install.
+allowBuilds:
+  esbuild: false
+  sharp: false
+  workerd: false
